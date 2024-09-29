@@ -42,7 +42,7 @@
     "typescript": "5.4.2",
     "@aptos-labs/ts-sdk": "1.28.0"
   },
-  "packageManager": "pnpm@8.0.5",
+  "packageManager": "pnpm@9.11.0",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
