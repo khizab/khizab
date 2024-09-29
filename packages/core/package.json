@@ -91,7 +91,6 @@
     }
   },
   "dependencies": {
-    "@aptos-labs/ts-sdk": "^1.10.0",
     "@aptos-labs/wallet-adapter-core": "^3.6.0",
     "eventemitter3": "5.0.1",
     "zustand": "4.4.1"
