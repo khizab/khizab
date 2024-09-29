@@ -136,12 +136,12 @@
     },
     {
       "source": "/examples/sign-message",
-      "destination": "https://1.x.khizab.sh/examples/sign-message",
+      "destination": "https://1.x.khizab.dev/examples/sign-message",
       "permanent": false
     },
     {
       "source": "/examples/sign-in-with-ethereum",
-      "destination": "https://1.x.khizab.sh/examples/sign-in-with-ethereum",
+      "destination": "https://1.x.khizab.dev/examples/sign-in-with-ethereum",
       "permanent": false
     }
   ]

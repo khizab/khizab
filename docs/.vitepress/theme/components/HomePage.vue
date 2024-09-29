@@ -53,7 +53,7 @@ const teamMembers = [
               target="_blank"
               rel="noopener noreferrer"
               title="vercel.com homepage"
-              href="https://vercel.com?utm_source=khizab.sh"
+              href="https://vercel.com?utm_source=khizab.dev"
             >
               <span>Powered by</span>
               <svg height="20" viewBox="0 0 283 64" fill="none">

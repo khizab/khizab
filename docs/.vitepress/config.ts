@@ -23,13 +23,13 @@ export default withTwoslash(
       ["meta", { name: "theme-color", content: "#FF463F" }],
       // Open Graph
       ["meta", { property: "og:type", content: "website" }],
-      ["meta", { property: "og:image", content: "https://khizab.sh/og.png" }],
-      ["meta", { property: "og:url", content: "https://khizab.sh" }],
+      ["meta", { property: "og:image", content: "https://khizab.dev/og.png" }],
+      ["meta", { property: "og:url", content: "https://khizab.dev" }],
       // Twitter
       ["meta", { name: "twitter:card", content: "summary_large_image" }],
       ["meta", { name: "twitter:creator", content: "@rendinjast" }],
-      ["meta", { name: "twitter:image", content: "https://khizab.sh/og.png" }],
-      ["meta", { name: "twitter:site", content: "khizab.sh" }],
+      ["meta", { name: "twitter:image", content: "https://khizab.dev/og.png" }],
+      ["meta", { name: "twitter:site", content: "khizab.dev" }],
     ],
     ignoreDeadLinks: false,
     lang: "en-US",
