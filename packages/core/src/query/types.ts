@@ -4,9 +4,9 @@ import {
   type MutateOptions,
   type QueryFunction,
   type QueryKey,
-} from "@tanstack/query-core";
+} from '@tanstack/query-core'
 
-import { type Evaluate, type Omit } from "../types/utils.js";
+import { type Evaluate, type Omit } from '../types/utils.js'
 
 export type InfiniteQueryOptions<
   queryFnData = unknown,
@@ -30,53 +30,53 @@ export type InfiniteQueryOptions<
     queryData,
     queryKey,
     pageParam
-  >
+  >,
 > = Evaluate<
   // `queryFn` doesn't pass through `pageParam` correctly
-  Omit<options, "queryFn"> & {
+  Omit<options, 'queryFn'> & {
     queryFn?(
-      context: QueryFunctionContext<queryKey, pageParam>
-    ): options["queryFn"] extends (...args: any) => any
-      ? ReturnType<NonNullable<options["queryFn"]>>
-      : unknown;
+      context: QueryFunctionContext<queryKey, pageParam>,
+    ): options['queryFn'] extends (...args: any) => any
+      ? ReturnType<NonNullable<options['queryFn']>>
+      : unknown
   }
->;
+>
 type QueryFunctionContext<
   TQueryKey extends QueryKey = QueryKey,
-  TPageParam = never
-> = Parameters<QueryFunction<unknown, TQueryKey, TPageParam>>[0];
+  TPageParam = never,
+> = Parameters<QueryFunction<unknown, TQueryKey, TPageParam>>[0]
 
 export type Mutate<
   data = unknown,
   error = unknown,
   variables = void,
-  context = unknown
+  context = unknown,
 > = (
   ...args: Parameters<MutateFn<data, error, Evaluate<variables>, context>>
-) => void;
+) => void
 
 export type MutateAsync<
   data = unknown,
   error = unknown,
   variables = void,
-  context = unknown
-> = MutateFn<data, error, Evaluate<variables>, context>;
+  context = unknown,
+> = MutateFn<data, error, Evaluate<variables>, context>
 
 type MutateFn<
   data = unknown,
   error = unknown,
   variables = void,
-  context = unknown
+  context = unknown,
 > = undefined extends variables
   ? (
       variables?: variables,
       options?:
         | Evaluate<MutateOptions<data, error, variables, context>>
-        | undefined
+        | undefined,
     ) => Promise<data>
   : (
       variables: variables,
       options?:
         | Evaluate<MutateOptions<data, error, variables, context>>
-        | undefined
-    ) => Promise<data>;
+        | undefined,
+    ) => Promise<data>
