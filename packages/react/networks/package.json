@@ -1,5 +1,0 @@
-{
-  "type": "module",
-  "types": "../dist/types/exports/networks.d.ts",
-  "main": "../dist/esm/exports/networks.js"
-}

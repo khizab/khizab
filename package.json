@@ -24,7 +24,7 @@
     "prepare": "pnpm simple-git-hooks",
     "typecheck": "pnpm run --r --parallel typecheck && tsc --noEmit",
     "version:update": "bun .scripts/updateVersion.ts",
-    "version:update:aptos": "bun scripts/updateViemVersion.ts"
+    "version:update:aptos": "bun .scripts/updateAptosVersion.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "1.1.2",
