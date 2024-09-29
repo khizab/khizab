@@ -4,7 +4,7 @@
   "baseBranch": "main",
   "changelog": ["@changesets/changelog-github", { "repo": "khizab/khizab" }],
   "commit": false,
-  "ignore": ["@khizab/test", "docs", "next-app", "react-register", "vite-*"],
+  "ignore": ["docs", "vite-*"],
   "updateInternalDependencies": "patch",
   "___experimentalUnsafeOptions_WILL_CHANGE_IN_PATCH": {
     "onlyUpdatePeerDependentsWhenOutOfRange": true
