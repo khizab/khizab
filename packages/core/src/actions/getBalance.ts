@@ -7,17 +7,19 @@ import { getToken } from './getToken.js'
 
 export type GetBalanceParameters<config extends Config = Config> = Evaluate<
   ChainIdParameter<config> & {
-    accountAddress: `0x${string}`
+    accountAddress?: string
     coinType?: MoveFunctionId
   }
 >
 
-export type GetBalanceReturnType = {
-  decimals: number
-  formatted: string
-  symbol: string
-  value: number
-}
+export type GetBalanceReturnType =
+  | {
+      decimals: number
+      formatted: string
+      symbol: string
+      value: number
+    }
+  | undefined
 
 export type GetBalanceErrorType = {}
 
@@ -27,7 +29,8 @@ export async function getBalance<config extends Config>(
   parameters: GetBalanceParameters<config>,
 ): Promise<GetBalanceReturnType> {
   const { accountAddress, coinType, chainId } = parameters
-  console.log('getBalance', { accountAddress, coinType, chainId })
+  if (!accountAddress) return
+
   try {
     return await getTokenBalance(config, {
       accountAddress,
@@ -42,7 +45,7 @@ export async function getBalance<config extends Config>(
 type GetTokenBalanceParameters = {
   chainId?: number | undefined
   coinType?: MoveFunctionId
-  accountAddress: `0x${string}`
+  accountAddress: string
 }
 
 async function getTokenBalance(

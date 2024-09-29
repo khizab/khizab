@@ -5,7 +5,7 @@ Reactivity for Aptos apps
 ## Installation
 
 ```bash
-pnpm add khizab viem @tanstack/react-query
+pnpm add khizab @aptos-labs/ts-sdk @tanstack/react-query
 ```
 
 ## Documentation

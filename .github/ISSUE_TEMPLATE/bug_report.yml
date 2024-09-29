@@ -39,8 +39,8 @@ body:
 
   - type: input
     attributes:
-      label: Viem Version
-      description: What version of [Viem](https://viem.sh) are you using?
+      label: Aptos Sdk Version
+      description: What version of [Aptos Sdk](https://github.com/aptos-labs/aptos-ts-sdk) are you using?
       placeholder: x.y.z
     validations:
       required: true

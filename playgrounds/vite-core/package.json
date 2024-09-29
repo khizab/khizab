@@ -13,7 +13,7 @@
     "khizab": "workspace:*",
     "react": ">=18",
     "react-dom": ">=18",
-    "viem": "2.*"
+    "@aptos-labs/ts-sdk": "1.*"
   },
   "devDependencies": {
     "@types/react": ">=18",

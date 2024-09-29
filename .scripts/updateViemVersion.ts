@@ -1,12 +1,12 @@
 import { glob } from 'glob'
 
-// Updates viem version in Vitest snapshots, etc.
+// Updates aptos sdk version in Vitest snapshots, etc.
 
-console.log('Updating Viem version.')
+console.log('Updating Aptos sdk version.')
 
 const file = Bun.file('package.json')
 const packageJson = await file.json()
-const viemVersion = packageJson.devDependencies.viem
+const aptosSdkVersion = packageJson.devDependencies['@aptos-labs/ts-sdk']
 
 // Update Vitest snapshots
 // Get all *.test.ts files
@@ -19,28 +19,20 @@ for (const testPath of testPaths) {
   const file = Bun.file(testPath)
   const testFile = await file.text()
 
-  // Skip files that don't contain viem version
-  if (!testFile.includes('Version: viem@')) continue
+  // Skip files that don't contain aptos sdk version
+  if (!testFile.includes('Version: @aptos-labs/ts-sdk@')) continue
   // Skip files that contain current version
-  if (testFile.includes(`Version: viem@${viemVersion}`)) continue
+  if (testFile.includes(`Version: @aptos-labs/ts-sdk@${aptosSdkVersion}`))
+    continue
 
   console.log(testPath)
   const updatedTestFile = testFile.replace(
-    /Version: viem@[A-Za-z0-9\-\.]+/g,
-    `Version: viem@${viemVersion}`,
+    /Version: @aptos-labs\/ts-sdk@[A-Za-z0-9\-\.]+/g,
+    `Version: @aptos-labs\/ts-sdk@${aptosSdkVersion}`,
   )
   await Bun.write(testPath, updatedTestFile)
 
   count += 1
 }
-
-// // Update package.json#pnpm.overrides.viem
-// if (packageJson.pnpm?.overrides?.viem !== viemVersion) {
-//   const path = 'package.json'
-//   console.log(path)
-//   packageJson.pnpm.overrides.viem = viemVersion
-//   await Bun.write(path, `${JSON.stringify(packageJson, undefined, 2)}\n`)
-//   count += 1
-// }
 
 console.log(`Done. Updated ${count} ${count === 1 ? 'file' : 'files'}.`)

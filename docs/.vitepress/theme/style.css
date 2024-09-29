@@ -37,17 +37,11 @@
 
 :root {
   --vp-home-hero-name-color: transparent;
-  /* --vp-home-hero-name-background: -webkit-linear-gradient( */
-  /*   120deg, */
-  /*   #ff5b55 30%, */
-  /*   #e12e27 */
-  /* ); */
-  /**/
-  /* --vp-home-hero-image-background-image: linear-gradient( */
-  /*   -45deg, */
-  /*   #ff5b55 50%, */
-  /*   #e12e27 50% */
-  /* ); */
+  --vp-home-hero-name-background: -webkit-linear-gradient( 
+    120deg, 
+     #ff5b55 30%, 
+     #e12e27 
+   ); 
   --vp-home-hero-image-filter: blur(40px);
 }
 

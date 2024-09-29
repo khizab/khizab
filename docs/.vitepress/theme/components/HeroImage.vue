@@ -1,4 +1,7 @@
 <template>
+    <div class="hero-image-container">
+        <div>
+
   <svg
     width="328"
     height="395"
@@ -23,6 +26,32 @@
       fill="#FF463F"
     />
   </svg>
+    </div>
+        </div>
 </template>
 
-<style scoped></style>
+<style scoped>
+
+.hero-image-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.hero-image-container > div {
+    width: 12rem;
+    height: 12rem;
+}
+.hero-image-container > div > svg {
+width: inherit;
+    height: inherit;
+}
+@media screen and (min-width: 960px) {
+    
+.hero-image-container div {
+    width:328px;
+    height:395px;
+}
+}
+</style>

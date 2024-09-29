@@ -80,7 +80,7 @@
   "peerDependencies": {
     "@tanstack/query-core": ">=5.0.0",
     "typescript": ">=5.0.4",
-    "viem": "2.x"
+    "@aptos-labs/ts-sdk": "1.x"
   },
   "peerDependenciesMeta": {
     "@tanstack/query-core": {

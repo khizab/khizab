@@ -5,7 +5,7 @@ Collection of connectors for Khizab
 ## Installation
 
 ```bash
-pnpm add @khizab/connectors @khizab/core viem
+pnpm add @khizab/connectors @khizab/core @aptos-labs/ts-sdk
 ```
 
 ## Documentation

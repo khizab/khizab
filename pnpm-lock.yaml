@@ -201,6 +201,9 @@ importers:
 
   playgrounds/vite-core:
     dependencies:
+      '@aptos-labs/ts-sdk':
+        specifier: 1.*
+        version: 1.10.0
       '@khizab/connectors':
         specifier: workspace:*
         version: link:../../packages/connectors
@@ -216,9 +219,6 @@ importers:
       react-dom:
         specifier: '>=18'
         version: 18.2.0(react@18.2.0)
-      viem:
-        specifier: 2.*
-        version: 2.0.0(typescript@5.4.2)(zod@3.22.2)
     devDependencies:
       '@types/react':
         specifier: '>=18'
@@ -238,6 +238,9 @@ importers:
 
   playgrounds/vite-react:
     dependencies:
+      '@aptos-labs/ts-sdk':
+        specifier: 1.*
+        version: 1.10.0
       '@tanstack/query-sync-storage-persister':
         specifier: 5.0.5
         version: 5.0.5
@@ -259,9 +262,6 @@ importers:
       react-dom:
         specifier: '>=18'
         version: 18.2.0(react@18.2.0)
-      viem:
-        specifier: 2.*
-        version: 2.0.0(typescript@5.4.2)(zod@3.22.2)
     devDependencies:
       '@tanstack/react-query-devtools':
         specifier: 5.0.5
@@ -283,9 +283,6 @@ importers:
         version: 4.4.9(@types/node@20.11.5)
 
 packages:
-
-  '@adraffy/ens-normalize@1.10.0':
-    resolution: {integrity: sha512-nA9XHtlAkYfJxY7bce8DcN7eKxWWCWkU+1GR9d+U6MbNpfwQp8TI7vqOsBsMcHoT4mBu2kypKoSKnghEzOOq5Q==}
 
   '@algolia/autocomplete-core@1.9.3':
     resolution: {integrity: sha512-009HdfugtGCdC4JdXUbVJClA0q0zh24yyePn+KUGk3rP7j8FEe/m5Yo/z65gn6nP/cM39PxpzqKrL7A6fP6PPw==}
@@ -927,9 +924,6 @@ packages:
 
   '@scure/base@1.1.6':
     resolution: {integrity: sha512-ok9AWwhcgYuGG3Zfhyqg+zwl+Wn5uE+dwC0NV/2qQkx4dABbb/bx96vWu8NSj+BNjjSjno+JRYRjle1jV08k3g==}
-
-  '@scure/bip32@1.3.2':
-    resolution: {integrity: sha512-N1ZhksgwD3OBlwTv3R6KFEcPojl/W4ElJOeCZdi+vuI5QmTFwLq3OFf2zd2ROpKvxFdgZ6hUpb0dx9bVNEwYCA==}
 
   '@scure/bip32@1.4.0':
     resolution: {integrity: sha512-sVUpc0Vq3tXCkDGYVWGIZTRfnvu8LoTDaev7vbwh0omSvVORONr960MQWdKqJDCReIEmTj3PAr73O3aoxz7OPg==}
@@ -2245,11 +2239,6 @@ packages:
   isexe@2.0.0:
     resolution: {integrity: sha512-RHxMLp9lnKHGHRng9QFhRCMbYAcVpn69smSGcq3f36xjgVVWThj4qqLbTLlq7Ssj8B+fIQ1EuCEGI2lKsyQeIw==}
 
-  isows@1.0.3:
-    resolution: {integrity: sha512-2cKei4vlmg2cxEjm3wVSqn8pcoRF/LX/wpifuuNquFO4SQmPwarClT+SUCA2lt+l581tTeZIPIZuIDo2jWN1fg==}
-    peerDependencies:
-      ws: '*'
-
   iterable-lookahead@1.0.0:
     resolution: {integrity: sha512-hJnEP2Xk4+44DDwJqUQGdXal5VbyeWLaPyDl2AQc242Zr7iqz4DgpQOrEzglWVMGHMDCkguLHEKxd1+rOsmgSQ==}
     engines: {node: '>=4'}
@@ -3354,14 +3343,6 @@ packages:
   validate-npm-package-license@3.0.4:
     resolution: {integrity: sha512-DpKm2Ui/xN7/HQKCtpZxoRWBhZ9Z0kqtygG8XCgNQ8ZlDnxuQmWhj566j8fN4Cu3/JmbhsDo7fcAJq4s9h27Ew==}
 
-  viem@2.0.0:
-    resolution: {integrity: sha512-WYPwVAs/wrQE1Li9mgHMZaZTnRZuyPJMauIhnpZKeZgtx7f+bWU3uvVSR5kxTf1aBFdaTuRc/umzX2ucQUurnA==}
-    peerDependencies:
-      typescript: '>=5.0.4'
-    peerDependenciesMeta:
-      typescript:
-        optional: true
-
   vite@4.4.9:
     resolution: {integrity: sha512-2mbUn2LlUmNASWwSCNSJ/EG2HuSRTnVNaydp6vMCm5VIqJsjMfbIWtbH2kDuwUVW5mMUKKZvGPX/rqeqVvv1XA==}
     engines: {node: ^14.18.0 || >=16.0.0}
@@ -3596,8 +3577,6 @@ packages:
         optional: true
 
 snapshots:
-
-  '@adraffy/ens-normalize@1.10.0': {}
 
   '@algolia/autocomplete-core@1.9.3(@algolia/client-search@4.24.0)(algoliasearch@4.24.0)':
     dependencies:
@@ -4377,12 +4356,6 @@ snapshots:
   '@scure/base@1.1.3': {}
 
   '@scure/base@1.1.6': {}
-
-  '@scure/bip32@1.3.2':
-    dependencies:
-      '@noble/curves': 1.2.0
-      '@noble/hashes': 1.3.2
-      '@scure/base': 1.1.3
 
   '@scure/bip32@1.4.0':
     dependencies:
@@ -5894,10 +5867,6 @@ snapshots:
 
   isexe@2.0.0: {}
 
-  isows@1.0.3(ws@8.13.0):
-    dependencies:
-      ws: 8.13.0
-
   iterable-lookahead@1.0.0: {}
 
   jackspeak@2.3.6:
@@ -7000,23 +6969,6 @@ snapshots:
     dependencies:
       spdx-correct: 3.2.0
       spdx-expression-parse: 3.0.1
-
-  viem@2.0.0(typescript@5.4.2)(zod@3.22.2):
-    dependencies:
-      '@adraffy/ens-normalize': 1.10.0
-      '@noble/curves': 1.2.0
-      '@noble/hashes': 1.3.2
-      '@scure/bip32': 1.3.2
-      '@scure/bip39': 1.2.1
-      abitype: 0.10.0(typescript@5.4.2)(zod@3.22.2)
-      isows: 1.0.3(ws@8.13.0)
-      ws: 8.13.0
-    optionalDependencies:
-      typescript: 5.4.2
-    transitivePeerDependencies:
-      - bufferutil
-      - utf-8-validate
-      - zod
 
   vite@4.4.9(@types/node@20.11.5):
     dependencies:

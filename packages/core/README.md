@@ -5,7 +5,7 @@ VanillaJS library for Aptos
 ## Installation
 
 ```bash
-pnpm add @khizab/core viem
+pnpm add @khizab/core @aptos-labs/ts-sdk
 ```
 
 ## Documentation

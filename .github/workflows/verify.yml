@@ -63,7 +63,7 @@ jobs:
     strategy:
       matrix:
         typescript-version: ["5.0.4", "5.1.6", "5.2.2", "latest"]
-        viem-version: ["2.8.4", "latest"]
+        aptos-sdk-version: ["1.28.0", "latest"]
 
     steps:
       - name: Clone repository
@@ -72,7 +72,7 @@ jobs:
       - name: Install dependencies
         uses: ./.github/actions/install-dependencies
 
-      - run: pnpm add -D -w typescript@${{ matrix.typescript-version }} viem@${{ matrix.viem-version }}
+      - run: pnpm add -D -w typescript@${{ matrix.typescript-version }} @aptos-labs/ts-sdk@${{ matrix.aptos-sdk-version }}
 
       - name: Link packages
         run: pnpm preconstruct
