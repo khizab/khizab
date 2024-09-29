@@ -1,0 +1,24 @@
+{
+  "name": "khizab-core-vanilla-starter",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "preview": "vite preview"
+  },
+  "dependencies": {
+    "@khizab/connectors": "latest",
+    "@khizab/core": "latest",
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@aptos-labs/ts-sdk": "latest"
+  },
+  "devDependencies": {
+    "@khizab/cli": "latest",
+    "buffer": "^6.0.3",
+    "typescript": "^5.2.2",
+    "vite": "^4.4.9"
+  }
+}

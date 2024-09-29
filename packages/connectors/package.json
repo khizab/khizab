@@ -1,0 +1,69 @@
+{
+  "name": "@khizab/connectors",
+  "description": "Collection of connectors for Khizab",
+  "version": "4.1.18",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khizab/khizab.git",
+    "directory": "packages/connectors"
+  },
+  "scripts": {
+    "build": "pnpm run clean && pnpm run build:esm+types",
+    "build:esm+types": "tsc --project tsconfig.build.json --outDir ./dist/esm --declaration --declarationMap --declarationDir ./dist/types",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo",
+    "test:build": "publint --strict",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist/**",
+    "!dist/**/*.tsbuildinfo",
+    "src/**/*.ts",
+    "!src/**/*.test.ts",
+    "!src/**/*.test-d.ts"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/esm/exports/index.js",
+  "types": "./dist/types/exports/index.d.ts",
+  "typings": "./dist/types/exports/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/exports/index.d.ts",
+      "default": "./dist/esm/exports/index.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "peerDependencies": {
+    "@khizab/core": "workspace:*",
+    "typescript": ">=5.0.4",
+    "@aptos-labs/ts-sdk": "1.x"
+  },
+  "peerDependenciesMeta": {
+    "typescript": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@aptos-labs/wallet-adapter-core": "^3.6.0",
+    "aptos": "^1.21.0"
+  },
+  "devDependencies": {
+    "@khizab/core": "workspace:*",
+    "msw": "^2.0.6"
+  },
+  "contributors": [
+    "Erfan Khadivar <hi@erfan.ee>"
+  ],
+  "funding": "https://github.com/sponsors/khizab",
+  "keywords": [
+    "react",
+    "hooks",
+    "apt",
+    "aptos",
+    "dapps",
+    "wallet",
+    "web3",
+    "abi"
+  ]
+}

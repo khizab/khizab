@@ -1,0 +1,92 @@
+{
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "build": "pnpm run --r --filter \"./packages/**\" build",
+    "changeset:prepublish": "pnpm version:update && pnpm build && bun .scripts/formatPackageJson.ts && bun .scripts/generateProxyPackages.ts",
+    "changeset:publish": "pnpm changeset:prepublish && changeset publish",
+    "changeset:version": "changeset version && pnpm version:update",
+    "clean": "pnpm run --r --parallel clean && rm -rf packages/**/*.json.tmp",
+    "deps": "pnpx taze -r",
+    "dev": "pnpm dev:react",
+    "dev:core": "pnpm --filter vite-core dev",
+    "dev:react": "pnpm --filter vite-react dev",
+    "docs:dev": "rimraf node_modules/.cache/twoslash && pnpm --filter docs dev",
+    "format": "biome format . --write",
+    "lint": "biome check .",
+    "lint:fix": "pnpm lint --apply",
+    "lint:repo": "sherif",
+    "lint:unused": "pnpm clean && knip --ignore-internal",
+    "postinstall": "pnpm preconstruct",
+    "preconstruct": "bun .scripts/preconstruct.ts",
+    "preinstall": "npx only-allow pnpm",
+    "prepare": "pnpm simple-git-hooks",
+    "typecheck": "pnpm run --r --parallel typecheck && tsc --noEmit",
+    "version:update": "bun .scripts/updateVersion.ts"
+  },
+  "devDependencies": {
+    "@biomejs/biome": "1.1.2",
+    "@changesets/changelog-github": "0.4.6",
+    "@changesets/cli": "^2.26.2",
+    "bun": "1.0.1",
+    "bun-types": "^1.0.3",
+    "glob": "^10.3.10",
+    "happy-dom": "^12.2.1",
+    "jsdom": "^20.0.3",
+    "knip": "^2.29.0",
+    "publint": "^0.2.2",
+    "rimraf": "^4.4.1",
+    "sherif": "^0.8.1",
+    "simple-git-hooks": "^2.9.0",
+    "typescript": "5.4.2"
+  },
+  "packageManager": "pnpm@8.10.5",
+  "pnpm": {
+    "peerDependencyRules": {
+      "ignoreMissing": [
+        "@algolia/client-search",
+        "esbuild",
+        "react",
+        "react-native",
+        "search-insights"
+      ]
+    }
+  },
+  "simple-git-hooks": {
+    "pre-commit": "pnpm format && pnpm lint:fix"
+  },
+  "knip": {
+    "ignore": [
+      "**/*.test-d.ts",
+      "**/templates/**"
+    ],
+    "ignoreBinaries": [
+      "only-allow",
+      "open"
+    ],
+    "ignoreWorkspaces": [
+      "docs",
+      "playgrounds/**"
+    ],
+    "workspaces": {
+      ".": {
+        "entry": ".scripts/*.ts"
+      },
+      "packages/connectors": {
+        "entry": "src/exports/index.ts!"
+      },
+      "packages/create-khizab": {
+        "entry": "src/cli.ts!"
+      },
+      "packages/core": {
+        "entry": "src/exports/{actions,networks,codegen,index,internal,query}.ts!",
+        "ignoreDependencies": [
+          "@tanstack/query-core"
+        ]
+      },
+      "packages/react": {
+        "entry": "src/exports/{actions,networks,codegen,connectors,index,query}.ts!"
+      }
+    }
+  }
+}

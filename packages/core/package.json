@@ -1,0 +1,114 @@
+{
+  "name": "@khizab/core",
+  "description": "VanillaJS library for Aptos",
+  "version": "0.0.1",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/khizab/khizab.git",
+    "directory": "packages/core"
+  },
+  "scripts": {
+    "build": "pnpm run clean && pnpm run build:esm+types",
+    "build:esm+types": "tsc --project tsconfig.build.json --outDir ./dist/esm --declaration --declarationMap --declarationDir ./dist/types",
+    "clean": "rm -rf dist tsconfig.tsbuildinfo actions networks codegen internal query",
+    "test:build": "publint --strict",
+    "typecheck": "tsc --noEmit"
+  },
+  "files": [
+    "dist/**",
+    "!dist/**/*.tsbuildinfo",
+    "src/**/*.ts",
+    "!src/**/*.test.ts",
+    "!src/**/*.test-d.ts",
+    "/actions",
+    "/networks",
+    "/internal",
+    "/query"
+  ],
+  "sideEffects": false,
+  "type": "module",
+  "main": "./dist/esm/exports/index.js",
+  "types": "./dist/types/exports/index.d.ts",
+  "typings": "./dist/types/exports/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/types/exports/index.d.ts",
+      "default": "./dist/esm/exports/index.js"
+    },
+    "./actions": {
+      "types": "./dist/types/exports/actions.d.ts",
+      "default": "./dist/esm/exports/actions.js"
+    },
+    "./networks": {
+      "types": "./dist/types/exports/networks.d.ts",
+      "default": "./dist/esm/exports/networks.js"
+    },
+    "./codegen": {
+      "types": "./dist/types/exports/codegen.d.ts",
+      "default": "./dist/esm/exports/codegen.js"
+    },
+    "./internal": {
+      "types": "./dist/types/exports/internal.d.ts",
+      "default": "./dist/esm/exports/internal.js"
+    },
+    "./query": {
+      "types": "./dist/types/exports/query.d.ts",
+      "default": "./dist/esm/exports/query.js"
+    },
+    "./package.json": "./package.json"
+  },
+  "typesVersions": {
+    "*": {
+      "actions": [
+        "./dist/types/exports/actions.d.ts"
+      ],
+      "networks": [
+        "./dist/types/exports/networks.d.ts"
+      ],
+      "codegen": [
+        "./dist/types/exports/codegen.d.ts"
+      ],
+      "internal": [
+        "./dist/types/exports/internal.d.ts"
+      ],
+      "query": [
+        "./dist/types/exports/query.d.ts"
+      ]
+    }
+  },
+  "peerDependencies": {
+    "@tanstack/query-core": ">=5.0.0",
+    "typescript": ">=5.0.4",
+    "viem": "2.x"
+  },
+  "peerDependenciesMeta": {
+    "@tanstack/query-core": {
+      "optional": true
+    },
+    "typescript": {
+      "optional": true
+    }
+  },
+  "dependencies": {
+    "@aptos-labs/ts-sdk": "^1.10.0",
+    "@aptos-labs/wallet-adapter-core": "^3.6.0",
+    "eventemitter3": "5.0.1",
+    "zustand": "4.4.1"
+  },
+  "devDependencies": {
+    "@tanstack/query-core": ">=5.0.0"
+  },
+  "contributors": [
+    "Erfan Khadivar <hi@erfan.ee>"
+  ],
+  "funding": "https://github.com/sponsors/khizab",
+  "keywords": [
+    "khizab",
+    "apt",
+    "aptos",
+    "dapps",
+    "wallet",
+    "web3"
+  ]
+}
