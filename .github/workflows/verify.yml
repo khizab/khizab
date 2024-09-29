@@ -79,20 +79,3 @@ jobs:
 
       - name: Check types
         run: pnpm typecheck
-
-  test:
-    name: Test
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
-    strategy:
-      max-parallel: 3
-      matrix:
-        shard: [1, 2, 3]
-        total-shards: [3]
-
-    steps:
-      - name: Clone repository
-        uses: actions/checkout@v4
-
-      - name: Install dependencies
-        uses: ./.github/actions/install-dependencies
