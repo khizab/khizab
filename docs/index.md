@@ -19,7 +19,7 @@ hero:
       link: /react/why
     - theme: alt
       text: View on GitHub
-      link: https://github.com/khizab/khizab
+      link: https://github.com/Khizab/khizab
   image:
     src: /logo-dark.svg
     alt: Khizab Logo

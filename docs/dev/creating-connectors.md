@@ -9,7 +9,7 @@ This guide details how to create new connectors and upstream them back into Khiz
 In addition, for connector requests to be accepted, the team creating the connector must [sponsor Khizab](https://github.com/sponsors/khizab). It takes time and effort to maintain third-party connectors. Khizab is an OSS project that depends on sponsors and grants to continue our work. Please get in touch via [dev@khizab.dev](mailto:dev@khizab.dev) if you have questions about sponsoring.
 
 ::: warning **Please ask first before starting work on a new connector.**
-To avoid having your pull request declined after investing time and effort into a new connector, we ask that contributors create a [Connector Request](https://github.com/khizab/khizab/discussions/new?category=connector-request) before starting work. This ensures the connector solves for an important or general use-case of interest to Khizab users and is well supported by the Khizab and connector teams.
+To avoid having your pull request declined after investing time and effort into a new connector, we ask that contributors create a [Connector Request](https://github.com/Khizab/khizab/discussions/new?category=connector-request) before starting work. This ensures the connector solves for an important or general use-case of interest to Khizab users and is well supported by the Khizab and connector teams.
 :::
 
 ## 1. Follow the contributing guide
@@ -116,7 +116,7 @@ It is critical that connectors are updated in a timely manner and actively maint
 
 The Khizab core team will provide as much assistance as possible to keep connectors up-to-date with breaking changes from Khizab, but it is your responsibility to ensure that any dependencies and issues/discussions related to the connector are handled in a timely manner. If issues are not resolved in a timely manner, the connector may be removed from Khizab.
 
-In support of this goal, add at least one member of your team to the [CODEOWNERS](https://github.com/khizab/khizab/blob/main/.github/CODEOWNERS) file so that you get notified of pull requests, issues, etc. related to the connector. You can add your team like this:
+In support of this goal, add at least one member of your team to the [CODEOWNERS](https://github.com/Khizab/khizab/blob/main/.github/CODEOWNERS) file so that you get notified of pull requests, issues, etc. related to the connector. You can add your team like this:
 
 ```
 /packages/connectors/src/fooBarBaz @tmm @jxom
