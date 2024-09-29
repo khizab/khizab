@@ -1,13 +1,13 @@
-import { BaseError } from "./base.js";
+import { BaseError } from './base.js'
 
 export type KhizabProviderNotFoundErrorType = KhizabProviderNotFoundError & {
-  name: "KhizabProviderNotFoundError";
-};
+  name: 'KhizabProviderNotFoundError'
+}
 export class KhizabProviderNotFoundError extends BaseError {
-  override name = "KhizabProviderNotFoundError";
+  override name = 'KhizabProviderNotFoundError'
   constructor() {
-    super("`useConfig` must be used within `KhizabProvider`.", {
-      docsPath: "https://khizab.dev/react/api/KhizabProvider",
-    });
+    super('`useConfig` must be used within `KhizabProvider`.', {
+      docsPath: 'https://khizab.dev/react/api/KhizabProvider',
+    })
   }
 }
