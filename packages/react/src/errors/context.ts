@@ -7,7 +7,7 @@ export class KhizabProviderNotFoundError extends BaseError {
   override name = 'KhizabProviderNotFoundError'
   constructor() {
     super('`useConfig` must be used within `KhizabProvider`.', {
-      docsPath: 'https://khizab.sh/react/api/KhizabProvider',
+      docsPath: 'https://khizab.dev/react/api/KhizabProvider',
     })
   }
 }

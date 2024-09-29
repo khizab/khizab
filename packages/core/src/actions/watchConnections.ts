@@ -14,7 +14,7 @@ export type WatchConnectionsParameters = {
 
 export type WatchConnectionsReturnType = () => void
 
-/** https://khizab.sh/core/api/actions/watchConnections */
+/** https://khizab.dev/core/api/actions/watchConnections */
 export function watchConnections(
   config: Config,
   parameters: WatchConnectionsParameters,

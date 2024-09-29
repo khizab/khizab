@@ -17,7 +17,7 @@ export type UseAccountParameters<config extends Config = Config> =
 
 export type UseAccountReturnType = GetAccountReturnType
 
-/** https://khizab.sh/react/api/hooks/useAccount */
+/** https://khizab.dev/react/api/hooks/useAccount */
 export function useAccount<config extends Config = ResolvedRegister['config']>(
   parameters: UseAccountParameters<config> = {},
 ): UseAccountReturnType {

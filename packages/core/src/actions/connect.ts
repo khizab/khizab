@@ -23,7 +23,7 @@ export type ConnectErrorType =
   | BaseErrorType
   | ErrorType
 
-/** https://khizab.sh/core/api/actions/connect */
+/** https://khizab.dev/core/api/actions/connect */
 export async function connect<config extends Config>(
   config: config,
   parameters: ConnectParameters,

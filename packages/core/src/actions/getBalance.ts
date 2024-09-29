@@ -21,7 +21,7 @@ export type GetBalanceReturnType = {
 
 export type GetBalanceErrorType = {}
 
-/** https://khizab.sh/core/api/actions/getBalance */
+/** https://khizab.dev/core/api/actions/getBalance */
 export async function getBalance<config extends Config>(
   config: config,
   parameters: GetBalanceParameters<config>,

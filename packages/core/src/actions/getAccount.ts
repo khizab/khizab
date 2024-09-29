@@ -44,7 +44,7 @@ export type GetAccountReturnType =
       status: 'disconnected'
     }
 
-/** https://khizab.sh/core/api/actions/getAccount */
+/** https://khizab.dev/core/api/actions/getAccount */
 export function getAccount<config extends Config>(
   config: config,
 ): GetAccountReturnType {

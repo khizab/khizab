@@ -8,7 +8,7 @@ export type GetBlockByHeightParameters = {
 
 export type GetBlockByHeightReturnType = Block
 
-/** https://khizab.sh/core/actions/GetBlockByHeight */
+/** https://khizab.dev/core/actions/GetBlockByHeight */
 export async function GetBlockByHeight<config extends Config>(
   config: config,
   parameters: GetBlockByHeightParameters,

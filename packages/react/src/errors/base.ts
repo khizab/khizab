@@ -6,7 +6,7 @@ export type BaseErrorType = BaseError & { name: 'KhizabError' }
 export class BaseError extends CoreError {
   override name = 'KhizabError'
   override get docsBaseUrl() {
-    return 'https://khizab.sh/react'
+    return 'https://khizab.dev/react'
   }
   override get version() {
     return getVersion()

@@ -11,7 +11,7 @@ export type WatchAccountParameters = {
 
 export type WatchAccountReturnType = () => void
 
-/** https://khizab.sh/core/api/actions/watchAccount */
+/** https://khizab.dev/core/api/actions/watchAccount */
 export function watchAccount(
   config: Config,
   parameters: WatchAccountParameters,

@@ -20,7 +20,7 @@ export class BaseError extends Error {
 
   override name = 'KhizabCoreError'
   get docsBaseUrl() {
-    return 'https://khizab.sh/core'
+    return 'https://khizab.dev/core'
   }
   get version() {
     return getVersion()

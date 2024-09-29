@@ -15,7 +15,7 @@ export type ReconnectErrorType = ErrorType
 
 let isReconnecting = false
 
-/** https://khizab.sh/core/api/actions/reconnect */
+/** https://khizab.dev/core/api/actions/reconnect */
 export async function reconnect(
   config: Config,
   parameters: ReconnectParameters = {},

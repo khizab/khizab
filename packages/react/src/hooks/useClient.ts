@@ -1,14 +1,14 @@
-"use client";
+'use client'
 
-import { type GetClientReturnType, getClient } from "@khizab/core";
+import { type GetClientReturnType, getClient } from '@khizab/core'
 
-import { useConfig } from "./useConfig.js";
+import { useConfig } from './useConfig.js'
 
-export type UseClientReturnType = GetClientReturnType;
+export type UseClientReturnType = GetClientReturnType
 
-/** https://khizab.sh/react/api/hooks/useClient */
+/** https://khizab.dev/react/api/hooks/useClient */
 export function useClient(): UseClientReturnType {
-  const config = useConfig();
+  const config = useConfig()
 
-  return getClient(config);
+  return getClient(config)
 }

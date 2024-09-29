@@ -2,6 +2,17 @@ import fs from 'node:fs/promises'
 import path from 'node:path'
 import { glob } from 'glob'
 
+const CLOUDFLARE_PAGES = process.env.CF_PAGES
+
+if (CLOUDFLARE_PAGES) {
+  if (CLOUDFLARE_PAGES) {
+    console.log(
+      'Running on Cloudflare Pages. Skipping local development setup.',
+    )
+    process.exit(0)
+  }
+}
+
 // Symlinks package sources to dist for local development
 
 console.log('Setting up packages for development.')

@@ -6,7 +6,7 @@ export type GetConnectionsReturnType = Evaluate<Connection>[]
 
 let previousConnections: Connection[] = []
 
-/** https://khizab.sh/core/api/actions/getConnections */
+/** https://khizab.dev/core/api/actions/getConnections */
 export function getConnections(config: Config): GetConnectionsReturnType {
   const connections = [...config.state.connections.values()]
   if (config.state.status === 'reconnecting') return previousConnections

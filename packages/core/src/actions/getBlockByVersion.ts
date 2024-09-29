@@ -8,7 +8,7 @@ export type GetBlockByVersionParameters = {
 
 export type GetBlockByVersionReturnType = Block
 
-/** https://khizab.sh/core/actions/GetBlockByVersion */
+/** https://khizab.dev/core/actions/GetBlockByVersion */
 export async function GetBlockByVersion<config extends Config>(
   config: config,
   parameters: GetBlockByVersionParameters,

@@ -17,7 +17,7 @@ export type DisconnectErrorType =
   | BaseErrorType
   | ErrorType
 
-/** https://khizab.sh/core/api/actions/disconnect */
+/** https://khizab.dev/core/api/actions/disconnect */
 export async function disconnect(
   config: Config,
   parameters: DisconnectParameters = {},

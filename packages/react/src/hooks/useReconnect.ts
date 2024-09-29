@@ -44,7 +44,7 @@ export type UseReconnectReturnType<context = unknown> = Evaluate<
   }
 >
 
-/** https://khizab.sh/react/api/hooks/useReconnect */
+/** https://khizab.dev/react/api/hooks/useReconnect */
 export function useReconnect<context = unknown>(
   parameters: UseReconnectParameters<context> = {},
 ): UseReconnectReturnType<context> {

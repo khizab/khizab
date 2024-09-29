@@ -1,4 +1,4 @@
-"use client";
+'use client'
 
 import {
   type Abi,
@@ -7,36 +7,36 @@ import {
   type ReadContractParameters,
   type ReadContractsErrorType,
   type ResolvedRegister,
-} from "@khizab/core";
+} from '@khizab/core'
 
-import { type Evaluate } from "@khizab/core/internal";
+import { type Evaluate } from '@khizab/core/internal'
 import {
   type ReadContractsData,
   type ReadContractsOptions,
   type ReadContractsQueryFnData,
   type ReadContractsQueryKey,
   readContractsQueryOptions,
-} from "@khizab/core/query";
-import { useMemo } from "react";
+} from '@khizab/core/query'
+import { useMemo } from 'react'
 
 import {
   type ConfigParameter,
   type QueryParameter,
-} from "../types/properties.js";
+} from '../types/properties.js'
 import {
   type UseQueryReturnType,
   structuralSharing,
   useQuery,
-} from "../utils/query.js";
-import { useConfig } from "./useConfig.js";
+} from '../utils/query.js'
+import { useConfig } from './useConfig.js'
 
 export type UseReadContractsParameters<
   abi extends Abi | undefined,
   functionName extends AbiViewFunctionNames<abi>,
   payloads extends readonly Exclude<
     ReadContractParameters<abi, functionName>,
-    "abi"
-  >[] = readonly Exclude<ReadContractParameters<abi, functionName>, "abi">[],
+    'abi'
+  >[] = readonly Exclude<ReadContractParameters<abi, functionName>, 'abi'>[],
   allowFailure extends boolean = boolean,
   config extends Config = Config,
   selectData = ReadContractsData<abi, functionName>,
@@ -49,24 +49,24 @@ export type UseReadContractsParameters<
       selectData,
       ReadContractsQueryKey<abi, functionName>
     >
->;
+>
 
 export type UseReadContractsReturnType<
   abi extends Abi | undefined,
   functionName extends AbiViewFunctionNames<abi>,
   selectData = ReadContractsData<abi, functionName>,
-> = UseQueryReturnType<selectData, ReadContractsErrorType>;
+> = UseQueryReturnType<selectData, ReadContractsErrorType>
 
-/** https://khizab.sh/react/api/hooks/useReadContracts */
+/** https://khizab.dev/react/api/hooks/useReadContracts */
 export function useReadContracts<
   abi extends Abi | undefined,
   functionName extends AbiViewFunctionNames<abi>,
   payloads extends readonly Exclude<
     ReadContractParameters<abi, functionName>,
-    "abi"
-  >[] = readonly Exclude<ReadContractParameters<abi, functionName>, "abi">[],
+    'abi'
+  >[] = readonly Exclude<ReadContractParameters<abi, functionName>, 'abi'>[],
   allowFailure extends boolean = boolean,
-  config extends Config = ResolvedRegister["config"],
+  config extends Config = ResolvedRegister['config'],
   selectData extends ReadContractsData<abi, functionName> = ReadContractsData<
     abi,
     functionName
@@ -81,9 +81,9 @@ export function useReadContracts<
     selectData
   >,
 ): UseReadContractsReturnType<abi, functionName> {
-  const { payloads = [], query = {} } = parameters;
+  const { payloads = [], query = {} } = parameters
 
-  const config = useConfig(parameters);
+  const config = useConfig(parameters)
 
   const options = readContractsQueryOptions<
     config,
@@ -91,28 +91,28 @@ export function useReadContracts<
     functionName,
     payloads,
     allowFailure
-  >(config, { ...parameters });
+  >(config, { ...parameters })
 
   const enabled = useMemo(() => {
-    let isContractsValid = false;
+    let isContractsValid = false
     for (const payload of payloads) {
       const { abi, functionName } = payload as Exclude<
         ReadContractParameters<abi, functionName>,
-        "abi"
-      >;
+        'abi'
+      >
       if (!abi || !functionName) {
-        isContractsValid = false;
-        break;
+        isContractsValid = false
+        break
       }
-      isContractsValid = true;
+      isContractsValid = true
     }
-    return Boolean(isContractsValid && (query.enabled ?? true));
-  }, [payloads, query.enabled]);
+    return Boolean(isContractsValid && (query.enabled ?? true))
+  }, [payloads, query.enabled])
 
   return useQuery({
     ...options,
     ...query,
     enabled,
     structuralSharing: query.structuralSharing ?? structuralSharing,
-  });
+  })
 }

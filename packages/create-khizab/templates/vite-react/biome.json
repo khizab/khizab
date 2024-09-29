@@ -8,6 +8,6 @@
     "enabled": true
   },
   "organizeImports": {
-    "enabled": true
+    "enabled": false
   }
 }
