@@ -6,7 +6,7 @@ export function parseAbiReturnType(
 ): any {
   return returnTypes.map((type, index) => parseAbiType(type, result[index]))
 }
-export function parseAbiType(abiType: any, value: any): any {
+function parseAbiType(abiType: any, value: any): any {
   switch (abiType) {
     case 'bool':
       return Boolean(value)
