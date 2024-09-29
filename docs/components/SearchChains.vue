@@ -1,46 +1,34 @@
 <script setup>
-import * as allChains from "khizab/chains";
-import { computed, ref } from "vue";
+import * as allChains from 'Khizab/chains'
+import { computed, ref } from 'vue'
 
-const message = ref("");
-const chains = Object.entries(allChains)
+const message = ref('')
+const chains = Object
+  .entries(allChains)
   .map(([key, value]) => ({ ...value, import: key }))
-  .sort((a, b) => a.id - b.id);
+  .sort((a, b) => a.id - b.id)
 const filteredChains = computed(() => {
-  const filterMessage = message.value.toLowerCase().trim();
-  return chains.filter(
-    (chain) =>
-      chain.id.toString().includes(filterMessage) ||
-      chain.import.toLowerCase().includes(filterMessage) ||
-      chain.name.toLowerCase().includes(filterMessage) ||
-      chain.nativeCurrency.symbol.toLowerCase().includes(filterMessage),
-  );
-});
+  const filterMessage = message.value.toLowerCase().trim()
+  return chains.filter(chain =>
+    chain.id.toString().includes(filterMessage) ||
+    chain.import.toLowerCase().includes(filterMessage) ||
+    chain.name.toLowerCase().includes(filterMessage) ||
+    chain.nativeCurrency.symbol.toLowerCase().includes(filterMessage)
+  )
+})
 </script>
 
 <template>
   <div relative flex="~ items-center" mb-4>
-    <input
-      class="Search"
-      h-10
-      w-full
-      aria-label="Search chains"
-      placeholder="Search chains"
-      v-model="message"
-    />
-    <span absolute right-4 font-500 op-50 text-xs
-      >{{ filteredChains.length }}
-      {{ filteredChains.length === 1 ? "Chain" : "Chains" }}</span
-    >
+    <input class="Search" h-10 w-full aria-label="Search chains" placeholder="Search chains" v-model="message" />
+    <span absolute right-4 font-500 op-50 text-xs>{{ filteredChains.length }} {{ filteredChains.length === 1 ?
+      "Chain" :
+      "Chains"
+    }}</span>
   </div>
 
   <div class="Columns">
-    <div
-      v-for="chain of filteredChains"
-      class="Item"
-      h-30
-      flex="~ col items-center justify-center gap-1.5"
-    >
+    <div v-for="chain of filteredChains" class="Item" h-30 flex="~ col items-center justify-center gap-1.5">
       <div mt-3 text-sm font-500 text-truncate max-w-50>{{ chain.name }}</div>
       <code text-xs>{{ chain.import }}</code>
       <div flex="~ gap-1" op-50 text-xs>
@@ -60,15 +48,10 @@ const filteredChains = computed(() => {
   /** Calculated values. */
   --gap-count: calc(var(--grid-column-count) - 1);
   --total-gap-width: calc(var(--gap-count) * var(--grid-layout-gap));
-  --grid-item--max-width: calc(
-    (100% - var(--total-gap-width)) / var(--grid-column-count)
-  );
+  --grid-item--max-width: calc((100% - var(--total-gap-width)) / var(--grid-column-count));
 
   display: grid;
-  grid-template-columns: repeat(
-    auto-fill,
-    minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr)
-  );
+  grid-template-columns: repeat(auto-fill, minmax(max(var(--grid-item--min-width), var(--grid-item--max-width)), 1fr));
   grid-gap: var(--grid-layout-gap);
 }
 
