@@ -1,4 +1,3 @@
-import { Buffer } from 'buffer'
 import { createSyncStoragePersister } from '@tanstack/query-sync-storage-persister'
 import { QueryClient } from '@tanstack/react-query'
 import { ReactQueryDevtools } from '@tanstack/react-query-devtools'
@@ -8,9 +7,6 @@ import ReactDOM from 'react-dom/client'
 import { KhizabProvider, deserialize, serialize } from 'khizab'
 
 import './index.css'
-
-// `@coinbase-wallet/sdk` uses `Buffer`
-globalThis.Buffer = Buffer
 
 import App from './App.tsx'
 import { config } from './khizab.ts'

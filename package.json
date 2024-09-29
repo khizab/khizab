@@ -22,7 +22,8 @@
     "preinstall": "npx only-allow pnpm",
     "prepare": "pnpm simple-git-hooks",
     "typecheck": "pnpm run --r --parallel typecheck && tsc --noEmit",
-    "version:update": "bun .scripts/updateVersion.ts"
+    "version:update": "bun .scripts/updateVersion.ts",
+    "version:update:aptos": "bun scripts/updateViemVersion.ts"
   },
   "devDependencies": {
     "@biomejs/biome": "1.1.2",
@@ -38,9 +39,10 @@
     "rimraf": "^4.4.1",
     "sherif": "^0.8.1",
     "simple-git-hooks": "^2.9.0",
-    "typescript": "5.4.2"
+    "typescript": "5.4.2",
+    "@aptos-labs/ts-sdk": "1.28.0"
   },
-  "packageManager": "pnpm@8.10.5",
+  "packageManager": "pnpm@8.0.5",
   "pnpm": {
     "peerDependencyRules": {
       "ignoreMissing": [
