@@ -1,12 +1,8 @@
-import type {
-  LedgerVersionArg,
-  MoveFunctionId,
-  MoveValue,
-} from '@aptos-labs/ts-sdk'
+import type { LedgerVersionArg, MoveFunctionId } from '@aptos-labs/ts-sdk'
 import { type Config } from '../createConfig.js'
 import type {
   Abi,
-  AbiViewFunctionNames,
+  AbiFunctionNames,
   InferAbiFunctionParams,
   InferAbiFunctionReturns,
 } from '../types/abi.js'
@@ -15,7 +11,7 @@ import type { BaseError } from '../errors/base.js'
 
 export type ReadContractParameters<
   abi extends Abi | undefined = Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi> = AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi> = AbiFunctionNames<abi>,
   args extends InferAbiFunctionParams<
     abi,
     functionName
@@ -25,7 +21,6 @@ export type ReadContractParameters<
   functionName: functionName
   args: args
   typeArguments?: MoveFunctionId[] | undefined
-  functionArguments?: MoveValue[] | undefined
   options?: LedgerVersionArg
 }
 
@@ -33,14 +28,14 @@ export type ReadContractErrorType = BaseError
 
 export type ReadContractReturnType<
   abi extends Abi | undefined = Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi> = AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi> = AbiFunctionNames<abi>,
 > = InferAbiFunctionReturns<abi, functionName>
 
 /** https://khizab.dev/core/api/actions/readContract */
 export async function readContract<
   config extends Config,
   abi extends Abi | undefined = Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi> = AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi> = AbiFunctionNames<abi>,
   args extends InferAbiFunctionParams<
     abi,
     functionName
@@ -73,7 +68,7 @@ export async function readContract<
 
     return result as InferAbiFunctionReturns<abi, functionName>
   } catch (error: any) {
-    console.log('error in read contracts', error)
+    console.log('error in read contract', error)
 
     throw new Error(error)
   }

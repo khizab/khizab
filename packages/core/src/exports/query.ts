@@ -55,6 +55,15 @@ export {
 } from '../query/readContracts.js'
 
 export {
+  type WriteContractData,
+  type WriteContractOptions,
+  type WriteContractQueryFnData,
+  type WriteContractQueryKey,
+  writeContractQueryKey,
+  writeContractQueryOptions,
+} from '../query/writeContract.js'
+
+export {
   type ReconnectData,
   type ReconnectVariables,
   type ReconnectMutate,

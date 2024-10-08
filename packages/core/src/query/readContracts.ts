@@ -8,12 +8,12 @@ import {
 import type { Config } from '../createConfig.js'
 import type { ScopeKeyParameter } from '../types/properties.js'
 import { filterQueryOptions } from './utils.js'
-import type { Abi, AbiViewFunctionNames } from '../types/abi.js'
+import type { Abi, AbiFunctionNames } from '../types/abi.js'
 import type { ReadContractParameters } from '../actions/readContract.js'
 
 export type ReadContractsOptions<
   abi extends Abi | undefined,
-  F extends AbiViewFunctionNames<abi>,
+  F extends AbiFunctionNames<abi>,
   payloads extends readonly Exclude<
     ReadContractParameters<abi, F>,
     'abi'
@@ -28,7 +28,7 @@ export type ReadContractsOptions<
 export function readContractsQueryOptions<
   config extends Config,
   T extends Abi | undefined,
-  F extends AbiViewFunctionNames<T>,
+  F extends AbiFunctionNames<T>,
   payloads extends readonly Exclude<
     ReadContractParameters<T, F>,
     'abi'
@@ -62,17 +62,17 @@ export function readContractsQueryOptions<
 
 export type ReadContractsQueryFnData<
   T extends Abi | undefined,
-  F extends AbiViewFunctionNames<T>,
+  F extends AbiFunctionNames<T>,
 > = ReadContractsReturnType<T, F>
 
 export type ReadContractsData<
   T extends Abi | undefined,
-  F extends AbiViewFunctionNames<T>,
+  F extends AbiFunctionNames<T>,
 > = ReadContractsQueryFnData<T, F>
 
 export function readContractsQueryKey<
   T extends Abi | undefined,
-  F extends AbiViewFunctionNames<T>,
+  F extends AbiFunctionNames<T>,
 >(options: ReadContractsOptions<T, F>) {
   const payloads = []
   for (const payload of options.payloads) {
@@ -86,5 +86,5 @@ export function readContractsQueryKey<
 
 export type ReadContractsQueryKey<
   T extends Abi | undefined,
-  F extends AbiViewFunctionNames<T>,
+  F extends AbiFunctionNames<T>,
 > = ReturnType<typeof readContractsQueryKey<T, F>>

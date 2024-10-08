@@ -9,6 +9,16 @@ export { type EventData, Emitter, createEmitter } from '../createEmitter.js'
 ////////////////////////////////////////////////////////////////////////////////
 
 export {
+  type NetworkInfo,
+  type WalletInfo,
+  type AccountInfo,
+  type SignMessagePayload,
+  type SignMessageResponse,
+} from '../types/connector.js'
+
+export * from '../types/network.js'
+
+export {
   type ChainIdParameter,
   type ConnectorParameter,
   type ScopeKeyParameter,

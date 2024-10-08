@@ -12,13 +12,13 @@ import { type UnionPartial } from '../types/utils.js'
 import { filterQueryOptions } from './utils.js'
 import type {
   Abi,
-  AbiViewFunctionNames,
+  AbiFunctionNames,
   InferAbiFunctionParams,
 } from '../types/abi.js'
 
 export type ReadContractOptions<
   abi extends Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi>,
   args extends InferAbiFunctionParams<abi, functionName>,
 > = UnionPartial<ReadContractParameters<abi, functionName, args>> &
   ScopeKeyParameter
@@ -26,7 +26,7 @@ export type ReadContractOptions<
 export function readContractQueryOptions<
   config extends Config,
   const abi extends Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi> = AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi> = AbiFunctionNames<abi>,
   args extends InferAbiFunctionParams<
     abi,
     functionName
@@ -61,17 +61,17 @@ export function readContractQueryOptions<
 
 export type ReadContractQueryFnData<
   abi extends Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi>,
 > = ReadContractReturnType<abi, functionName>
 
 export type ReadContractData<
   abi extends Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi>,
 > = ReadContractQueryFnData<abi, functionName>
 
 export function readContractQueryKey<
   const abi extends Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi>,
   args extends InferAbiFunctionParams<abi, functionName>,
 >(options: ReadContractOptions<abi, functionName, args> = {} as any) {
   const { abi: _, ...rest } = options
@@ -80,6 +80,6 @@ export function readContractQueryKey<
 
 export type ReadContractQueryKey<
   abi extends Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi>,
   args extends InferAbiFunctionParams<abi, functionName>,
 > = ReturnType<typeof readContractQueryKey<abi, functionName, args>>

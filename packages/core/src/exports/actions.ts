@@ -73,6 +73,13 @@ export {
 } from '../actions/readContracts.js'
 
 export {
+  type WriteContractParameters,
+  type WriteContractReturnType,
+  type WriteContractErrorType,
+  writeContract,
+} from '../actions/writeContract.js'
+
+export {
   type ReconnectErrorType,
   type ReconnectParameters,
   type ReconnectReturnType,

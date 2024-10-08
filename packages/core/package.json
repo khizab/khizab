@@ -71,9 +71,9 @@
     }
   },
   "peerDependencies": {
+    "@aptos-labs/ts-sdk": "1.x",
     "@tanstack/query-core": ">=5.0.0",
-    "typescript": ">=5.0.4",
-    "@aptos-labs/ts-sdk": "1.x"
+    "typescript": ">=5.0.4"
   },
   "peerDependenciesMeta": {
     "@tanstack/query-core": {

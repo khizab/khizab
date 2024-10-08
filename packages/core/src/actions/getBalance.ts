@@ -1,16 +1,13 @@
 import { APTOS_COIN, type MoveFunctionId } from '@aptos-labs/ts-sdk'
 import { type Config } from '../createConfig.js'
-import { type ChainIdParameter } from '../types/properties.js'
 import { type Evaluate } from '../types/utils.js'
 import { formatUnits } from '../utils/formatUnits.js'
 import { getToken } from './getToken.js'
 
-export type GetBalanceParameters<config extends Config = Config> = Evaluate<
-  ChainIdParameter<config> & {
-    accountAddress?: string
-    coinType?: MoveFunctionId
-  }
->
+export type GetBalanceParameters = Evaluate<{
+  accountAddress?: string
+  coinType?: MoveFunctionId
+}>
 
 export type GetBalanceReturnType =
   | {
@@ -26,15 +23,14 @@ export type GetBalanceErrorType = {}
 /** https://khizab.dev/core/api/actions/getBalance */
 export async function getBalance<config extends Config>(
   config: config,
-  parameters: GetBalanceParameters<config>,
+  parameters: GetBalanceParameters,
 ): Promise<GetBalanceReturnType> {
-  const { accountAddress, coinType, chainId } = parameters
+  const { accountAddress, coinType } = parameters
   if (!accountAddress) return
 
   try {
     return await getTokenBalance(config, {
       accountAddress,
-      chainId,
       coinType,
     })
   } catch (error: any) {
@@ -43,7 +39,6 @@ export async function getBalance<config extends Config>(
 }
 
 type GetTokenBalanceParameters = {
-  chainId?: number | undefined
   coinType?: MoveFunctionId
   accountAddress: string
 }

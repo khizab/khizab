@@ -1,5 +1,5 @@
 import { type Config } from '../createConfig.js'
-import type { Abi, AbiViewFunctionNames } from '../types/abi.js'
+import type { Abi, AbiFunctionNames } from '../types/abi.js'
 import {
   type ReadContractParameters,
   readContract,
@@ -9,7 +9,7 @@ import {
 
 export type ReadContractsParameters<
   T extends Abi | undefined,
-  F extends AbiViewFunctionNames<T>,
+  F extends AbiFunctionNames<T>,
   payloads extends readonly Exclude<
     ReadContractParameters<T, F>,
     'abi'
@@ -25,13 +25,13 @@ export type ReadContractsErrorType = ReadContractErrorType
 
 export type ReadContractsReturnType<
   T extends Abi | undefined,
-  F extends AbiViewFunctionNames<T>,
+  F extends AbiFunctionNames<T>,
 > = ReadContractReturnType<T, F>[]
 
 export async function readContracts<
   config extends Config,
   T extends Abi | undefined,
-  F extends AbiViewFunctionNames<T>,
+  F extends AbiFunctionNames<T>,
   payloads extends readonly Exclude<
     ReadContractParameters<T, F>,
     'abi'

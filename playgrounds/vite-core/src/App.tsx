@@ -6,6 +6,7 @@ import {
   readContract,
   readContracts,
   reconnect,
+  writeContract,
 } from '@khizab/core'
 import * as React from 'react'
 
@@ -13,6 +14,7 @@ import { getAccount } from '@khizab/core'
 import { watchAccount } from '@khizab/core'
 import { config } from './khizab'
 import { abi } from './abi'
+import { CommittedTransactionResponse } from '@aptos-labs/ts-sdk'
 
 function App() {
   React.useEffect(() => {
@@ -24,7 +26,9 @@ function App() {
       <Account />
       <Connect />
       <Balance />
-      <DApp />
+      <ReactContract />
+      <ReactContracts />
+      <WriteContract />
     </>
   )
 }
@@ -122,7 +126,6 @@ function Balance() {
         })
         setBalance(balance)
         setUsdt(usdt)
-        console.log({ balance })
       } catch (error) {
         console.error('Error fetching balance', error)
       }
@@ -140,15 +143,11 @@ function Balance() {
   )
 }
 
-function DApp() {
+function ReactContract() {
   const [, rerender] = React.useReducer((count) => count + 1, 0)
   const [account, setAccount] = React.useState(getAccount(config))
 
   const [todoListCount, setTodoListCount] = React.useState<bigint>()
-  const [currentList, setCurrentList] = React.useState<bigint>()
-  const [todosCount, setTodosCount] = React.useState<bigint>()
-  const [todos, setTodos] =
-    React.useState<{ todo: string; isCompleted: boolean }[]>()
 
   React.useEffect(() => {
     return watchAccount(config, {
@@ -180,99 +179,134 @@ function DApp() {
     get()
   }, [account.address])
 
+  return (
+    <div>
+      <h2>ReadContract</h2>
+      <div>
+        {account.status === 'connected' ? (
+          <div>{todoListCount?.toString()}</div>
+        ) : (
+          <h4>Connect your wallet first</h4>
+        )}
+      </div>
+    </div>
+  )
+}
+
+function ReactContracts() {
+  const [, rerender] = React.useReducer((count) => count + 1, 0)
+  const [account, setAccount] = React.useState(getAccount(config))
+
+  const [todos, setTodos] = React.useState<number[]>()
+
+  React.useEffect(() => {
+    return watchAccount(config, {
+      onChange(data) {
+        setAccount(data)
+      },
+    })
+  }, [setAccount])
+
+  React.useEffect(() => {
+    return config.subscribe(
+      ({ connections, current }) => ({ connections, current }),
+      rerender,
+    )
+  }, [rerender])
+
   // biome-ignore lint/nursery/useExhaustiveDependencies: <explanation>
   React.useEffect(() => {
-    console.log({ currentList })
-
     const get = async () => {
-      if (!account.address || currentList === undefined) return
-
-      const [_, count] = await readContract(config, {
-        abi: abi,
-        functionName: 'get_todo_list',
-        args: [account.address.address as `0x${string}`, currentList],
+      if (!account.address) return
+      const res = await readContracts(config, {
+        abi,
+        payloads: [
+          {
+            functionName: 'get_todo_list_counter',
+            args: [account.address.address as `0x${string}`],
+          },
+          {
+            functionName: 'get_todo_list_counter',
+            args: [account.address.address as `0x${string}`],
+          },
+          {
+            functionName: 'get_todo_list_counter',
+            args: [account.address.address as `0x${string}`],
+          },
+        ],
       })
-      setTodosCount(count)
-    }
-    get()
-  }, [currentList])
-
-  // biome-ignore lint/nursery/useExhaustiveDependencies: <explanation>
-  React.useEffect(() => {
-    const get = async () => {
-      console.log({ currentListTodosCount: todosCount })
-
-      if (!account.address || currentList === undefined || !todosCount) return
-
-      const todosPayload: any = Array.from({
-        length: Number(todosCount),
-      }).map((_, i) => ({
-        abi: abi,
-        name: 'get_todo',
-        args: [account.address?.address as `0x${string}`, currentList, i],
-      }))
-
-      const res = await readContracts(config, { payloads: todosPayload })
       if (!res.length) return
-      const _todos = res.map((todo) => ({
-        todo: String(todo[0]),
-        isCompleted: Boolean(todo[1]),
-      }))
+      const _todos = res.map((todo) => Number(todo[0]))
       setTodos(_todos)
     }
     get()
-  }, [todosCount])
+  }, [account.address])
 
   return (
-    <div className="dapp-container">
+    <div>
       <div>
-        <h2>Todo DApp</h2>
+        <h2>ReactContracts</h2>
       </div>
-      <div style={{ display: 'flex', flexDirection: 'column', gap: '1rem' }}>
+      <div>
         {account.status === 'connected' ? (
           <>
-            <div>Select a List or create a new one:</div>
-            <div style={{ display: 'flex', gap: 10 }}>
-              {Array.from({ length: Number(todoListCount) }).map((_, index) => (
-                <button
-                  type="button"
-                  onClick={() => setCurrentList(BigInt(index))}
-                  key={index}
-                >
-                  List #{index + 1} {index === Number(currentList) && '✅'}
-                </button>
-              ))}
-              <button
-                type="button"
-                style={{
-                  backgroundColor: 'blue',
-                }}
-              >
-                generate new list
-              </button>
-            </div>
-            {!!todos?.length && (
-              <ul>
-                <h3> List #{Number(currentList) + 1} Todos</h3>
-                {todos.map((todo) => (
-                  <li key={todo.todo}>
-                    <div>NAME: {todo.todo}</div>
-                    <div>
-                      <span>COMPLETED:</span>
-                      {todo.isCompleted ? (
-                        '✅'
-                      ) : (
-                        <input
-                          type="checkbox"
-                          value={Number(todo.isCompleted)}
-                        />
-                      )}
-                    </div>
-                  </li>
-                ))}
-              </ul>
-            )}
+            {todos?.map((todo, index) => (
+              <div key={index}>{todo}</div>
+            ))}
           </>
+        ) : (
+          <h2 style={{ textAlign: 'center' }}>Connect your wallet first</h2>
+        )}
+      </div>
+    </div>
+  )
+}
+
+function WriteContract() {
+  const [, rerender] = React.useReducer((count) => count + 1, 0)
+  const [account, setAccount] = React.useState(getAccount(config))
+
+  const [createTodoResult, setCreateTodoResult] =
+    React.useState<CommittedTransactionResponse>()
+
+  React.useEffect(() => {
+    return watchAccount(config, {
+      onChange(data) {
+        setAccount(data)
+      },
+    })
+  }, [setAccount])
+
+  React.useEffect(() => {
+    return config.subscribe(
+      ({ connections, current }) => ({ connections, current }),
+      rerender,
+    )
+  }, [rerender])
+
+  const createTodo = async () => {
+    if (!account.address) return
+
+    const res = await writeContract(config, {
+      abi: abi,
+      functionName: 'create_todo_list',
+      args: [] as any,
+    })
+    setCreateTodoResult(res)
+    console.log({ res })
+  }
+
+  return (
+    <div>
+      <h2>WriteContract</h2>
+      <div>
+        {account.status === 'connected' ? (
+          <div>
+            <button type="button" onClick={() => createTodo()}>
+              Create Todo List
+            </button>
+            {createTodoResult && <span>{createTodoResult.hash}</span>}
+          </div>
         ) : (
           <h2 style={{ textAlign: 'center' }}>Connect your wallet first</h2>
         )}

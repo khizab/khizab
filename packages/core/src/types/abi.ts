@@ -50,31 +50,38 @@ export type ParseMoveType<T extends readonly MoveValues[]> = {
     : never
 }
 
-// export type AbiViewFunctionNames<T extends Abi | undefined> = T extends Abi
-//   ? Extract<T['exposed_functions'][number], { is_view: true }>['name']
-//   : MoveFunctionId
-
-export type AbiViewFunctionNames<T extends Abi | undefined> = T extends Abi
-  ? Extract<T['exposed_functions'][number], { is_view: true }>['name']
+export type AbiFunctionNames<
+  T extends Abi | undefined,
+  IsEntry extends boolean = false,
+> = T extends Abi
+  ? Extract<
+      T['exposed_functions'][number],
+      { is_view: IsEntry extends true ? false : true; is_entry: IsEntry }
+    >['name']
   : T extends undefined
   ? MoveFunctionId
   : never
 
 export type InferAbiFunction<
   T extends Abi,
-  F extends AbiViewFunctionNames<T>,
-> = Extract<T['exposed_functions'][number], { name: F; is_view: true }>
+  F extends AbiFunctionNames<T>,
+  IsEntry extends boolean = false,
+> = Extract<
+  T['exposed_functions'][number],
+  { name: F; is_view: IsEntry extends true ? false : true; is_entry: IsEntry }
+>
 
 export type InferAbiFunctionParams<
   T extends Abi | undefined,
-  F extends AbiViewFunctionNames<T>,
+  F extends AbiFunctionNames<T>,
+  IsEntry extends boolean = false,
 > = T extends Abi
-  ? ParseMoveType<InferAbiFunction<T, F>['params']>
+  ? ParseMoveType<InferAbiFunction<T, F, IsEntry>['params']>
   : MoveValue[]
 
 export type InferAbiFunctionReturns<
   T extends Abi | undefined,
-  F extends AbiViewFunctionNames<T>,
+  F extends AbiFunctionNames<T>,
 > = T extends Abi
   ? ParseMoveType<InferAbiFunction<T, F>['return']>
   : MoveValue[]

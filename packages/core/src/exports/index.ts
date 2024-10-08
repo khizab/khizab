@@ -60,6 +60,13 @@ export {
 } from '../actions/readContracts.js'
 
 export {
+  type WriteContractParameters,
+  type WriteContractErrorType,
+  type WriteContractReturnType,
+  writeContract,
+} from '../actions/writeContract.js'
+
+export {
   type ReconnectErrorType,
   type ReconnectParameters,
   type ReconnectReturnType,
@@ -158,7 +165,7 @@ export {
 export { type Register, type ResolvedRegister } from '../types/register.js'
 export type {
   Abi,
-  AbiViewFunctionNames,
+  AbiFunctionNames as AbiViewFunctionNames,
   InferAbiFunction,
   InferAbiFunctionParams,
   InferAbiFunctionReturns,
