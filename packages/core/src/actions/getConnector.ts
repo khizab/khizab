@@ -23,7 +23,7 @@ export type GetConnectorErrorType =
   | BaseErrorType
   | ErrorType
 
-/** https://wagmi.sh/core/api/actions/getConnector */
+/** https://khizab.dev/core/api/actions/getConnector */
 export async function getConnector<config extends Config,>(
   config: config,
   parameters: GetConnectorParameters = {},

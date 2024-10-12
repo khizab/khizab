@@ -43,7 +43,7 @@ export type WriteContractErrorType =
   | BaseErrorType
   | ErrorType
 
-/** https://wagmi.sh/core/api/actions/writeContract */
+/** https://khizab.dev/core/api/actions/writeContract */
 export async function writeContract<
   config extends Config,
   const abi extends Abi | undefined,

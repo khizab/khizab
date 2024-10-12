@@ -1,6 +1,16 @@
 import type { Connector } from '../createConfig.js'
 import { BaseError } from './base.js'
 
+export type ClientNotFoundErrorType = ClientNotFoundError & {
+  name: 'ClientNotFoundError'
+}
+export class ClientNotFoundError extends BaseError {
+  override name = 'ClientNotFoundError'
+  constructor() {
+    super('Client not Found.')
+  }
+}
+
 export type NetworkNotConfiguredErrorType = NetworkNotConfiguredError & {
   name: 'NetworkNotConfiguredError'
 }
