@@ -1,6 +1,18 @@
 import type { Connector } from '../createConfig.js'
 import { BaseError } from './base.js'
 
+export interface AptosWalletErrorResult {
+  code: number
+  name: string
+  message: string
+}
+// Type Guard for AptosWalletErrorResult
+export function isAptosWalletErrorResult(
+  result: any,
+): result is AptosWalletErrorResult {
+  return typeof result === 'object' && 'code' in result && 'name' in result
+}
+
 export type ProviderNotFoundErrorType = ProviderNotFoundError & {
   name: 'ProviderNotFoundError'
 }

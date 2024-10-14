@@ -1,6 +1,16 @@
 import type { Connector } from '../createConfig.js'
 import { BaseError } from './base.js'
 
+export type ClientNotFoundErrorType = ClientNotFoundError & {
+  name: 'ClientNotFoundError'
+}
+export class ClientNotFoundError extends BaseError {
+  override name = 'ClientNotFoundError'
+  constructor() {
+    super('Client not Found.')
+  }
+}
+
 export type NetworkNotConfiguredErrorType = NetworkNotConfiguredError & {
   name: 'NetworkNotConfiguredError'
 }
@@ -56,5 +66,21 @@ export class ConnectorAccountNotFoundError extends BaseError {
     connector: Connector
   }) {
     super(`Account "${address}" not found for connector "${connector.name}".`)
+  }
+}
+export type ConnectorUnavailableReconnectingErrorType =
+  ConnectorUnavailableReconnectingError & {
+    name: 'ConnectorUnavailableReconnectingError'
+  }
+export class ConnectorUnavailableReconnectingError extends BaseError {
+  override name = 'ConnectorUnavailableReconnectingError'
+  constructor({ connector }: { connector: { name: string } }) {
+    super(`Connector "${connector.name}" unavailable while reconnecting.`, {
+      details: [
+        'During the reconnection step, the only connector methods guaranteed to be available are: `id`, `name`, `type`, `uuid`.',
+        'All other methods are not guaranteed to be available until reconnection completes and connectors are fully restored.',
+        'This error commonly occurs for connectors that asynchronously inject after reconnection has already started.',
+      ].join(' '),
+    })
   }
 }

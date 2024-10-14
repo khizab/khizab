@@ -21,7 +21,6 @@ export async function getToken<config extends Config>(
   const { coinType } = parameters
 
   try {
-    console.log('coinType', coinType)
     const [name, symbol, decimals, _supply] = await readContracts(config, {
       payloads: [
         {

@@ -1,8 +1,3 @@
-import {
-  type AptosWalletErrorResult,
-  type PluginProvider,
-} from '@aptos-labs/wallet-adapter-core'
-
 import { createConnector } from '@khizab/core'
 import type {
   AccountInfo,
@@ -11,23 +6,15 @@ import type {
   SignMessageResponse,
   WalletName,
 } from '@aptos-labs/wallet-adapter-core'
-import { BCS, type MaybeHexString, TxnBuilderTypes, Types } from 'aptos'
+import { BCS, TxnBuilderTypes, Types } from 'aptos'
+import type { PluginProvider } from '../../core/src/connectors/createConnector.js'
+import type { AptosWalletErrorResult } from '../../core/src/errors/connector.js'
 
-interface PetraProvider
-  extends Omit<PluginProvider, 'signAndSubmitTransaction'> {
+interface PetraProvider extends PluginProvider {
   signTransaction(
     transaction: any,
     options?: any,
   ): Promise<Uint8Array | AptosWalletErrorResult>
-  generateTransaction(
-    sender: MaybeHexString,
-    payload: any,
-    options?: any,
-  ): Promise<any>
-  signAndSubmitTransaction: (
-    transaction: Types.TransactionPayload,
-    options?: any,
-  ) => Promise<Types.HexEncodedBytes | AptosWalletErrorResult>
   signAndSubmitBCSTransaction: (
     transaction: string,
     options?: any,
@@ -63,11 +50,6 @@ export function petraWallet() {
         if (!account) throw `${PetraWalletName} Account Error`
         return account
       } catch (error) {
-        // if (
-        //   /(user closed modal|accounts received is empty|user denied account)/i.test(
-        //     (error as Error).message,
-        //   )
-        // )
         console.log('Error', error)
         throw error
       }
@@ -150,30 +132,25 @@ export function petraWallet() {
       }
     },
 
-    async signAndSubmitTransaction(
-      transaction: Types.TransactionPayload,
-      options?: any,
-    ): Promise<{ hash: Types.HexEncodedBytes }> {
+    async signAndSubmitTransaction({ payload, options }) {
       try {
         const provider = this.getProvider()
-        const signer = await this.getAccount()
-        const tx = await provider?.generateTransaction(
-          signer.address,
-          transaction,
-          { ...options, max_gas_amount: options?.max_gas_amount?.toString() },
-        )
-        if (!tx)
-          throw new Error(
-            'Cannot generate transaction',
-          ) as AptosWalletErrorResult
-        const response = await provider?.signAndSubmitTransaction(tx)
+
+        const tx = {
+          arguments: payload.functionArguments,
+          function: payload.function,
+          type: 'entry_function_payload',
+          type_arguments: payload.typeArguments,
+        }
+
+        const response = await provider?.signAndSubmitTransaction(tx, options)
 
         if (!response) {
           throw new Error('No response') as AptosWalletErrorResult
         }
-        return { hash: response } as { hash: Types.HexEncodedBytes }
+        return response
       } catch (error: any) {
-        console.log('Error', error)
+        console.log('error in signAndSubmitTransaction ', error)
         throw error
       }
     },

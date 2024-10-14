@@ -119,13 +119,13 @@ importers:
     dependencies:
       '@aptos-labs/wallet-adapter-core':
         specifier: ^3.6.0
-        version: 3.6.0(@aptos-labs/ts-sdk@1.28.0)(aptos@1.21.0)
+        version: 3.6.0
       eventemitter3:
         specifier: 5.0.1
         version: 5.0.1
       zustand:
         specifier: 4.4.1
-        version: 4.4.1(@types/react@18.3.10)(react@18.3.1)
+        version: 4.4.1
     devDependencies:
       '@tanstack/query-core':
         specifier: '>=5.0.0'
@@ -3294,6 +3294,12 @@ snapshots:
     transitivePeerDependencies:
       - debug
 
+  '@aptos-labs/wallet-adapter-core@3.6.0':
+    dependencies:
+      buffer: 6.0.3
+      eventemitter3: 4.0.7
+      tweetnacl: 1.0.3
+
   '@aptos-labs/wallet-adapter-core@3.6.0(@aptos-labs/ts-sdk@1.28.0)(aptos@1.21.0)':
     dependencies:
       '@aptos-labs/ts-sdk': 1.28.0
@@ -6046,6 +6052,8 @@ snapshots:
       querystringify: 2.2.0
       requires-port: 1.0.0
 
+  use-sync-external-store@1.2.0: {}
+
   use-sync-external-store@1.2.0(react@18.3.1):
     dependencies:
       react: 18.3.1
@@ -6235,9 +6243,6 @@ snapshots:
 
   zod@3.22.4: {}
 
-  zustand@4.4.1(@types/react@18.3.10)(react@18.3.1):
+  zustand@4.4.1:
     dependencies:
-      use-sync-external-store: 1.2.0(react@18.3.1)
-    optionalDependencies:
-      '@types/react': 18.3.10
-      react: 18.3.1
+      use-sync-external-store: 1.2.0

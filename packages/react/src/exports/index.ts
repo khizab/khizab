@@ -6,10 +6,6 @@ export {
   type KhizabProviderProps,
   KhizabContext,
   KhizabProvider,
-  /** @deprecated Use `KhizabContext` instead */
-  KhizabContext as Context,
-  /** @deprecated Use `KhizabProvider` instead */
-  KhizabProvider as KhizabConfig,
 } from '../context.js'
 
 ////////////////////////////////////////////////////////////////////////////////
@@ -86,21 +82,90 @@ export {
   type UseDisconnectReturnType,
   useDisconnect,
 } from '../hooks/useDisconnect.js'
+
 export {
   type UseReadContractParameters,
   type UseReadContractReturnType,
   useReadContract,
-  /** @deprecated Use `useWriteContract` instead */
-  useReadContract as useContractRead,
 } from '../hooks/useReadContract.js'
 
 export {
   type UseReadContractsParameters,
   type UseReadContractsReturnType,
   useReadContracts,
-  /** @deprecated Use `useWriteContract` instead */
-  useReadContracts as useContractReads,
 } from '../hooks/useReadContracts.js'
+
+export {
+  type UseAccountInfoParameters,
+  type UseAccountInfoReturnType,
+  useAccountInfo,
+} from '../hooks/useAccountInfo.js'
+
+export {
+  type UseAccountModuleParameters,
+  type UseAccountModuleReturnType,
+  useAccountModule,
+} from '../hooks/useAccountModule.js'
+
+export {
+  type UseAccountModulesParameters,
+  type UseAccountModulesReturnType,
+  useAccountModules,
+} from '../hooks/useAccountModules.js'
+
+export {
+  type UseAccountResourceParameters,
+  type UseAccountResourceReturnType,
+  useAccountResource,
+} from '../hooks/useAccountResource.js'
+
+export {
+  type UseAccountResourcesParameters,
+  type UseAccountResourcesReturnType,
+  useAccountResources,
+} from '../hooks/useAccountResources.js'
+
+export {
+  type UseAccountTransactionsParameters,
+  type UseAccountTransactionsReturnType,
+  useAccountTransactions,
+} from '../hooks/useAccountTransactions.js'
+
+export {
+  type UseLedgerInfoParameters,
+  type UseLedgerInfoReturnType,
+  useLedgerInfo,
+} from '../hooks/useLedgerInfo.js'
+
+export {
+  type UseTableItemParameters,
+  type UseTableItemReturnType,
+  useTableItem,
+} from '../hooks/useTableItem.js'
+
+export {
+  type UseTransactionsParameters,
+  type UseTransactionsReturnType,
+  useTransactions,
+} from '../hooks/useTransactions.js'
+
+export {
+  type UseTransactionParameters,
+  type UseTransactionReturnType,
+  useTransaction,
+} from '../hooks/useTransaction.js'
+
+export {
+  type UseConnectorParameters,
+  type UseConnectorReturnType,
+  useConnector,
+} from '../hooks/useConnector.js'
+
+export {
+  type UseWriteContractParameters,
+  type UseWriteContractReturnType,
+  useWriteContract,
+} from '../hooks/useWriteContract.js'
 
 export {
   type UseReconnectParameters,
@@ -111,7 +176,6 @@ export {
 export {
   type UseTokenParameters,
   type UseTokenReturnType,
-  /** @deprecated Use `useReadContracts` instead */
   useToken,
 } from '../hooks/useToken.js'
 ////////////////////////////////////////////////////////////////////////////////

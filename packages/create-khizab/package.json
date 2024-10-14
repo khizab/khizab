@@ -1,7 +1,7 @@
 {
   "name": "create-khizab",
   "description": "Create Khizab apps with one command",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -46,18 +46,7 @@
     "execa": "^8.0.1",
     "fs-extra": "^11.1.1"
   },
-  "contributors": [
-    "awkweb.eth <t@wevm.dev>",
-    "jxom.eth <j@wevm.dev>"
-  ],
+  "contributors": ["awkweb.eth <t@wevm.dev>", "jxom.eth <j@wevm.dev>"],
   "funding": "https://github.com/sponsors/wevm",
-  "keywords": [
-    "khizab",
-    "eth",
-    "ethereum",
-    "dapps",
-    "wallet",
-    "web3",
-    "cli"
-  ]
+  "keywords": ["khizab", "eth", "ethereum", "dapps", "wallet", "web3", "cli"]
 }

@@ -10,7 +10,6 @@ export function getSidebar() {
           { text: 'Installation', link: '/react/installation' },
           { text: 'Getting Started', link: '/react/getting-started' },
           { text: 'TypeScript', link: '/react/typescript' },
-          { text: 'Comparisons', link: '/react/comparisons' },
         ],
       },
       {
@@ -21,24 +20,12 @@ export function getSidebar() {
             link: '/react/guides/tanstack-query',
           },
           {
-            text: 'Khizab',
-            link: '/react/guides/Khizab',
+            text: 'Aptos Sdk',
+            link: '/react/guides/aptos-sdk',
           },
           {
             text: 'Error Handling',
             link: '/react/guides/error-handling',
-          },
-          {
-            text: 'Ethers.js Adapters',
-            link: '/react/guides/ethers',
-          },
-          // {
-          //   text: 'Testing',
-          //   link: '/react/guides/testing',
-          // },
-          {
-            text: 'Chain Properties',
-            link: '/react/guides/chain-properties',
           },
           {
             text: 'SSR',
@@ -64,10 +51,6 @@ export function getSidebar() {
             text: 'FAQ / Troubleshooting',
             link: '/react/guides/faq',
           },
-          {
-            text: 'Migrate from v1 to v2',
-            link: '/react/guides/migrate-from-v1-to-v2',
-          },
         ],
       },
       {
@@ -75,60 +58,18 @@ export function getSidebar() {
         items: [
           { text: 'createConfig', link: '/react/api/createConfig' },
           { text: 'createStorage', link: '/react/api/createStorage' },
-          { text: 'Chains', link: '/react/api/chains' },
+          { text: 'networks', link: '/react/api/networks' },
           {
             text: 'Connectors',
             collapsed: true,
             link: '/react/api/connectors',
             items: [
               {
-                text: 'coinbaseWallet',
-                link: '/react/api/connectors/coinbaseWallet',
+                text: 'Petra',
+                link: '/react/api/connectors/petra',
               },
-              { text: 'injected', link: '/react/api/connectors/injected' },
-              {
-                text: 'metaMask',
-                link: '/react/api/connectors/metaMask',
-              },
-              {
-                text: 'mock',
-                link: '/react/api/connectors/mock',
-              },
-              {
-                text: 'safe',
-                link: '/react/api/connectors/safe',
-              },
-              {
-                text: 'walletConnect',
-                link: '/react/api/connectors/walletConnect',
-              },
-            ],
-          },
-          {
-            text: 'Transports',
-            collapsed: true,
-            link: '/react/api/transports',
-            items: [
-              {
-                text: 'custom (EIP-1193)',
-                link: '/react/api/transports/custom',
-              },
-              {
-                text: 'fallback',
-                link: '/react/api/transports/fallback',
-              },
-              {
-                text: 'http',
-                link: '/react/api/transports/http',
-              },
-              {
-                text: 'unstable_connector',
-                link: '/react/api/transports/unstable_connector',
-              },
-              {
-                text: 'webSocket',
-                link: '/react/api/transports/webSocket',
-              },
+              { text: 'Pontem', link: '/react/api/connectors/pontem' },
+              { text: 'Martian', link: '/react/api/connectors/martian' },
             ],
           },
           { text: 'KhizabProvider', link: '/react/api/KhizabProvider' },
@@ -143,178 +84,70 @@ export function getSidebar() {
             text: 'useAccountEffect',
             link: '/react/api/hooks/useAccountEffect',
           },
+          {
+            text: 'useAccountInfo',
+            link: '/react/api/hooks/useAccountInfo',
+          },
+          {
+            text: 'useAccountModule',
+            link: '/react/api/hooks/useAccountModule',
+          },
+          {
+            text: 'useAccountModules',
+            link: '/react/api/hooks/useAccountModules',
+          },
+          {
+            text: 'useAccountResource',
+            link: '/react/api/hooks/useAccountResource',
+          },
+          {
+            text: 'useAccountResources',
+            link: '/react/api/hooks/useAccountResources',
+          },
+          {
+            text: 'useAccountTransactions',
+            link: '/react/api/hooks/useAccountTransactions',
+          },
           { text: 'useBalance', link: '/react/api/hooks/useBalance' },
           {
             text: 'useBlockByHeight',
             link: '/react/api/hooks/useBlockByHeight',
           },
           {
-            text: 'useBlock',
-            link: '/react/api/hooks/useBlock',
+            text: 'useBlockByVersion',
+            link: '/react/api/hooks/useBlockByVersion',
           },
-          {
-            text: 'useBlockTransactionCount',
-            link: '/react/api/hooks/useBlockTransactionCount',
-          },
-          {
-            text: 'useBytecode',
-            link: '/react/api/hooks/useBytecode',
-          },
-          { text: 'useCall', link: '/react/api/hooks/useCall' },
-          { text: 'useChainId', link: '/react/api/hooks/useChainId' },
-          { text: 'useChains', link: '/react/api/hooks/useChains' },
           { text: 'useClient', link: '/react/api/hooks/useClient' },
           { text: 'useConfig', link: '/react/api/hooks/useConfig' },
           { text: 'useConnect', link: '/react/api/hooks/useConnect' },
-          {
-            text: 'useConnections',
-            link: '/react/api/hooks/useConnections',
-          },
-          {
-            text: 'useConnectorClient',
-            link: '/react/api/hooks/useConnectorClient',
-          },
-          {
-            text: 'useConnectors',
-            link: '/react/api/hooks/useConnectors',
-          },
+          { text: 'useConnections', link: '/react/api/hooks/useConnections' },
+          { text: 'useConnectors', link: '/react/api/hooks/useConnectors' },
           { text: 'useDisconnect', link: '/react/api/hooks/useDisconnect' },
-          { text: 'useEnsAddress', link: '/react/api/hooks/useEnsAddress' },
-          { text: 'useEnsAvatar', link: '/react/api/hooks/useEnsAvatar' },
-          { text: 'useEnsName', link: '/react/api/hooks/useEnsName' },
+          { text: 'useConnector', link: '/react/api/hooks/useConnector' },
           {
-            text: 'useEnsResolver',
-            link: '/react/api/hooks/useEnsResolver',
+            text: 'useLedgerInfo',
+            link: '/react/api/hooks/useLedgerInfo',
+          },
+          { text: 'useTableItem', link: '/react/api/hooks/useTableItem' },
+          {
+            text: 'useTransaction',
+            link: '/react/api/hooks/useTransaction',
           },
           {
-            text: 'useEnsText',
-            link: '/react/api/hooks/useEnsText',
+            text: 'useTransactions',
+            link: '/react/api/hooks/useTransactions',
           },
-          {
-            text: 'useFeeHistory',
-            link: '/react/api/hooks/useFeeHistory',
-          },
-          {
-            text: 'useProof',
-            link: '/react/api/hooks/useProof',
-          },
-          {
-            text: 'usePublicClient',
-            link: '/react/api/hooks/usePublicClient',
-          },
-          {
-            text: 'useEstimateFeesPerGas',
-            link: '/react/api/hooks/useEstimateFeesPerGas',
-          },
-          {
-            text: 'useEstimateGas',
-            link: '/react/api/hooks/useEstimateGas',
-          },
-          {
-            text: 'useEstimateMaxPriorityFeePerGas',
-            link: '/react/api/hooks/useEstimateMaxPriorityFeePerGas',
-          },
-          {
-            text: 'useGasPrice',
-            link: '/react/api/hooks/useGasPrice',
-          },
-          {
-            text: 'useInfiniteReadContracts',
-            link: '/react/api/hooks/useInfiniteReadContracts',
-          },
-          {
-            text: 'useReadContract',
-            link: '/react/api/hooks/useReadContract',
-          },
-          {
-            text: 'usePrepareTransactionRequest',
-            link: '/react/api/hooks/usePrepareTransactionRequest',
-          },
+          { text: 'useReadContract', link: '/react/api/hooks/useReadContract' },
           {
             text: 'useReadContracts',
             link: '/react/api/hooks/useReadContracts',
           },
           { text: 'useReconnect', link: '/react/api/hooks/useReconnect' },
           {
-            text: 'useSendTransaction',
-            link: '/react/api/hooks/useSendTransaction',
+            text: 'useSyncExternalStoreWithTracked',
+            link: '/react/api/hooks/useSyncExternalStoreWithTracked',
           },
-          {
-            text: 'useSignMessage',
-            link: '/react/api/hooks/useSignMessage',
-          },
-          // {
-          //   text: 'useSignTypedData',
-          //   link: '/react/api/hooks/useSignTypedData',
-          // },
-          {
-            text: 'useSimulateContract',
-            link: '/react/api/hooks/useSimulateContract',
-          },
-          {
-            text: 'useStorageAt',
-            link: '/react/api/hooks/useStorageAt',
-          },
-          {
-            text: 'useSwitchAccount',
-            link: '/react/api/hooks/useSwitchAccount',
-          },
-          {
-            text: 'useSwitchChain',
-            link: '/react/api/hooks/useSwitchChain',
-          },
-          {
-            text: 'useTransaction',
-            link: '/react/api/hooks/useTransaction',
-          },
-          {
-            text: 'useTransactionConfirmations',
-            link: '/react/api/hooks/useTransactionConfirmations',
-          },
-          {
-            text: 'useTransactionCount',
-            link: '/react/api/hooks/useTransactionCount',
-          },
-          {
-            text: 'useTransactionReceipt',
-            link: '/react/api/hooks/useTransactionReceipt',
-          },
-          {
-            text: 'useToken',
-            link: '/react/api/hooks/useToken',
-          },
-          {
-            text: 'useWaitForTransactionReceipt',
-            link: '/react/api/hooks/useWaitForTransactionReceipt',
-          },
-          {
-            text: 'useVerifyMessage',
-            link: '/react/api/hooks/useVerifyMessage',
-          },
-          {
-            text: 'useVerifyTypedData',
-            link: '/react/api/hooks/useVerifyTypedData',
-          },
-          {
-            text: 'useWalletClient',
-            link: '/react/api/hooks/useWalletClient',
-          },
-          {
-            text: 'useWatchBlocks',
-            link: '/react/api/hooks/useWatchBlocks',
-          },
-          {
-            text: 'useWatchBlockNumber',
-            link: '/react/api/hooks/useWatchBlockNumber',
-          },
-          {
-            text: 'useWatchContractEvent',
-            link: '/react/api/hooks/useWatchContractEvent',
-          },
-          {
-            text: 'useWatchPendingTransactions',
-            link: '/react/api/hooks/useWatchPendingTransactions',
-          },
+          { text: 'useToken', link: '/react/api/hooks/useToken' },
           {
             text: 'useWriteContract',
             link: '/react/api/hooks/useWriteContract',
@@ -335,10 +168,6 @@ export function getSidebar() {
                 link: '/react/api/utilities/cookieToInitialState',
               },
               { text: 'deserialize', link: '/react/api/utilities/deserialize' },
-              {
-                text: 'normalizeChainId',
-                link: '/react/api/utilities/normalizeChainId',
-              },
               { text: 'serialize', link: '/react/api/utilities/serialize' },
             ],
           },
@@ -359,36 +188,16 @@ export function getSidebar() {
         text: 'Guides',
         items: [
           {
-            text: 'Khizab',
-            link: '/core/guides/Khizab',
-          },
-          {
-            text: 'Framework Adapters',
-            link: '/core/guides/framework-adapters',
+            text: 'Aptos Sdk',
+            link: '/core/guides/aptos-sdk',
           },
           {
             text: 'Error Handling',
             link: '/core/guides/error-handling',
           },
           {
-            text: 'Ethers.js Adapters',
-            link: '/core/guides/ethers',
-          },
-          // {
-          //   text: 'Testing',
-          //   link: '/core/guides/testing',
-          // },
-          {
-            text: 'Chain Properties',
-            link: '/core/guides/chain-properties',
-          },
-          {
             text: 'FAQ / Troubleshooting',
             link: '/core/guides/faq',
-          },
-          {
-            text: 'Migrate from v1 to v2',
-            link: '/core/guides/migrate-from-v1-to-v2',
           },
         ],
       },
@@ -398,60 +207,18 @@ export function getSidebar() {
           { text: 'createConfig', link: '/core/api/createConfig' },
           { text: 'createConnector', link: '/core/api/createConnector' },
           { text: 'createStorage', link: '/core/api/createStorage' },
-          { text: 'Chains', link: '/core/api/chains' },
+          { text: 'Networks', link: '/core/api/networks' },
           {
             text: 'Connectors',
             collapsed: true,
             link: '/core/api/connectors',
             items: [
               {
-                text: 'coinbaseWallet',
-                link: '/core/api/connectors/coinbaseWallet',
+                text: 'Petra',
+                link: '/core/api/connectors/petra',
               },
-              { text: 'injected', link: '/core/api/connectors/injected' },
-              {
-                text: 'metaMask',
-                link: '/core/api/connectors/metaMask',
-              },
-              {
-                text: 'mock',
-                link: '/core/api/connectors/mock',
-              },
-              {
-                text: 'safe',
-                link: '/core/api/connectors/safe',
-              },
-              {
-                text: 'walletConnect',
-                link: '/core/api/connectors/walletConnect',
-              },
-            ],
-          },
-          {
-            text: 'Transports',
-            collapsed: true,
-            link: '/core/api/transports',
-            items: [
-              {
-                text: 'custom (EIP-1193)',
-                link: '/core/api/transports/custom',
-              },
-              {
-                text: 'fallback',
-                link: '/core/api/transports/fallback',
-              },
-              {
-                text: 'http',
-                link: '/core/api/transports/http',
-              },
-              {
-                text: 'unstable_connector',
-                link: '/core/api/transports/unstable_connector',
-              },
-              {
-                text: 'webSocket',
-                link: '/core/api/transports/webSocket',
-              },
+              { text: 'Pontem', link: '/core/api/connectors/pontem' },
+              { text: 'Martian', link: '/core/api/connectors/martian' },
             ],
           },
         ],
@@ -460,181 +227,55 @@ export function getSidebar() {
         text: 'Actions',
         link: '/core/api/actions',
         items: [
-          {
-            text: 'call',
-            link: '/core/api/actions/call',
-          },
           { text: 'connect', link: '/core/api/actions/connect' },
           { text: 'disconnect', link: '/core/api/actions/disconnect' },
-          {
-            text: 'estimateFeesPerGas',
-            link: '/core/api/actions/estimateFeesPerGas',
-          },
-          { text: 'estimateGas', link: '/core/api/actions/estimateGas' },
-          {
-            text: 'estimateMaxPriorityFeePerGas',
-            link: '/core/api/actions/estimateMaxPriorityFeePerGas',
-          },
           { text: 'getAccount', link: '/core/api/actions/getAccount' },
+          { text: 'getAccountInfo', link: '/core/api/actions/getAccountInfo' },
+          {
+            text: 'getAccountModule',
+            link: '/core/api/actions/getAccountModule',
+          },
+          {
+            text: 'getAccountModules',
+            link: '/core/api/actions/getAccountModules',
+          },
+          {
+            text: 'getAccountResource',
+            link: '/core/api/actions/getAccountResource',
+          },
+          {
+            text: 'getAccountResources',
+            link: '/core/api/actions/getAccountResources',
+          },
+          {
+            text: 'getAccountTransactions',
+            link: '/core/api/actions/getAccountTransactions',
+          },
           { text: 'getBalance', link: '/core/api/actions/getBalance' },
           {
-            text: 'getBlock',
-            link: '/core/api/actions/getBlock',
+            text: 'getBlockByHeight',
+            link: '/core/api/actions/getBlockByHeight',
           },
           {
-            text: 'getBlockNumber',
-            link: '/core/api/actions/getBlockNumber',
+            text: 'getBlockByVersion',
+            link: '/core/api/actions/getBlockByVersion',
           },
-          {
-            text: 'getBlockTransactionCount',
-            link: '/core/api/actions/getBlockTransactionCount',
-          },
-          {
-            text: 'getBytecode',
-            link: '/core/api/actions/getBytecode',
-          },
-          { text: 'getChainId', link: '/core/api/actions/getChainId' },
-          { text: 'getChains', link: '/core/api/actions/getChains' },
-          {
-            text: 'getClient',
-            link: '/core/api/actions/getClient',
-          },
-          {
-            text: 'getConnections',
-            link: '/core/api/actions/getConnections',
-          },
-          {
-            text: 'getConnectorClient',
-            link: '/core/api/actions/getConnectorClient',
-          },
-          {
-            text: 'getConnectors',
-            link: '/core/api/actions/getConnectors',
-          },
-          {
-            text: 'getEnsAddress',
-            link: '/core/api/actions/getEnsAddress',
-          },
-          { text: 'getEnsAvatar', link: '/core/api/actions/getEnsAvatar' },
-          { text: 'getEnsName', link: '/core/api/actions/getEnsName' },
-          {
-            text: 'getEnsResolver',
-            link: '/core/api/actions/getEnsResolver',
-          },
-          {
-            text: 'getEnsText',
-            link: '/core/api/actions/getEnsText',
-          },
-          {
-            text: 'getFeeHistory',
-            link: '/core/api/actions/getFeeHistory',
-          },
-          {
-            text: 'getGasPrice',
-            link: '/core/api/actions/getGasPrice',
-          },
-          {
-            text: 'getProof',
-            link: '/core/api/actions/getProof',
-          },
-          {
-            text: 'getPublicClient',
-            link: '/core/api/actions/getPublicClient',
-          },
-          {
-            text: 'getStorageAt',
-            link: '/core/api/actions/getStorageAt',
-          },
+          { text: 'getClient', link: '/core/api/actions/getClient' },
+          { text: 'getConnections', link: '/core/api/actions/getConnections' },
+          { text: 'getConnector', link: '/core/api/actions/getConnector' },
+          { text: 'getConnectors', link: '/core/api/actions/getConnectors' },
+          { text: 'getLedgerInfo', link: '/core/api/actions/getLedgerInfo' },
+          { text: 'getTableItem', link: '/core/api/actions/getTableItem' },
           { text: 'getToken', link: '/core/api/actions/getToken' },
+          { text: 'getTransaction', link: '/core/api/actions/getTransaction' },
           {
-            text: 'getTransaction',
-            link: '/core/api/actions/getTransaction',
+            text: 'getTransactions',
+            link: '/core/api/actions/getTransactions',
           },
-          {
-            text: 'getTransactionConfirmations',
-            link: '/core/api/actions/getTransactionConfirmations',
-          },
-          {
-            text: 'getTransactionCount',
-            link: '/core/api/actions/getTransactionCount',
-          },
-          {
-            text: 'getTransactionReceipt',
-            link: '/core/api/actions/getTransactionReceipt',
-          },
-          {
-            text: 'getWalletClient',
-            link: '/core/api/actions/getWalletClient',
-          },
-          {
-            text: 'multicall',
-            link: '/core/api/actions/multicall',
-          },
-          {
-            text: 'prepareTransactionRequest',
-            link: '/core/api/actions/prepareTransactionRequest',
-          },
+          { text: 'readContract', link: '/core/api/actions/readContract' },
+          { text: 'readContracts', link: '/core/api/actions/readContracts' },
           { text: 'reconnect', link: '/core/api/actions/reconnect' },
-          {
-            text: 'readContract',
-            link: '/core/api/actions/readContract',
-          },
-          {
-            text: 'readContracts',
-            link: '/core/api/actions/readContracts',
-          },
-          {
-            text: 'sendTransaction',
-            link: '/core/api/actions/sendTransaction',
-          },
-          {
-            text: 'signMessage',
-            link: '/core/api/actions/signMessage',
-          },
-          {
-            text: 'simulateContract',
-            link: '/core/api/actions/simulateContract',
-          },
-          {
-            text: 'switchAccount',
-            link: '/core/api/actions/switchAccount',
-          },
-          {
-            text: 'switchChain',
-            link: '/core/api/actions/switchChain',
-          },
-          {
-            text: 'verifyMessage',
-            link: '/core/api/actions/verifyMessage',
-          },
-          {
-            text: 'verifyTypedData',
-            link: '/core/api/actions/verifyTypedData',
-          },
-          {
-            text: 'waitForTransactionReceipt',
-            link: '/core/api/actions/waitForTransactionReceipt',
-          },
-          {
-            text: 'watchAccount',
-            link: '/core/api/actions/watchAccount',
-          },
-          {
-            text: 'watchBlocks',
-            link: '/core/api/actions/watchBlocks',
-          },
-          {
-            text: 'watchBlockNumber',
-            link: '/core/api/actions/watchBlockNumber',
-          },
-          {
-            text: 'watchChainId',
-            link: '/core/api/actions/watchChainId',
-          },
-          {
-            text: 'watchClient',
-            link: '/core/api/actions/watchClient',
-          },
+          { text: 'watchAccount', link: '/core/api/actions/watchAccount' },
           {
             text: 'watchConnections',
             link: '/core/api/actions/watchConnections',
@@ -643,22 +284,7 @@ export function getSidebar() {
             text: 'watchConnectors',
             link: '/core/api/actions/watchConnectors',
           },
-          {
-            text: 'watchContractEvent',
-            link: '/core/api/actions/watchContractEvent',
-          },
-          {
-            text: 'watchPendingTransactions',
-            link: '/core/api/actions/watchPendingTransactions',
-          },
-          {
-            text: 'watchPublicClient',
-            link: '/core/api/actions/watchPublicClient',
-          },
-          {
-            text: 'writeContract',
-            link: '/core/api/actions/writeContract',
-          },
+          { text: 'writeContract', link: '/core/api/actions/writeContract' },
         ],
       },
       {
@@ -694,15 +320,6 @@ export function getSidebar() {
         ],
       },
       {
-        text: 'Guides',
-        items: [
-          {
-            text: 'Migrate from v1 to v2',
-            link: '/cli/guides/migrate-from-v1-to-v2',
-          },
-        ],
-      },
-      {
         text: 'Config File',
         items: [
           {
@@ -732,7 +349,7 @@ export function getSidebar() {
         items: [
           { text: 'actions', link: '/cli/api/plugins/actions' },
           { text: 'blockExplorer', link: '/cli/api/plugins/blockExplorer' },
-          { text: 'etherscan', link: '/cli/api/plugins/etherscan' },
+          { text: 'aptosExplorer', link: '/cli/api/plugins/aptosExplorer' },
           { text: 'fetch', link: '/cli/api/plugins/fetch' },
           { text: 'foundry', link: '/cli/api/plugins/foundry' },
           { text: 'hardhat', link: '/cli/api/plugins/hardhat' },
@@ -761,15 +378,6 @@ export function getSidebar() {
           { text: 'Connect Wallet', link: '/examples/connect-wallet' },
           { text: 'Send Transaction', link: '/examples/send-transaction' },
           { text: 'Write Contract', link: '/examples/contract-write' },
-          {
-            text: 'Write Contract (Dynamic Args)',
-            link: '/examples/contract-write-dynamic',
-          },
-          { text: 'Sign Message', link: '/examples/sign-message' },
-          {
-            text: 'Sign In With Ethereum',
-            link: '/examples/sign-in-with-ethereum',
-          },
         ],
       },
     ],

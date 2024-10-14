@@ -26,6 +26,18 @@ export {
 } from '../actions/getConnectors.js'
 
 export {
+  type GetBlockByHeightParameters,
+  type GetBlockByHeightReturnType,
+  GetBlockByHeight,
+} from '../actions/getBlockByHeight.js'
+
+export {
+  type GetBlockByVersionParameters,
+  type GetBlockByVersionReturnType,
+  GetBlockByVersion,
+} from '../actions/getBlockByVersion.js'
+
+export {
   type GetBalanceParameters,
   type GetBalanceReturnType,
   type GetBalanceErrorType,
@@ -58,6 +70,90 @@ export {
   type ReadContractsReturnType,
   readContracts,
 } from '../actions/readContracts.js'
+
+export {
+  type GetAccountInfoParameters,
+  type GetAccountInfoReturnType,
+  type GetAccountInfoErrorType,
+  getAccountInfo,
+} from '../actions/getAccountInfo.js'
+
+export {
+  type GetAccountModuleParameters,
+  type GetAccountModuleReturnType,
+  type GetAccountModuleErrorType,
+  getAccountModule,
+} from '../actions/getAccountModule.js'
+
+export {
+  type GetAccountModulesParameters,
+  type GetAccountModulesReturnType,
+  type GetAccountModulesErrorType,
+  getAccountModules,
+} from '../actions/getAccountModules.js'
+
+export {
+  type GetAccountResourceParameters,
+  type GetAccountResourceReturnType,
+  type GetAccountResourceErrorType,
+  getAccountResource,
+} from '../actions/getAccountResource.js'
+
+export {
+  type GetAccountResourcesParameters,
+  type GetAccountResourcesReturnType,
+  type GetAccountResourcesErrorType,
+  getAccountResources,
+} from '../actions/getAccountResources.js'
+
+export {
+  type GetAccountTransactionsParameters,
+  type GetAccountTransactionsReturnType,
+  type GetAccountTransactionsErrorType,
+  getAccountTransactions,
+} from '../actions/getAccountTransactions.js'
+
+export {
+  type GetLedgerInfoParameters,
+  type GetLedgerInfoReturnType,
+  type GetLedgerInfoErrorType,
+  getLedgerInfo,
+} from '../actions/getLedgerInfo.js'
+
+export {
+  type GetTableItemParameters,
+  type GetTableItemReturnType,
+  type GetTableItemErrorType,
+  getTableItem,
+} from '../actions/getTableItem.js'
+
+export {
+  type GetTransactionsParameters,
+  type GetTransactionsReturnType,
+  type GetTransactionsErrorType,
+  getTransactions,
+} from '../actions/getTransactions.js'
+
+export {
+  type GetTransactionParameters,
+  type GetTransactionReturnType,
+  type GetTransactionErrorType,
+  getTransaction,
+} from '../actions/getTransaction.js'
+
+export {
+  type GetConnectorParameters,
+  type GetConnectorReturnType,
+  type GetConnectorErrorType,
+  getConnector,
+} from '../actions/getConnector.js'
+
+export {
+  type WriteContractParameters,
+  type WriteContractErrorType,
+  type WriteContractReturnType,
+  writeContract,
+} from '../actions/writeContract.js'
 
 export {
   type ReconnectErrorType,
@@ -158,7 +254,7 @@ export {
 export { type Register, type ResolvedRegister } from '../types/register.js'
 export type {
   Abi,
-  AbiViewFunctionNames,
+  AbiFunctionNames as AbiViewFunctionNames,
   InferAbiFunction,
   InferAbiFunctionParams,
   InferAbiFunctionReturns,

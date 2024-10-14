@@ -1,9 +1,23 @@
-import type { AccountInfo } from '@aptos-labs/wallet-adapter-core'
+import type {
+  AccountInfo,
+  OnNetworkChange,
+} from '@aptos-labs/wallet-adapter-core'
 import { Emitter } from '../createEmitter.js'
 
 import { type Storage } from '../createStorage.js'
 import type { Network } from '../types/network.js'
 import { type Evaluate } from '../types/utils.js'
+import type {
+  NetworkInfo,
+  SignMessagePayload,
+  SignMessageResponse,
+} from '../types/connector.js'
+import type {
+  HexInput,
+  InputEntryFunctionData,
+  InputGenerateTransactionOptions,
+} from '@aptos-labs/ts-sdk'
+import type { AptosWalletErrorResult } from '../errors/connector.js'
 
 export type ConnectorEventMap = {
   change: AccountInfo
@@ -11,6 +25,22 @@ export type ConnectorEventMap = {
   disconnect: never
   error: { error: Error }
   message: { type: string; data?: unknown | undefined }
+}
+
+export interface PluginProvider {
+  connect: () => Promise<AccountInfo>
+  account: () => Promise<AccountInfo>
+  disconnect: () => Promise<void>
+  signAndSubmitTransaction: (
+    transaction: any,
+    options?: any,
+  ) => Promise<{ hash: HexInput } | AptosWalletErrorResult>
+  signMessage: (message: SignMessagePayload) => Promise<SignMessageResponse>
+  network: () => Promise<NetworkInfo>
+  onAccountChange: (
+    listener: (newAddress: AccountInfo) => Promise<void>,
+  ) => Promise<void>
+  onNetworkChange: OnNetworkChange
 }
 
 export type CreateConnectorFn<
@@ -35,9 +65,11 @@ export type CreateConnectorFn<
     disconnect(): Promise<void>
     getAccount(): Promise<AccountInfo>
     getProvider(): provider | never
-    switchNetwork?(parameters: { chainId: number }): Promise<Network>
-
     onAccountChanged(callback: any): Promise<void>
+    signAndSubmitTransaction: (transaction: {
+      payload: InputEntryFunctionData
+      options?: InputGenerateTransactionOptions
+    }) => Promise<{ hash: HexInput } | AptosWalletErrorResult>
   } & properties
 >
 

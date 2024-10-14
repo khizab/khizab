@@ -1,7 +1,7 @@
 {
   "name": "@khizab/core",
   "description": "VanillaJS library for Aptos",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -56,24 +56,16 @@
   },
   "typesVersions": {
     "*": {
-      "actions": [
-        "./dist/types/exports/actions.d.ts"
-      ],
-      "networks": [
-        "./dist/types/exports/networks.d.ts"
-      ],
-      "internal": [
-        "./dist/types/exports/internal.d.ts"
-      ],
-      "query": [
-        "./dist/types/exports/query.d.ts"
-      ]
+      "actions": ["./dist/types/exports/actions.d.ts"],
+      "networks": ["./dist/types/exports/networks.d.ts"],
+      "internal": ["./dist/types/exports/internal.d.ts"],
+      "query": ["./dist/types/exports/query.d.ts"]
     }
   },
   "peerDependencies": {
+    "@aptos-labs/ts-sdk": "1.x",
     "@tanstack/query-core": ">=5.0.0",
-    "typescript": ">=5.0.4",
-    "@aptos-labs/ts-sdk": "1.x"
+    "typescript": ">=5.0.4"
   },
   "peerDependenciesMeta": {
     "@tanstack/query-core": {
@@ -91,16 +83,7 @@
   "devDependencies": {
     "@tanstack/query-core": ">=5.0.0"
   },
-  "contributors": [
-    "Erfan Khadivar <hi@erfan.ee>"
-  ],
+  "contributors": ["Erfan Khadivar <hi@erfan.ee>"],
   "funding": "https://github.com/sponsors/khizab",
-  "keywords": [
-    "khizab",
-    "apt",
-    "aptos",
-    "dapps",
-    "wallet",
-    "web3"
-  ]
+  "keywords": ["khizab", "apt", "aptos", "dapps", "wallet", "web3"]
 }
