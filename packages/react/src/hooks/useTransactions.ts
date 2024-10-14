@@ -22,7 +22,7 @@ import {
 } from '../utils/query.js'
 import { useConfig } from './useConfig.js'
 
-export type UseGetTransactionsParameters<
+export type UseTransactionsParameters<
   config extends Config = Config,
   selectData = GetTransactionsData,
 > = UnionEvaluate<
@@ -36,16 +36,16 @@ export type UseGetTransactionsParameters<
     >
 >
 
-export type UseGetTransactionsReturnType<selectData = GetTransactionsData,> =
+export type UseTransactionsReturnType<selectData = GetTransactionsData,> =
   UseQueryReturnType<selectData, GetTransactionsErrorType>
 
-/** https://khizab.dev/react/api/hooks/useGetTransactions */
-export function useGetTransactions<
+/** https://khizab.dev/react/api/hooks/useTransactions */
+export function useTransactions<
   config extends Config = ResolvedRegister['config'],
   selectData = GetTransactionsData,
 >(
-  parameters: UseGetTransactionsParameters<config, selectData> = {} as any,
-): UseGetTransactionsReturnType<selectData> {
+  parameters: UseTransactionsParameters<config, selectData> = {} as any,
+): UseTransactionsReturnType<selectData> {
   const { query = {} } = parameters
 
   const config = useConfig(parameters)

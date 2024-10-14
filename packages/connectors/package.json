@@ -1,7 +1,7 @@
 {
   "name": "@khizab/connectors",
   "description": "Collection of connectors for Khizab",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -52,9 +52,7 @@
     "@khizab/core": "workspace:*",
     "msw": "^2.0.6"
   },
-  "contributors": [
-    "Erfan Khadivar <hi@erfan.ee>"
-  ],
+  "contributors": ["Erfan Khadivar <hi@erfan.ee>"],
   "funding": "https://github.com/sponsors/khizab",
   "keywords": [
     "react",

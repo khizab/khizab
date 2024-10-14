@@ -28,11 +28,6 @@ export type UseTokenReturnType<selectData = GetTokenData> = UseQueryReturnType<
   null
 >
 
-/**
- * @deprecated
- *
- * https://khizab.dev/react/api/hooks/useToken
- */
 export function useToken<
   config extends Config = ResolvedRegister['config'],
   selectData = GetTokenData,

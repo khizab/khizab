@@ -2,15 +2,16 @@
 
 import {
   type Config,
-  type GetLedgerInfoErrorType,
+  type GetConnectorErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
 import { type UnionEvaluate } from '@khizab/core/internal'
 import {
-  type GetLedgerInfoData,
-  type GetLedgerInfoQueryFnData,
-  type GetLedgerInfoQueryKey,
-  getLedgerInfoQueryOptions,
+  type GetConnectorData,
+  type GetConnectorOptions,
+  type GetConnectorQueryFnData,
+  type GetConnectorQueryKey,
+  getConnectorQueryOptions,
 } from '@khizab/core/query'
 
 import type { ConfigParameter, QueryParameter } from '../types/properties.js'
@@ -21,35 +22,37 @@ import {
 } from '../utils/query.js'
 import { useConfig } from './useConfig.js'
 
-export type UseGetLedgerInfoParameters<
+export type UseConnectorParameters<
   config extends Config = Config,
-  selectData = GetLedgerInfoData,
+  selectData = GetConnectorData,
 > = UnionEvaluate<
-  GetLedgerInfoData &
+  GetConnectorOptions &
     ConfigParameter<config> &
     QueryParameter<
-      GetLedgerInfoQueryFnData,
-      GetLedgerInfoErrorType,
+      GetConnectorQueryFnData,
+      GetConnectorErrorType,
       selectData,
-      GetLedgerInfoQueryKey
+      GetConnectorQueryKey
     >
 >
 
-export type UseGetLedgerInfoReturnType<selectData = GetLedgerInfoData,> =
-  UseQueryReturnType<selectData, GetLedgerInfoErrorType>
+export type UseConnectorReturnType<selectData = GetConnectorData,> =
+  UseQueryReturnType<selectData, GetConnectorErrorType>
 
-/** https://khizab.dev/react/api/hooks/useGetLedgerInfo */
-export function useGetLedgerInfo<
+/** https://khizab.dev/react/api/hooks/useConnector */
+export function useConnector<
   config extends Config = ResolvedRegister['config'],
-  selectData = GetLedgerInfoData,
+  selectData = GetConnectorData,
 >(
-  parameters: UseGetLedgerInfoParameters<config, selectData> = {} as any,
-): UseGetLedgerInfoReturnType<selectData> {
+  parameters: UseConnectorParameters<config, selectData> = {} as any,
+): UseConnectorReturnType<selectData> {
   const { query = {} } = parameters
 
   const config = useConfig(parameters)
 
-  const options = getLedgerInfoQueryOptions<config>(config)
+  const options = getConnectorQueryOptions<config>(config, {
+    ...(parameters as any),
+  })
   const enabled = Boolean(query.enabled ?? true)
 
   return useQuery({

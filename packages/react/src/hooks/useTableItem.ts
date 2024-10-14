@@ -22,7 +22,7 @@ import {
 } from '../utils/query.js'
 import { useConfig } from './useConfig.js'
 
-export type UseGetTableItemParameters<
+export type UseTableItemParameters<
   config extends Config = Config,
   selectData = GetTableItemData,
 > = UnionEvaluate<
@@ -36,16 +36,16 @@ export type UseGetTableItemParameters<
     >
 >
 
-export type UseGetTableItemReturnType<selectData = GetTableItemData,> =
+export type UseTableItemReturnType<selectData = GetTableItemData,> =
   UseQueryReturnType<selectData, GetTableItemErrorType>
 
-/** https://khizab.dev/react/api/hooks/useGetTableItem */
-export function useGetTableItem<
+/** https://khizab.dev/react/api/hooks/useTableItem */
+export function useTableItem<
   config extends Config = ResolvedRegister['config'],
   selectData = GetTableItemData,
 >(
-  parameters: UseGetTableItemParameters<config, selectData> = {} as any,
-): UseGetTableItemReturnType<selectData> {
+  parameters: UseTableItemParameters<config, selectData> = {} as any,
+): UseTableItemReturnType<selectData> {
   const { handle, data, query = {} } = parameters
 
   const config = useConfig(parameters)

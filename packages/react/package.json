@@ -1,7 +1,7 @@
 {
   "name": "khizab",
   "description": "Reactivity for Aptos apps",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -56,24 +56,17 @@
   },
   "typesVersions": {
     "*": {
-      "actions": [
-        "./dist/types/exports/actions.d.ts"
-      ],
-      "networks": [
-        "./dist/types/exports/networks.d.ts"
-      ],
-      "connectors": [
-        "./dist/types/exports/connectors.d.ts"
-      ],
-      "query": [
-        "./dist/types/exports/query.d.ts"
-      ]
+      "actions": ["./dist/types/exports/actions.d.ts"],
+      "networks": ["./dist/types/exports/networks.d.ts"],
+      "connectors": ["./dist/types/exports/connectors.d.ts"],
+      "query": ["./dist/types/exports/query.d.ts"]
     }
   },
   "peerDependencies": {
     "@tanstack/react-query": ">=5.0.0",
     "react": ">=18",
-    "typescript": ">=5.0.4"
+    "typescript": ">=5.0.4",
+    "@aptos-labs/ts-sdk": "1.x"
   },
   "peerDependenciesMeta": {
     "typescript": {
@@ -94,9 +87,7 @@
     "react": ">=18",
     "react-dom": ">=18"
   },
-  "contributors": [
-    "Erfan Khadivar <hi@erfan.ee>"
-  ],
+  "contributors": ["Erfan Khadivar <hi@erfan.ee>"],
   "funding": "https://github.com/sponsors/khizab",
   "keywords": [
     "khizab",

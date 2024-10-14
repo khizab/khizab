@@ -2,16 +2,16 @@
 
 import {
   type Config,
-  type GetAccountInfoErrorType,
+  type GetAccountResourcesErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
 import { type UnionEvaluate } from '@khizab/core/internal'
 import {
-  type GetAccountInfoData,
-  type GetAccountInfoOptions,
-  type GetAccountInfoQueryFnData,
-  type GetAccountInfoQueryKey,
-  getAccountInfoQueryOptions,
+  type GetAccountResourcesData,
+  type GetAccountResourcesOptions,
+  type GetAccountResourcesQueryFnData,
+  type GetAccountResourcesQueryKey,
+  getAccountResourcesQueryOptions,
 } from '@khizab/core/query'
 
 import type { ConfigParameter, QueryParameter } from '../types/properties.js'
@@ -22,35 +22,36 @@ import {
 } from '../utils/query.js'
 import { useConfig } from './useConfig.js'
 
-export type UseGetAccountInfoParameters<
+export type UseAccountResourcesParameters<
   config extends Config = Config,
-  selectData = GetAccountInfoData,
+  selectData = GetAccountResourcesData,
 > = UnionEvaluate<
-  GetAccountInfoOptions &
+  GetAccountResourcesOptions &
     ConfigParameter<config> &
     QueryParameter<
-      GetAccountInfoQueryFnData,
-      GetAccountInfoErrorType,
+      GetAccountResourcesQueryFnData,
+      GetAccountResourcesErrorType,
       selectData,
-      GetAccountInfoQueryKey
+      GetAccountResourcesQueryKey
     >
 >
 
-export type UseGetAccountInfoReturnType<selectData = GetAccountInfoData,> =
-  UseQueryReturnType<selectData, GetAccountInfoErrorType>
+export type UseAccountResourcesReturnType<
+  selectData = GetAccountResourcesData,
+> = UseQueryReturnType<selectData, GetAccountResourcesErrorType>
 
-/** https://khizab.dev/react/api/hooks/useGetAccountInfo */
-export function useGetAccountInfo<
+/** https://khizab.dev/react/api/hooks/useAccountResources */
+export function useAccountResources<
   config extends Config = ResolvedRegister['config'],
-  selectData = GetAccountInfoData,
+  selectData = GetAccountResourcesData,
 >(
-  parameters: UseGetAccountInfoParameters<config, selectData> = {} as any,
-): UseGetAccountInfoReturnType<selectData> {
+  parameters: UseAccountResourcesParameters<config, selectData> = {} as any,
+): UseAccountResourcesReturnType<selectData> {
   const { accountAddress, query = {} } = parameters
 
   const config = useConfig(parameters)
 
-  const options = getAccountInfoQueryOptions<config>(config, {
+  const options = getAccountResourcesQueryOptions<config>(config, {
     ...(parameters as any),
   })
   const enabled = Boolean(accountAddress && (query.enabled ?? true))

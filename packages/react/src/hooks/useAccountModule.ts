@@ -22,7 +22,7 @@ import {
 } from '../utils/query.js'
 import { useConfig } from './useConfig.js'
 
-export type UseGetAccountModuleParameters<
+export type UseAccountModuleParameters<
   config extends Config = Config,
   selectData = GetAccountModuleData,
 > = UnionEvaluate<
@@ -36,16 +36,16 @@ export type UseGetAccountModuleParameters<
     >
 >
 
-export type UseGetAccountModuleReturnType<selectData = GetAccountModuleData,> =
+export type UseAccountModuleReturnType<selectData = GetAccountModuleData,> =
   UseQueryReturnType<selectData, GetAccountModuleErrorType>
 
-/** https://khizab.dev/react/api/hooks/useGetAccountModule */
-export function useGetAccountModule<
+/** https://khizab.dev/react/api/hooks/useAccountModule */
+export function useAccountModule<
   config extends Config = ResolvedRegister['config'],
   selectData = GetAccountModuleData,
 >(
-  parameters: UseGetAccountModuleParameters<config, selectData> = {} as any,
-): UseGetAccountModuleReturnType<selectData> {
+  parameters: UseAccountModuleParameters<config, selectData> = {} as any,
+): UseAccountModuleReturnType<selectData> {
   const { accountAddress, moduleName, query = {} } = parameters
 
   const config = useConfig(parameters)

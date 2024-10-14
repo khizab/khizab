@@ -96,70 +96,70 @@ export {
 } from '../hooks/useReadContracts.js'
 
 export {
-  type UseGetAccountInfoParameters,
-  type UseGetAccountInfoReturnType,
-  useGetAccountInfo,
-} from '../hooks/useGetAccountInfo.js'
+  type UseAccountInfoParameters,
+  type UseAccountInfoReturnType,
+  useAccountInfo,
+} from '../hooks/useAccountInfo.js'
 
 export {
-  type UseGetAccountModuleParameters,
-  type UseGetAccountModuleReturnType,
-  useGetAccountModule,
-} from '../hooks/useGetAccountModule.js'
+  type UseAccountModuleParameters,
+  type UseAccountModuleReturnType,
+  useAccountModule,
+} from '../hooks/useAccountModule.js'
 
 export {
-  type UseGetAccountModulesParameters,
-  type UseGetAccountModulesReturnType,
-  useGetAccountModules,
-} from '../hooks/useGetAccountModules.js'
+  type UseAccountModulesParameters,
+  type UseAccountModulesReturnType,
+  useAccountModules,
+} from '../hooks/useAccountModules.js'
 
 export {
-  type UseGetAccountResourceParameters,
-  type UseGetAccountResourceReturnType,
-  useGetAccountResource,
-} from '../hooks/useGetAccountResource.js'
+  type UseAccountResourceParameters,
+  type UseAccountResourceReturnType,
+  useAccountResource,
+} from '../hooks/useAccountResource.js'
 
 export {
-  type UseGetAccountResourcesParameters,
-  type UseGetAccountResourcesReturnType,
-  useGetAccountResources,
-} from '../hooks/useGetAccountResources.js'
+  type UseAccountResourcesParameters,
+  type UseAccountResourcesReturnType,
+  useAccountResources,
+} from '../hooks/useAccountResources.js'
 
 export {
-  type UseGetAccountTransactionsParameters,
-  type UseGetAccountTransactionsReturnType,
-  useGetAccountTransactions,
-} from '../hooks/useGetAccountTransactions.js'
+  type UseAccountTransactionsParameters,
+  type UseAccountTransactionsReturnType,
+  useAccountTransactions,
+} from '../hooks/useAccountTransactions.js'
 
 export {
-  type UseGetLedgerInfoParameters,
-  type UseGetLedgerInfoReturnType,
-  useGetLedgerInfo,
-} from '../hooks/useGetLedgerInfo.js'
+  type UseLedgerInfoParameters,
+  type UseLedgerInfoReturnType,
+  useLedgerInfo,
+} from '../hooks/useLedgerInfo.js'
 
 export {
-  type UseGetTableItemParameters,
-  type UseGetTableItemReturnType,
-  useGetTableItem,
-} from '../hooks/useGetTableItem.js'
+  type UseTableItemParameters,
+  type UseTableItemReturnType,
+  useTableItem,
+} from '../hooks/useTableItem.js'
 
 export {
-  type UseGetTransactionsParameters,
-  type UseGetTransactionsReturnType,
-  useGetTransactions,
-} from '../hooks/useGetTransactions.js'
+  type UseTransactionsParameters,
+  type UseTransactionsReturnType,
+  useTransactions,
+} from '../hooks/useTransactions.js'
 
 export {
-  type UseGetTransactionParameters,
-  type UseGetTransactionReturnType,
-  useGetTransaction,
-} from '../hooks/useGetTransaction.js'
+  type UseTransactionParameters,
+  type UseTransactionReturnType,
+  useTransaction,
+} from '../hooks/useTransaction.js'
 
 export {
-  type UseGetConnectorParameters,
-  type UseGetConnectorReturnType,
-  useGetConnector,
-} from '../hooks/useGetConnector.js'
+  type UseConnectorParameters,
+  type UseConnectorReturnType,
+  useConnector,
+} from '../hooks/useConnector.js'
 
 export {
   type UseWriteContractParameters,

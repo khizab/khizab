@@ -23,7 +23,7 @@ import {
 import { useConfig } from './useConfig.js'
 import type { AnyNumber, HexInput } from '@aptos-labs/ts-sdk'
 
-export type UseGetTransactionParameters<
+export type UseTransactionParameters<
   transactionHashOrVersion extends HexInput | AnyNumber,
   config extends Config = Config,
   selectData = GetTransactionData,
@@ -38,21 +38,21 @@ export type UseGetTransactionParameters<
     >
 >
 
-export type UseGetTransactionReturnType<selectData = GetTransactionData,> =
+export type UseTransactionReturnType<selectData = GetTransactionData,> =
   UseQueryReturnType<selectData, GetTransactionErrorType>
 
-/** https://khizab.dev/react/api/hooks/useGetTransaction */
-export function useGetTransaction<
+/** https://khizab.dev/react/api/hooks/useTransaction */
+export function useTransaction<
   transactionHashOrVersion extends HexInput | AnyNumber,
   config extends Config = ResolvedRegister['config'],
   selectData = GetTransactionData,
 >(
-  parameters: UseGetTransactionParameters<
+  parameters: UseTransactionParameters<
     transactionHashOrVersion,
     config,
     selectData
   > = {} as any,
-): UseGetTransactionReturnType<selectData> {
+): UseTransactionReturnType<selectData> {
   const { payload, query = {} } = parameters
 
   const config = useConfig(parameters)

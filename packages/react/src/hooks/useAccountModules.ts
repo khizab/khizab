@@ -2,16 +2,16 @@
 
 import {
   type Config,
-  type GetAccountResourceErrorType,
+  type GetAccountModulesErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
 import { type UnionEvaluate } from '@khizab/core/internal'
 import {
-  type GetAccountResourceData,
-  type GetAccountResourceOptions,
-  type GetAccountResourceQueryFnData,
-  type GetAccountResourceQueryKey,
-  getAccountResourceQueryOptions,
+  type GetAccountModulesData,
+  type GetAccountModulesOptions,
+  type GetAccountModulesQueryFnData,
+  type GetAccountModulesQueryKey,
+  getAccountModulesQueryOptions,
 } from '@khizab/core/query'
 
 import type { ConfigParameter, QueryParameter } from '../types/properties.js'
@@ -22,36 +22,36 @@ import {
 } from '../utils/query.js'
 import { useConfig } from './useConfig.js'
 
-export type UseGetAccountResourceParameters<
+export type UseAccountModulesParameters<
   config extends Config = Config,
-  selectData = GetAccountResourceData,
+  selectData = GetAccountModulesData,
 > = UnionEvaluate<
-  GetAccountResourceOptions &
+  GetAccountModulesOptions &
     ConfigParameter<config> &
     QueryParameter<
-      GetAccountResourceQueryFnData,
-      GetAccountResourceErrorType,
+      GetAccountModulesQueryFnData,
+      GetAccountModulesErrorType,
       selectData,
-      GetAccountResourceQueryKey
+      GetAccountModulesQueryKey
     >
 >
 
-export type UseGetAccountResourceReturnType<
-  selectData = GetAccountResourceData,
-> = UseQueryReturnType<selectData, GetAccountResourceErrorType>
+export type UseAccountModulesReturnType<
+  selectData = GetAccountModulesData,
+> = UseQueryReturnType<selectData, GetAccountModulesErrorType>
 
-/** https://khizab.dev/react/api/hooks/useGetAccountResource */
-export function useGetAccountResource<
+/** https://khizab.dev/react/api/hooks/useAccountModules */
+export function useAccountModules<
   config extends Config = ResolvedRegister['config'],
-  selectData = GetAccountResourceData,
+  selectData = GetAccountModulesData,
 >(
-  parameters: UseGetAccountResourceParameters<config, selectData> = {} as any,
-): UseGetAccountResourceReturnType<selectData> {
+  parameters: UseAccountModulesParameters<config, selectData> = {} as any,
+): UseAccountModulesReturnType<selectData> {
   const { accountAddress, query = {} } = parameters
 
   const config = useConfig(parameters)
 
-  const options = getAccountResourceQueryOptions<config>(config, {
+  const options = getAccountModulesQueryOptions<config>(config, {
     ...(parameters as any),
   })
   const enabled = Boolean(accountAddress && (query.enabled ?? true))
