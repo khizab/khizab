@@ -168,10 +168,6 @@ export function getSidebar() {
                 link: '/react/api/utilities/cookieToInitialState',
               },
               { text: 'deserialize', link: '/react/api/utilities/deserialize' },
-              {
-                text: 'normalizeChainId',
-                link: '/react/api/utilities/normalizeChainId',
-              },
               { text: 'serialize', link: '/react/api/utilities/serialize' },
             ],
           },
