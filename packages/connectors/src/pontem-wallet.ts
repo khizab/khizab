@@ -13,8 +13,7 @@ import type {
 } from '@aptos-labs/wallet-adapter-core'
 import { BCS, type MaybeHexString, TxnBuilderTypes, Types } from 'aptos'
 
-interface PontemProvider
-  extends Omit<PluginProvider, 'signAndSubmitTransaction'> {
+interface PontemProvider extends PluginProvider {
   signTransaction(
     transaction: any,
     options?: any,
@@ -24,10 +23,6 @@ interface PontemProvider
     payload: any,
     options?: any,
   ): Promise<any>
-  signAndSubmitTransaction: (
-    transaction: Types.TransactionPayload,
-    options?: any,
-  ) => Promise<Types.HexEncodedBytes | AptosWalletErrorResult>
   signAndSubmitBCSTransaction: (
     transaction: string,
     options?: any,
@@ -150,28 +145,23 @@ export function pontemWallet() {
       }
     },
 
-    async signAndSubmitTransaction(
-      transaction: Types.TransactionPayload,
-      options?: any,
-    ): Promise<{ hash: Types.HexEncodedBytes }> {
+    async signAndSubmitTransaction({ payload, options }) {
       try {
         const provider = this.getProvider()
-        const signer = await this.getAccount()
-        const tx = await provider?.generateTransaction(
-          signer.address,
-          transaction,
-          { ...options, max_gas_amount: options?.max_gas_amount?.toString() },
-        )
-        if (!tx)
-          throw new Error(
-            'Cannot generate transaction',
-          ) as AptosWalletErrorResult
-        const response = await provider?.signAndSubmitTransaction(tx)
+
+        const tx = {
+          arguments: payload.functionArguments,
+          function: payload.function,
+          type: 'entry_function_payload',
+          type_arguments: payload.typeArguments,
+        }
+
+        const response = await provider?.signAndSubmitTransaction(tx, options)
 
         if (!response) {
           throw new Error('No response') as AptosWalletErrorResult
         }
-        return { hash: response } as { hash: Types.HexEncodedBytes }
+        return response
       } catch (error: any) {
         console.log('signAndSubmitTransaction error ', error)
         throw error

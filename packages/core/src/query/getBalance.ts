@@ -11,17 +11,14 @@ import type { ScopeKeyParameter } from '../types/properties.js'
 import type { Evaluate, PartialBy } from '../types/utils.js'
 import { filterQueryOptions } from './utils.js'
 
-export type GetBalanceOptions<config extends Config> = Evaluate<
-  PartialBy<
-    GetBalanceParameters<config>,
-    'accountAddress' | 'coinType' | 'chainId'
-  > &
+export type GetBalanceOptions = Evaluate<
+  PartialBy<GetBalanceParameters, 'accountAddress' | 'coinType'> &
     ScopeKeyParameter
 >
 
 export function getBalanceQueryOptions<config extends Config>(
   config: config,
-  options: GetBalanceOptions<config> = {},
+  options: GetBalanceOptions = {},
 ) {
   return {
     async queryFn({ queryKey }) {
@@ -38,7 +35,7 @@ export function getBalanceQueryOptions<config extends Config>(
     GetBalanceQueryFnData,
     GetBalanceErrorType,
     GetBalanceData,
-    GetBalanceQueryKey<config>
+    GetBalanceQueryKey
   >
 }
 
@@ -46,12 +43,8 @@ export type GetBalanceQueryFnData = Evaluate<GetBalanceReturnType> | null
 
 export type GetBalanceData = GetBalanceQueryFnData
 
-export function getBalanceQueryKey<config extends Config>(
-  options: GetBalanceOptions<config> = {},
-) {
+export function getBalanceQueryKey(options: GetBalanceOptions = {}) {
   return ['balance', filterQueryOptions(options)] as const
 }
 
-export type GetBalanceQueryKey<config extends Config> = ReturnType<
-  typeof getBalanceQueryKey<config>
->
+export type GetBalanceQueryKey = ReturnType<typeof getBalanceQueryKey>

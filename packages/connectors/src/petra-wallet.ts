@@ -176,32 +176,6 @@ export function petraWallet() {
         throw errMsg
       }
     },
-    async signTransaction(
-      transaction: Types.TransactionPayload,
-      options?: any,
-    ): Promise<Uint8Array | AptosWalletErrorResult> {
-      try {
-        const provider = this.getProvider()
-        const signer = await this.getAccount()
-        const tx = await provider?.generateTransaction(
-          signer.address,
-          transaction,
-          options,
-        )
-        if (!tx)
-          throw new Error(
-            'Cannot generate transaction',
-          ) as AptosWalletErrorResult
-        const response = await provider?.signTransaction(tx)
-        if (!response) {
-          throw new Error('No response') as AptosWalletErrorResult
-        }
-        return response
-      } catch (error: any) {
-        console.log('Error', error)
-        throw error
-      }
-    },
     async signMessage(
       message: SignMessagePayload,
     ): Promise<SignMessageResponse> {

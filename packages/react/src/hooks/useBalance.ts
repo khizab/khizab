@@ -22,13 +22,13 @@ export type UseBalanceParameters<
   config extends Config = Config,
   selectData = GetBalanceData,
 > = Evaluate<
-  GetBalanceOptions<config> &
+  GetBalanceOptions &
     ConfigParameter<config> &
     QueryParameter<
       GetBalanceQueryFnData,
       GetBalanceErrorType,
       selectData,
-      GetBalanceQueryKey<config>
+      GetBalanceQueryKey
     >
 >
 

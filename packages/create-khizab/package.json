@@ -46,7 +46,7 @@
     "execa": "^8.0.1",
     "fs-extra": "^11.1.1"
   },
-  "contributors": ["awkweb.eth <t@wevm.dev>", "jxom.eth <j@wevm.dev>"],
+  "contributors": ["Erfan Khadivar <hi@erfan.ee>"],
   "funding": "https://github.com/sponsors/wevm",
   "keywords": ["khizab", "eth", "ethereum", "dapps", "wallet", "web3", "cli"]
 }
