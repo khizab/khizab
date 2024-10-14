@@ -45,10 +45,7 @@ export function useAccountTransactions<
   config extends Config = ResolvedRegister['config'],
   selectData = GetAccountTransactionsData,
 >(
-  parameters: UseAccountTransactionsParameters<
-    config,
-    selectData
-  > = {} as any,
+  parameters: UseAccountTransactionsParameters<config, selectData> = {} as any,
 ): UseAccountTransactionsReturnType<selectData> {
   const { accountAddress, query = {} } = parameters
 

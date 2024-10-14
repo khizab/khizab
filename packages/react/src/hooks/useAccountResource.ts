@@ -36,9 +36,8 @@ export type UseAccountResourceParameters<
     >
 >
 
-export type UseAccountResourceReturnType<
-  selectData = GetAccountResourceData,
-> = UseQueryReturnType<selectData, GetAccountResourceErrorType>
+export type UseAccountResourceReturnType<selectData = GetAccountResourceData,> =
+  UseQueryReturnType<selectData, GetAccountResourceErrorType>
 
 /** https://khizab.dev/react/api/hooks/useAccountResource */
 export function useAccountResource<

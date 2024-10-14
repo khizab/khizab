@@ -36,9 +36,8 @@ export type UseAccountModulesParameters<
     >
 >
 
-export type UseAccountModulesReturnType<
-  selectData = GetAccountModulesData,
-> = UseQueryReturnType<selectData, GetAccountModulesErrorType>
+export type UseAccountModulesReturnType<selectData = GetAccountModulesData,> =
+  UseQueryReturnType<selectData, GetAccountModulesErrorType>
 
 /** https://khizab.dev/react/api/hooks/useAccountModules */
 export function useAccountModules<
