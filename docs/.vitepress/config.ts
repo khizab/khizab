@@ -31,7 +31,7 @@ export default withTwoslash(
       ['meta', { name: 'twitter:image', content: 'https://khizab.dev/og.png' }],
       ['meta', { name: 'twitter:site', content: 'khizab.dev' }],
     ],
-    ignoreDeadLinks: false,
+    ignoreDeadLinks: true,
     lang: 'en-US',
     lastUpdated: true,
     markdown: {
