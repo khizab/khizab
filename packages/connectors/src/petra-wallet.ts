@@ -1,4 +1,8 @@
-import { createConnector } from '@khizab/core'
+import {
+  createConnector,
+  type PluginProvider,
+  type AptosWalletErrorResult,
+} from '@khizab/core'
 import type {
   AccountInfo,
   NetworkInfo,
@@ -7,8 +11,6 @@ import type {
   WalletName,
 } from '@aptos-labs/wallet-adapter-core'
 import { BCS, TxnBuilderTypes, Types } from 'aptos'
-import type { PluginProvider } from '../../core/src/connectors/createConnector.js'
-import type { AptosWalletErrorResult } from '../../core/src/errors/connector.js'
 
 interface PetraProvider extends PluginProvider {
   signTransaction(

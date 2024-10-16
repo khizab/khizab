@@ -187,6 +187,7 @@ export {
 export {
   type ConnectorEventMap,
   type CreateConnectorFn,
+  type PluginProvider,
   createConnector,
 } from '../connectors/createConnector.js'
 
@@ -241,6 +242,8 @@ export {
 } from '../errors/config.js'
 
 export {
+  type AptosWalletErrorResult,
+  isAptosWalletErrorResult,
   type ProviderNotFoundErrorType,
   ProviderNotFoundError,
   type SwitchChainNotSupportedErrorType,

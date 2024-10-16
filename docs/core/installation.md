@@ -41,7 +41,7 @@ If you're not using a package manager, you can also use Khizab Core via an ESM-c
 ```html-vue
 <script type="module">
   import { createConfig } from 'https://esm.sh/@khizab/core@{{version}}'
-  import { testnet } from 'https://esm.sh/@khizab/connectors'
+  import { petraWallet } from 'https://esm.sh/@khizab/connectors'
 </script>
 ```
 
