@@ -20,9 +20,6 @@ importers:
       '@changesets/cli':
         specifier: ^2.26.2
         version: 2.27.8
-      '@khizab/core':
-        specifier: workspace:*
-        version: link:packages/core
       bun:
         specifier: 1.0.1
         version: 1.0.1
@@ -107,6 +104,9 @@ importers:
       '@aptos-labs/ts-sdk':
         specifier: 1.*
         version: 1.28.0
+      '@khizab/core':
+        specifier: workspace:*
+        version: link:../core
       bundle-require:
         specifier: ^4.0.2
         version: 4.2.1(esbuild@0.19.12)
@@ -253,9 +253,6 @@ importers:
       '@tanstack/react-query':
         specifier: '>=5.0.0'
         version: 5.56.2(react@18.3.1)
-      '@testing-library/react':
-        specifier: '>=14.0.0'
-        version: 16.0.1(@types/react-dom@18.3.0)(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
       '@types/react':
         specifier: '>=18'
         version: 18.3.10
@@ -1213,21 +1210,6 @@ packages:
     resolution: {integrity: sha512-SR0GzHVo6yzhN72pnRhkEFRAHMsUo5ZPzAxfTMvUxFIDVS6W9LYUp6nXW3fcHVdg0ZJl8opSH85jqahvm6DSVg==}
     peerDependencies:
       react: ^18 || ^19
-
-  '@testing-library/react@16.0.1':
-    resolution: {integrity: sha512-dSmwJVtJXmku+iocRhWOUFbrERC76TX2Mnf0ATODz8brzAZrMBbzLwQixlBSanZxR6LddK3eiwpSFZgDET1URg==}
-    engines: {node: '>=18'}
-    peerDependencies:
-      '@testing-library/dom': ^10.0.0
-      '@types/react': ^18.0.0
-      '@types/react-dom': ^18.0.0
-      react: ^18.0.0
-      react-dom: ^18.0.0
-    peerDependenciesMeta:
-      '@types/react':
-        optional: true
-      '@types/react-dom':
-        optional: true
 
   '@tootallnate/once@2.0.0':
     resolution: {integrity: sha512-XCuKFP5PS55gnMVu3dty8KPatLqUoy/ZYzDzAGCQ8JNFCkLXzmI7vNHCR+XpbZaMWQK/vQubr7PkYq8g470J/A==}
@@ -4531,15 +4513,6 @@ snapshots:
     dependencies:
       '@tanstack/query-core': 5.56.2
       react: 18.3.1
-
-  '@testing-library/react@16.0.1(@types/react-dom@18.3.0)(@types/react@18.3.10)(react-dom@18.3.1(react@18.3.1))(react@18.3.1)':
-    dependencies:
-      '@babel/runtime': 7.25.6
-      react: 18.3.1
-      react-dom: 18.3.1(react@18.3.1)
-    optionalDependencies:
-      '@types/react': 18.3.10
-      '@types/react-dom': 18.3.0
 
   '@tootallnate/once@2.0.0': {}
 
