@@ -2,7 +2,7 @@
 
 import {
   type Abi,
-  type AbiViewFunctionNames,
+  type AbiFunctionNames,
   type Config,
   type InferAbiFunctionParams,
   type ReadContractErrorType,
@@ -27,7 +27,7 @@ import { useConfig } from './useConfig.js'
 
 export type UseReadContractParameters<
   abi extends Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi>,
   args extends InferAbiFunctionParams<
     abi,
     functionName
@@ -47,14 +47,14 @@ export type UseReadContractParameters<
 
 export type UseReadContractReturnType<
   abi extends Abi | undefined = Abi,
-  functionName extends AbiViewFunctionNames<abi> = AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi> = AbiFunctionNames<abi>,
   selectData = ReadContractData<abi, functionName>,
 > = UseQueryReturnType<selectData, ReadContractErrorType>
 
 /** https://khizab.dev/react/api/hooks/useReadContract */
 export function useReadContract<
   const abi extends Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi>,
   args extends InferAbiFunctionParams<abi, functionName>,
   config extends Config = ResolvedRegister['config'],
   selectData = ReadContractData<abi, functionName>,

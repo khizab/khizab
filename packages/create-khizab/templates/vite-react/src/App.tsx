@@ -13,9 +13,7 @@ function App() {
         <div>
           status: {account.status}
           <br />
-          addresses: {JSON.stringify(account.addresses)}
-          <br />
-          chainId: {account.chainId}
+          address: {JSON.stringify(account.address?.address)}
         </div>
 
         {account.status === 'connected' && (

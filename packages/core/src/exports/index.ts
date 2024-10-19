@@ -257,7 +257,7 @@ export {
 export { type Register, type ResolvedRegister } from '../types/register.js'
 export type {
   Abi,
-  AbiFunctionNames as AbiViewFunctionNames,
+  AbiFunctionNames,
   InferAbiFunction,
   InferAbiFunctionParams,
   InferAbiFunctionReturns,

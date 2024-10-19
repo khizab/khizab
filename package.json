@@ -10,6 +10,7 @@
     "deps": "pnpx taze -r",
     "dev": "pnpm dev:react",
     "dev:core": "pnpm --filter vite-core dev",
+    "dev:cli": "pnpm --filter cli dev",
     "dev:react": "pnpm --filter vite-react dev",
     "docs:dev": "rimraf node_modules/.cache/twoslash && pnpm --filter docs dev",
     "format": "biome format . --write",
@@ -59,18 +60,9 @@
     "pre-commit": "pnpm format && pnpm lint:fix"
   },
   "knip": {
-    "ignore": [
-      "**/*.test-d.ts",
-      "**/templates/**"
-    ],
-    "ignoreBinaries": [
-      "only-allow",
-      "open"
-    ],
-    "ignoreWorkspaces": [
-      "docs",
-      "playgrounds/**"
-    ],
+    "ignore": ["**/*.test-d.ts", "**/templates/**"],
+    "ignoreBinaries": ["only-allow", "open"],
+    "ignoreWorkspaces": ["docs", "playgrounds/**"],
     "workspaces": {
       ".": {
         "entry": ".scripts/*.ts"
@@ -81,11 +73,18 @@
       "packages/create-khizab": {
         "entry": "src/cli.ts!"
       },
+
+      "packages/cli": {
+        "entry": [
+          "src/cli.ts!",
+          "src/exports/{config,index,plugins}.ts!",
+          "types/*.d.ts!"
+        ],
+        "ignore": ["test/{constants,setup,utils}.ts"]
+      },
       "packages/core": {
         "entry": "src/exports/{actions,networks,index,internal,query}.ts!",
-        "ignoreDependencies": [
-          "@tanstack/query-core"
-        ]
+        "ignoreDependencies": ["@tanstack/query-core"]
       },
       "packages/react": {
         "entry": "src/exports/{actions,networks,connectors,index,query}.ts!"

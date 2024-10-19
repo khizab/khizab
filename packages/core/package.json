@@ -1,7 +1,7 @@
 {
   "name": "@khizab/core",
   "description": "VanillaJS library for Aptos",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -43,6 +43,10 @@
     "./networks": {
       "types": "./dist/types/exports/networks.d.ts",
       "default": "./dist/esm/exports/networks.js"
+    },
+    "./codegen": {
+      "types": "./dist/types/exports/codegen.d.ts",
+      "default": "./dist/esm/exports/codegen.js"
     },
     "./internal": {
       "types": "./dist/types/exports/internal.d.ts",
