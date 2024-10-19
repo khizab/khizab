@@ -22,7 +22,7 @@ Comprehensive documentation accompanies every module in Khizab Core, providing d
 
 Performance is a critical factor in any application, and Khizab Core is optimized to ensure efficient execution. The library is designed to minimize bundle size, with support for tree-shaking and dead-code elimination. This ensures that only the necessary parts of the library are included in the final build, leading to faster load times and improved performance.
 
-In addition to reducing the overall application size, Khizab Core supports caching, deduplication, persistence, and much more through [TanStack Query](/react/guides/tanstack-query) via the '@wagmi/core/query' entrypoint so you can [plug it into your framework of choice](/core/guides/framework-adapters), like Vue, Svelte, and more.
+In addition to reducing the overall application size, Khizab Core supports caching, deduplication, persistence, and much more through [TanStack Query](/react/guides/tanstack-query) via the '@khizab/core/query' entrypoint so you can [plug it into your framework of choice](/core/guides/framework-adapters), like Vue, Svelte, and more.
 
 
 ## Feature Coverage

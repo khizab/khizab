@@ -1,7 +1,7 @@
 {
   "name": "@khizab/core",
   "description": "VanillaJS library for Aptos",
-  "version": "0.0.3",
+  "version": "0.0.31",
   "license": "MIT",
   "repository": {
     "type": "git",
