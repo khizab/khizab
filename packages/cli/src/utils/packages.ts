@@ -19,7 +19,7 @@ export async function getIsPackageInstalled(parameters: {
   }
 }
 
-export async function getPackageManager(executable?: boolean | undefined) {
+async function getPackageManager(executable?: boolean | undefined) {
   const userAgent = process.env.npm_config_user_agent
   if (userAgent) {
     if (userAgent.includes('pnpm')) return 'pnpm'

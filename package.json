@@ -83,11 +83,11 @@
         "ignore": ["test/{constants,setup,utils}.ts"]
       },
       "packages/core": {
-        "entry": "src/exports/{actions,networks,index,internal,query}.ts!",
+        "entry": "src/exports/{actions,networks,codegen,index,internal,query}.ts!",
         "ignoreDependencies": ["@tanstack/query-core"]
       },
       "packages/react": {
-        "entry": "src/exports/{actions,networks,connectors,index,query}.ts!"
+        "entry": "src/exports/{actions,networks,codegen,connectors,index,query}.ts!"
       }
     }
   }
