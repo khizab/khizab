@@ -3,6 +3,8 @@ import { connect, disconnect, reconnect, watchAccount } from '@khizab/core'
 import './style.css'
 import { config } from './khizab'
 
+globalThis.Buffer = Buffer
+
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
   <div>
     <div id="account">
@@ -11,9 +13,7 @@ document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
       <div>
         status:
         <br />
-        addresses:
-        <br />
-        chainId:
+        address:
       </div>
     </div>
 
@@ -60,11 +60,11 @@ function setupApp(element: HTMLDivElement) {
         <div>
           status: ${account.status}
           <br />
-          addresses: ${
-            account.addresses ? JSON.stringify(account.addresses) : ''
+          address: ${
+            account.address?.address
+              ? JSON.stringify(account.address?.address)
+              : ''
           }
-          <br />
-          chainId: ${account.chainId ?? ''}
         </div>
         ${
           account.status === 'connected'

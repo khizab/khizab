@@ -6,9 +6,12 @@ export async function getIsUsingTypeScript() {
     const tsconfig = await findUp('tsconfig.json', { cwd })
     if (tsconfig) return true
 
-    const khizabConfig = await findUp(['khizab.config.ts', 'khizab.config.mts'], {
-      cwd,
-    })
+    const khizabConfig = await findUp(
+      ['khizab.config.ts', 'khizab.config.mts'],
+      {
+        cwd,
+      },
+    )
     if (khizabConfig) return true
 
     return false

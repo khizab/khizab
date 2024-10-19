@@ -19,7 +19,6 @@ export type Contract = Evaluate<
     /** Meta info about contract */
     meta: {
       abiName: string
-      addressName?: string | undefined
       configName?: string | undefined
     }
   }

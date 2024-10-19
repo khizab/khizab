@@ -300,32 +300,28 @@ async function getContract({
       })
     throw error
   }
-  const docString = ' doc string adfjiawef'
+  const docString = '// doc string kkkkkkkkkkk'
   let content = dedent`
     ${getBannerContent({ name })}
 
-    ${docString}
+     ${docString}
     export const ${abiName} = ${JSON.stringify(abi)}${constAssertion}
   `
 
   let meta: Contract['meta'] = { abiName }
 
-  const addressName = `${camelCase(name)}Address`
   const configName = `${camelCase(name)}Config`
   meta = {
     ...meta,
-    addressName,
     configName,
   }
 
   content = dedent`
       ${content}
 
-      ${docString}
-      export const ${addressName} = ${constAssertion}
 
       ${docString}
-      export const ${configName} = { address: ${addressName}, abi: ${abiName} }${constAssertion}
+      export const ${configName} = { abi: ${abiName} }${constAssertion}
     `
 
   return { abi, content, meta, name }

@@ -38,10 +38,7 @@ export function react(config: ReactConfig = {}): ReactResult {
           }
         }
 
-        let innerContent
-        if (contract.meta.addressName)
-          innerContent = `abi: ${contract.meta.abiName}, address: ${contract.meta.addressName}`
-        else innerContent = `abi: ${contract.meta.abiName}`
+        const innerContent = `abi: ${contract.meta.abiName}`
 
         if (hasReadFunction) {
           const hookName = getHookName(config, hookNames, 'read', contract.name)

@@ -7,9 +7,3 @@ export const config = createConfig({
   connectors: [petraWallet()],
   ssr: true,
 })
-
-declare module 'khizab' {
-  interface Register {
-    config: typeof config
-  }
-}

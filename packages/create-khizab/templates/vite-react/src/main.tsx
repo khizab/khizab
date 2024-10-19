@@ -1,16 +1,18 @@
-import { QueryClient, QueryClientProvider } from '@tanstack/react-query'
-import React from 'react'
-import ReactDOM from 'react-dom/client'
-import { KhizabProvider } from 'khizab'
+import { QueryClient, QueryClientProvider } from "@tanstack/react-query";
+import React from "react";
+import ReactDOM from "react-dom/client";
+import { KhizabProvider } from "khizab";
 
-import App from './App.tsx'
-import { config } from './khizab.ts'
+import App from "./App.tsx";
+import { config } from "./khizab.ts";
 
-import './index.css'
+import "./index.css";
 
-const queryClient = new QueryClient()
+globalThis.Buffer = Buffer;
 
-ReactDOM.createRoot(document.getElementById('root')!).render(
+const queryClient = new QueryClient();
+
+ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
     <KhizabProvider config={config}>
       <QueryClientProvider client={queryClient}>
@@ -18,4 +20,4 @@ ReactDOM.createRoot(document.getElementById('root')!).render(
       </QueryClientProvider>
     </KhizabProvider>
   </React.StrictMode>,
-)
+);
