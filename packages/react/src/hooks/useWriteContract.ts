@@ -2,7 +2,7 @@
 
 import {
   type Abi,
-  type AbiViewFunctionNames,
+  type AbiFunctionNames,
   type Config,
   type InferAbiFunctionParams,
   type WriteContractErrorType,
@@ -27,7 +27,7 @@ import { useConfig } from './useConfig.js'
 
 export type UseWriteContractParameters<
   abi extends Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi, true>,
   args extends InferAbiFunctionParams<
     abi,
     functionName
@@ -51,7 +51,7 @@ export type UseWriteContractReturnType<selectData = WriteContractData,> =
 /** https://khizab.dev/react/api/hooks/useWriteContract */
 export function useWriteContract<
   const abi extends Abi | undefined,
-  functionName extends AbiViewFunctionNames<abi>,
+  functionName extends AbiFunctionNames<abi, true>,
   args extends InferAbiFunctionParams<abi, functionName>,
   config extends Config = ResolvedRegister['config'],
   selectData = WriteContractData,

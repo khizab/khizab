@@ -44,6 +44,10 @@
       "types": "./dist/types/exports/networks.d.ts",
       "default": "./dist/esm/exports/networks.js"
     },
+    "./codegen": {
+      "types": "./dist/types/exports/codegen.d.ts",
+      "default": "./dist/esm/exports/codegen.js"
+    },
     "./internal": {
       "types": "./dist/types/exports/internal.d.ts",
       "default": "./dist/esm/exports/internal.js"
