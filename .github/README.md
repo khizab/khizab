@@ -42,7 +42,7 @@ For help, discussion about best practices, or any other conversation that would 
 
 ## Contributing
 
-Contributions to Wagmi are greatly appreciated! If you're interested in contributing to Wagmi, please read the [Contributing Guide](https://khizab.dev/dev/contributing) **before submitting a pull request**.
+Contributions to Khizab are greatly appreciated! If you're interested in contributing to Khizab, please read the [Contributing Guide](https://khizab.dev/dev/contributing) **before submitting a pull request**.
 
 <br>
 <br />
