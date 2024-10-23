@@ -4,9 +4,10 @@ import type {
   MoveFunctionVisibility,
   MoveValue,
 } from '@aptos-labs/ts-sdk'
+import type { Flatten } from './utils.js'
 
 export type MoveTypeMapping = {
-  address: `0x${string}`
+  address: string
   u8: number
   u16: number
   u32: number
@@ -16,6 +17,7 @@ export type MoveTypeMapping = {
   bool: boolean
   '0x1::string::String': string
   'vector<u8>': Uint8Array
+  '&signer': []
 }
 
 export type Abi = {
@@ -71,13 +73,17 @@ export type InferAbiFunction<
   { name: F; is_view: IsEntry extends true ? false : true; is_entry: IsEntry }
 >
 
+type FlattenParams<
+  T extends Abi,
+  F extends AbiFunctionNames<T>,
+  IsEntry extends boolean = false,
+> = Flatten<ParseMoveType<InferAbiFunction<T, F, IsEntry>['params']>>
+
 export type InferAbiFunctionParams<
   T extends Abi | undefined,
   F extends AbiFunctionNames<T>,
   IsEntry extends boolean = false,
-> = T extends Abi
-  ? ParseMoveType<InferAbiFunction<T, F, IsEntry>['params']>
-  : MoveValue[]
+> = T extends Abi ? FlattenParams<T, F, IsEntry> : MoveValue[]
 
 export type InferAbiFunctionReturns<
   T extends Abi | undefined,

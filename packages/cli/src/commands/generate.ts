@@ -300,11 +300,9 @@ async function getContract({
       })
     throw error
   }
-  const docString = '// doc string kkkkkkkkkkk'
   let content = dedent`
     ${getBannerContent({ name })}
 
-     ${docString}
     export const ${abiName} = ${JSON.stringify(abi)}${constAssertion}
   `
 
@@ -320,7 +318,6 @@ async function getContract({
       ${content}
 
 
-      ${docString}
       export const ${configName} = { abi: ${abiName} }${constAssertion}
     `
 

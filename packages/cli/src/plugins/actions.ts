@@ -162,14 +162,6 @@ function genDocString(
   let description = `Wraps __{@link ${actionName}}__ with \`abi\` set to __{@link ${contract.meta.abiName}}__`
   if (item) description += ` and \`${item.name}\` set to \`"${item.value}"\``
 
-  const docString = '// doc string address '
-  if (docString)
-    return `/**
- * ${description}
- * 
- ${docString}
- */`
-
   return `/**
  * ${description}
  */`
