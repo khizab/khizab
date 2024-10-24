@@ -365,15 +365,5 @@ export function getSidebar() {
         ],
       },
     ],
-    '/examples': [
-      {
-        text: 'React',
-        items: [
-          { text: 'Connect Wallet', link: '/examples/connect-wallet' },
-          { text: 'Send Transaction', link: '/examples/send-transaction' },
-          { text: 'Write Contract', link: '/examples/contract-write' },
-        ],
-      },
-    ],
   } satisfies DefaultTheme.Sidebar
 }
