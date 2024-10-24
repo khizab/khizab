@@ -51,14 +51,16 @@ export async function reconnect(
     scores[connection.connector.id] = 1
   }
   if (recentConnectorId) scores[recentConnectorId] = 0
-  const sorted =
-    Object.keys(scores).length > 0
-      ? // .toSorted()
-        [...connectors].sort(
-          (a, b) => (scores[a.id] ?? 10) - (scores[b.id] ?? 10),
-        )
-      : connectors
 
+  const filtered_connectors = connectors.filter(
+    (x) => scores[x.id] !== undefined,
+  )
+
+  const sorted = [...filtered_connectors].sort(
+    (a, b) => (scores[a.id] ?? 10) - (scores[b.id] ?? 10),
+  )
+
+  console.log({ sorted, filtered_connectors, scores })
   // Iterate through each connector and try to connect
   let connected = false
   const connections: Connection[] = []
