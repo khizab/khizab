@@ -348,13 +348,7 @@ export function getSidebar() {
         link: '/cli/api/plugins',
         items: [
           { text: 'actions', link: '/cli/api/plugins/actions' },
-          { text: 'blockExplorer', link: '/cli/api/plugins/blockExplorer' },
-          { text: 'aptosExplorer', link: '/cli/api/plugins/aptosExplorer' },
-          { text: 'fetch', link: '/cli/api/plugins/fetch' },
-          { text: 'foundry', link: '/cli/api/plugins/foundry' },
-          { text: 'hardhat', link: '/cli/api/plugins/hardhat' },
           { text: 'react', link: '/cli/api/plugins/react' },
-          { text: 'sourcify', link: '/cli/api/plugins/sourcify' },
         ],
       },
       {
@@ -368,16 +362,6 @@ export function getSidebar() {
         items: [
           { text: 'Contributing', link: '/dev/contributing' },
           { text: 'Creating Connectors', link: '/dev/creating-connectors' },
-        ],
-      },
-    ],
-    '/examples': [
-      {
-        text: 'React',
-        items: [
-          { text: 'Connect Wallet', link: '/examples/connect-wallet' },
-          { text: 'Send Transaction', link: '/examples/send-transaction' },
-          { text: 'Write Contract', link: '/examples/contract-write' },
         ],
       },
     ],

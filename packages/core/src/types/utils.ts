@@ -94,6 +94,19 @@ export type UnionOmit<type, keys extends keyof type> = type extends any
 
 export type UnionPartial<type> = type extends object ? ExactPartial<type> : type
 
+/**
+ * @description Utility type to remove items with the `never` type
+ *
+ * @example
+ * FilterNever<[[], string, number]>
+ * => [ string, number ]
+ */
+export type Flatten<T> = T extends readonly [infer First, ...infer Rest]
+  ? First extends any[]
+    ? Flatten<Rest>
+    : [First, ...Flatten<Rest>]
+  : []
+
 export type UnionExactPartial<type> = type extends object
   ? ExactPartial<type>
   : type

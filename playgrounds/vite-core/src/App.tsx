@@ -172,7 +172,7 @@ function ReactContract() {
       const [count] = await readContract(config, {
         abi: abi,
         functionName: 'get_todo_list_counter',
-        args: [account.address.address as `0x${string}`],
+        args: [account.address.address],
       })
       setTodoListCount(count)
     }
@@ -290,7 +290,7 @@ function WriteContract() {
     const res = await writeContract(config, {
       abi: abi,
       functionName: 'create_todo_list',
-      args: [] as any,
+      args: [],
     })
     setCreateTodoResult(res)
     console.log({ res })
