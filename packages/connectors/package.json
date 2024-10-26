@@ -44,10 +44,7 @@
       "optional": true
     }
   },
-  "dependencies": {
-    "@aptos-labs/wallet-adapter-core": "^3.6.0",
-    "aptos": "^1.21.0"
-  },
+  "dependencies": {},
   "devDependencies": {
     "@khizab/core": "workspace:*",
     "msw": "^2.0.6"

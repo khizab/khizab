@@ -49,7 +49,7 @@ function Account() {
     <div>
       <h2>Account</h2>
       <div>
-        account: {account.address?.publicKey}
+        account: {account.account?.publicKey}
         <br />
         Network: {account.network?.id} ({account.network?.name})
         <br />
@@ -114,13 +114,13 @@ function Balance() {
 
   React.useEffect(() => {
     const get = async () => {
-      if (!account.address) return
+      if (!account.account) return
       try {
         const balance = await getBalance(config, {
-          accountAddress: account.address.address as `0x${string}`,
+          accountAddress: account.account.address as `0x${string}`,
         })
         const usdt = await getBalance(config, {
-          accountAddress: account.address.address as `0x${string}`,
+          accountAddress: account.account.address as `0x${string}`,
           coinType:
             '0x43417434fd869edee76cca2a4d2301e528a1551b1d719b75c350c3c97d15b8b9::coins::USDT',
         })
@@ -132,7 +132,7 @@ function Balance() {
     }
 
     get()
-  }, [account.address, setBalance, setUsdt])
+  }, [account.account, setBalance, setUsdt])
 
   return (
     <div>
@@ -167,17 +167,17 @@ function ReactContract() {
   // biome-ignore lint/nursery/useExhaustiveDependencies: <explanation>
   React.useEffect(() => {
     const get = async () => {
-      if (!account.address) return
+      if (!account.account) return
 
       const [count] = await readContract(config, {
         abi: abi,
         functionName: 'get_todo_list_counter',
-        args: [account.address.address],
+        args: [account.account.address],
       })
       setTodoListCount(count)
     }
     get()
-  }, [account.address])
+  }, [account.account])
 
   return (
     <div>
@@ -217,21 +217,21 @@ function ReactContracts() {
   // biome-ignore lint/nursery/useExhaustiveDependencies: <explanation>
   React.useEffect(() => {
     const get = async () => {
-      if (!account.address) return
+      if (!account.account) return
       const res = await readContracts(config, {
         abi,
         payloads: [
           {
             functionName: 'get_todo_list_counter',
-            args: [account.address.address as `0x${string}`],
+            args: [account.account.address as `0x${string}`],
           },
           {
             functionName: 'get_todo_list_counter',
-            args: [account.address.address as `0x${string}`],
+            args: [account.account.address as `0x${string}`],
           },
           {
             functionName: 'get_todo_list_counter',
-            args: [account.address.address as `0x${string}`],
+            args: [account.account.address as `0x${string}`],
           },
         ],
       })
@@ -240,7 +240,7 @@ function ReactContracts() {
       setTodos(_todos)
     }
     get()
-  }, [account.address])
+  }, [account.account])
 
   return (
     <div>
@@ -285,7 +285,7 @@ function WriteContract() {
   }, [rerender])
 
   const createTodo = async () => {
-    if (!account.address) return
+    if (!account.account?.address) return
 
     const res = await writeContract(config, {
       abi: abi,

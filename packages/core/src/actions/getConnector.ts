@@ -1,4 +1,3 @@
-import type { AccountInfo } from '@aptos-labs/wallet-adapter-core'
 import type { Config, Connection, Connector } from '../createConfig.js'
 import type { BaseErrorType, ErrorType } from '../errors/base.js'
 import {
@@ -8,6 +7,7 @@ import {
   ConnectorUnavailableReconnectingError,
   type ConnectorUnavailableReconnectingErrorType,
 } from '../errors/config.js'
+import type { AccountInfo } from '../types/connector.js'
 import type { ConnectorParameter } from '../types/properties.js'
 import type { Compute } from '../types/utils.js'
 

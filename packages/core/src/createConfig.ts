@@ -2,7 +2,6 @@ import { persist, subscribeWithSelector } from 'zustand/middleware'
 import { type Mutate, type StoreApi, createStore } from 'zustand/vanilla'
 
 import { Aptos, AptosConfig, type ClientConfig } from '@aptos-labs/ts-sdk'
-import { type AccountInfo } from '@aptos-labs/wallet-adapter-core'
 import {
   type ConnectorEventMap,
   type CreateConnectorFn,
@@ -14,6 +13,7 @@ import type { Network } from './types/network.js'
 import type { Evaluate, ExactPartial } from './types/utils.js'
 import { uid } from './utils/uid.js'
 import { version } from './version.js'
+import type { AccountInfo } from './types/connector.js'
 
 export type CreateConfigParameters<
   network extends Network = Network,

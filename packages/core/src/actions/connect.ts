@@ -1,4 +1,3 @@
-import type { AccountInfo } from '@aptos-labs/wallet-adapter-core'
 import { type CreateConnectorFn } from '../connectors/createConnector.js'
 import { type Config, type Connector } from '../createConfig.js'
 import type { BaseErrorType, ErrorType } from '../errors/base.js'
@@ -6,6 +5,7 @@ import {
   ConnectorAlreadyConnectedError,
   type ConnectorAlreadyConnectedErrorType,
 } from '../errors/config.js'
+import type { AccountInfo } from '../types/connector.js'
 import { type Evaluate } from '../types/utils.js'
 
 export type ConnectParameters = Evaluate<{

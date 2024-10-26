@@ -1,21 +1,19 @@
-import type {
-  AccountInfo,
-  OnNetworkChange,
-} from '@aptos-labs/wallet-adapter-core'
 import { Emitter } from '../createEmitter.js'
 
 import { type Storage } from '../createStorage.js'
 import type { Network } from '../types/network.js'
 import { type Evaluate } from '../types/utils.js'
 import type {
+  AccountInfo,
   NetworkInfo,
+  OnNetworkChange,
   SignMessagePayload,
   SignMessageResponse,
 } from '../types/connector.js'
-import type {
-  HexInput,
-  InputEntryFunctionData,
-  InputGenerateTransactionOptions,
+import {
+  type HexInput,
+  type InputEntryFunctionData,
+  type InputGenerateTransactionOptions,
 } from '@aptos-labs/ts-sdk'
 import type { AptosWalletErrorResult } from '../errors/connector.js'
 
@@ -35,6 +33,10 @@ export interface PluginProvider {
     transaction: any,
     options?: any,
   ) => Promise<{ hash: HexInput } | AptosWalletErrorResult>
+  signTransaction: (
+    transaction: any,
+    options?: any,
+  ) => Promise<Uint8Array | AptosWalletErrorResult>
   signMessage: (message: SignMessagePayload) => Promise<SignMessageResponse>
   network: () => Promise<NetworkInfo>
   onAccountChange: (
@@ -65,11 +67,16 @@ export type CreateConnectorFn<
     disconnect(): Promise<void>
     getAccount(): Promise<AccountInfo>
     getProvider(): provider | never
-    onAccountChanged(callback: any): Promise<void>
+    onAccountChange(callback: any): Promise<void>
     signAndSubmitTransaction: (transaction: {
       payload: InputEntryFunctionData
       options?: InputGenerateTransactionOptions
     }) => Promise<{ hash: HexInput } | AptosWalletErrorResult>
+    signTransaction: (transaction: {
+      payload: InputEntryFunctionData
+      options?: InputGenerateTransactionOptions
+    }) => Promise<Uint8Array | AptosWalletErrorResult>
+    signMessage: (message: SignMessagePayload) => Promise<SignMessageResponse>
   } & properties
 >
 

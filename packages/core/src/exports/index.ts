@@ -255,6 +255,7 @@ export {
 ////////////////////////////////////////////////////////////////////////////////
 
 export { type Register, type ResolvedRegister } from '../types/register.js'
+
 export type {
   Abi,
   AbiFunctionNames,
@@ -262,6 +263,15 @@ export type {
   InferAbiFunctionParams,
   InferAbiFunctionReturns,
 } from '../types/abi.js'
+
+export type {
+  AccountInfo,
+  NetworkInfo,
+  WalletInfo,
+  WalletName,
+  SignMessagePayload,
+  SignMessageResponse,
+} from '../types/connector.js'
 
 ////////////////////////////////////////////////////////////////////////////////
 // Utilities
