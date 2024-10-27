@@ -1,4 +1,4 @@
-import { type Evaluate, type MaybeArray, type MaybePromise } from './types.js'
+import { type Compute, type MaybeArray, type MaybePromise } from './types.js'
 import { type Abi } from '@khizab/core'
 
 export type ContractConfig = {
@@ -12,7 +12,7 @@ export type ContractConfig = {
   name: string
 }
 
-export type Contract = Evaluate<
+export type Contract = Compute<
   ContractConfig & {
     /** Generated string content */
     content: string
