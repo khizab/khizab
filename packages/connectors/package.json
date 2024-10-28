@@ -44,7 +44,6 @@
       "optional": true
     }
   },
-  "dependencies": {},
   "devDependencies": {
     "@khizab/core": "workspace:*",
     "msw": "^2.0.6"
