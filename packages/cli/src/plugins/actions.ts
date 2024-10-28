@@ -1,7 +1,7 @@
 import { pascalCase } from 'change-case'
 
 import { type Contract, type Plugin } from '../config.js'
-import { type Evaluate, type RequiredBy } from '../types.js'
+import { type Compute, type RequiredBy } from '../types.js'
 import { getIsPackageInstalled } from '../utils/packages.js'
 
 export type ActionsConfig = {
@@ -13,7 +13,7 @@ export type ActionsConfig = {
   overridePackageName?: '@khizab/core' | 'khizab' | undefined
 }
 
-type ActionsResult = Evaluate<RequiredBy<Plugin, 'run'>>
+type ActionsResult = Compute<RequiredBy<Plugin, 'run'>>
 
 export function actions(config: ActionsConfig = {}): ActionsResult {
   return {

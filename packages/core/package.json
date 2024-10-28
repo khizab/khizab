@@ -1,7 +1,7 @@
 {
   "name": "@khizab/core",
   "description": "VanillaJS library for Aptos",
-  "version": "0.0.32",
+  "version": "0.0.35",
   "license": "MIT",
   "repository": {
     "type": "git",
@@ -81,7 +81,6 @@
     }
   },
   "dependencies": {
-    "@aptos-labs/wallet-adapter-core": "^3.6.0",
     "eventemitter3": "5.0.1",
     "zustand": "4.4.1"
   },

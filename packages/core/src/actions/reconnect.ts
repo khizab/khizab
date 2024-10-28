@@ -1,7 +1,7 @@
-import type { AccountInfo } from '@aptos-labs/wallet-adapter-core'
 import { type CreateConnectorFn } from '../connectors/createConnector.js'
 import type { Config, Connection, Connector } from '../createConfig.js'
 import type { ErrorType } from '../errors/base.js'
+import type { AccountInfo } from '../types/connector.js'
 import { type Evaluate } from '../types/utils.js'
 
 export type ReconnectParameters = {

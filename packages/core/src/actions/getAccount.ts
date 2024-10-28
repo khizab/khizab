@@ -1,10 +1,10 @@
-import type { AccountInfo } from '@aptos-labs/wallet-adapter-core'
 import { type Config, type Connector } from '../createConfig.js'
+import type { AccountInfo } from '../types/connector.js'
 import type { Network } from '../types/network.js'
 
 export type GetAccountReturnType =
   | {
-      address: AccountInfo
+      account: AccountInfo
       network: Network | undefined
       connector: Connector
       isConnected: true
@@ -14,7 +14,7 @@ export type GetAccountReturnType =
       status: 'connected'
     }
   | {
-      address: AccountInfo | undefined
+      account: AccountInfo | undefined
       network: Network | undefined
       connector: Connector | undefined
       isConnected: boolean
@@ -24,7 +24,7 @@ export type GetAccountReturnType =
       status: 'reconnecting'
     }
   | {
-      address: AccountInfo | undefined
+      account: AccountInfo | undefined
       network: Network | undefined
       connector: Connector | undefined
       isConnected: false
@@ -34,7 +34,7 @@ export type GetAccountReturnType =
       status: 'connecting'
     }
   | {
-      address: undefined
+      account: undefined
       network: undefined
       connector: undefined
       isConnected: false
@@ -51,14 +51,14 @@ export function getAccount<config extends Config>(
   const uid = config.state.current!
 
   const connection = config.state.connections.get(uid)
-  const address = connection?.account
+  const account = connection?.account
   const network = config.network as GetAccountReturnType['network']
   const status = config.state.status
 
   switch (status) {
     case 'connected':
       return {
-        address: address!,
+        account: account!,
         network,
         connector: connection?.connector!,
         isConnected: true,
@@ -69,10 +69,10 @@ export function getAccount<config extends Config>(
       }
     case 'reconnecting':
       return {
-        address,
+        account,
         network,
         connector: connection?.connector,
-        isConnected: !!address,
+        isConnected: !!account,
         isConnecting: false,
         isDisconnected: false,
         isReconnecting: true,
@@ -80,7 +80,7 @@ export function getAccount<config extends Config>(
       }
     case 'connecting':
       return {
-        address,
+        account,
         network,
         connector: connection?.connector,
         isConnected: false,
@@ -91,7 +91,7 @@ export function getAccount<config extends Config>(
       }
     case 'disconnected':
       return {
-        address: undefined,
+        account: undefined,
         network: undefined,
         connector: undefined,
         isConnected: false,

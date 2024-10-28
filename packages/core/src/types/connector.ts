@@ -6,7 +6,7 @@ export type NetworkInfo = {
   url?: string
 }
 
-type WalletName<T extends string = string> = T & {
+export type WalletName<T extends string = string> = T & {
   __brand__: 'WalletName'
 }
 export type WalletInfo = {
@@ -38,3 +38,10 @@ export interface SignMessageResponse {
   signature: string | string[]
   bitmap?: Uint8Array
 }
+
+export type OnNetworkChange = (
+  callBack: (networkInfo: NetworkInfo) => Promise<void>,
+) => Promise<void>
+export type OnAccountChange = (
+  callBack: (accountInfo: AccountInfo) => Promise<any>,
+) => Promise<void>

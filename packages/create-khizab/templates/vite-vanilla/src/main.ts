@@ -61,7 +61,7 @@ function setupApp(element: HTMLDivElement) {
           status: ${account.status}
           <br />
           address: ${
-            account.address?.address
+            account.account?.address
               ? JSON.stringify(account.address?.address)
               : ''
           }

@@ -1,7 +1,7 @@
 import { pascalCase } from 'change-case'
 
 import { type Contract, type Plugin } from '../config.js'
-import { type Evaluate, type RequiredBy } from '../types.js'
+import { type Compute, type RequiredBy } from '../types.js'
 
 export type ReactConfig = {
   getHookName?: (options: {
@@ -11,7 +11,7 @@ export type ReactConfig = {
   }) => `use${string}`
 }
 
-type ReactResult = Evaluate<RequiredBy<Plugin, 'run'>>
+type ReactResult = Compute<RequiredBy<Plugin, 'run'>>
 
 export function react(config: ReactConfig = {}): ReactResult {
   return {

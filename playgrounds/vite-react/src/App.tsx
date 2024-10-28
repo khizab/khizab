@@ -26,7 +26,7 @@ function App() {
 }
 
 function Account() {
-  const { address, network, status } = useAccount()
+  const { account, network, status } = useAccount()
   const { disconnect } = useDisconnect()
 
   return (
@@ -34,7 +34,7 @@ function Account() {
       <h2>Account</h2>
 
       <div>
-        account: {address?.address}
+        account: {account?.address}
         <br />
         chainId: {network?.name}
         <br />
@@ -72,9 +72,9 @@ function Connect() {
 }
 
 function Balance() {
-  const { address } = useAccount()
+  const { account } = useAccount()
 
-  const { data } = useBalance({ accountAddress: address?.address })
+  const { data } = useBalance({ accountAddress: account?.address })
 
   return (
     <div>
