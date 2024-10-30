@@ -3,7 +3,6 @@ import { connect, disconnect, reconnect, watchAccount } from '@khizab/core'
 
 import './style.css'
 import { config } from './khizab'
-
 ;(globalThis as any).Buffer = Buffer
 
 document.querySelector<HTMLDivElement>('#app')!.innerHTML = `
