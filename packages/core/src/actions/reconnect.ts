@@ -60,7 +60,6 @@ export async function reconnect(
     (a, b) => (scores[a.id] ?? 10) - (scores[b.id] ?? 10),
   )
 
-  console.log({ sorted, filtered_connectors, scores })
   // Iterate through each connector and try to connect
   let connected = false
   const connections: Connection[] = []

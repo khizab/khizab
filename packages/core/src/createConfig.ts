@@ -161,7 +161,6 @@ export function createConfig<
     store.setState((x) => {
       const connection = x.connections.get(data.uid)
 
-      console.log('data => ', { data, connection })
       if (!connection) return x
       return {
         ...x,
@@ -173,8 +172,6 @@ export function createConfig<
     })
   }
   function connect(data: EventData<ConnectorEventMap, 'connect'>) {
-    console.log('connect => ', data)
-
     // Disable handling if reconnecting/connecting
     if (
       store.getState().status === 'connecting' ||
