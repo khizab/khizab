@@ -20,6 +20,7 @@
   "devDependencies": {
     "@tanstack/react-query-devtools": "5.0.5",
     "@types/react": ">=18",
+    "@khizab/cli": "workspace:*",
     "@types/react-dom": ">=18",
     "@vitejs/plugin-react": "^4.1.0",
     "buffer": "^6.0.3",

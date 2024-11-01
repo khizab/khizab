@@ -25,6 +25,8 @@ export {
 } from '../types/properties.js'
 
 export {
+  type Compute,
+  type UnionCompute,
   type Evaluate,
   type ExactPartial,
   type Mutable,

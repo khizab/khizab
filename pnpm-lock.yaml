@@ -320,6 +320,9 @@ importers:
         specifier: '>=18'
         version: 18.3.1(react@18.3.1)
     devDependencies:
+      '@khizab/cli':
+        specifier: workspace:*
+        version: link:../../packages/cli
       '@tanstack/react-query-devtools':
         specifier: 5.0.5
         version: 5.0.5(@tanstack/react-query@5.56.2(react@18.3.1))(react-dom@18.3.1(react@18.3.1))(react@18.3.1)

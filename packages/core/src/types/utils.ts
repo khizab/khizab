@@ -135,3 +135,5 @@ type Assign_<T, U> = {
         : K
       : K]: K extends keyof U ? U[K] : T[K]
 }
+
+export type UnionCompute<type> = type extends object ? Compute<type> : type
