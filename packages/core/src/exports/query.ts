@@ -155,11 +155,10 @@ export {
 
 export {
   type WriteContractData,
-  type WriteContractOptions,
-  type WriteContractQueryFnData,
-  type WriteContractQueryKey,
-  writeContractQueryKey,
-  writeContractQueryOptions,
+  type WriteContractMutate,
+  type WriteContractMutateAsync,
+  type WriteContractVariables,
+  writeContractMutationOptions,
 } from '../query/writeContract.js'
 
 export {
