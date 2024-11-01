@@ -8,7 +8,6 @@ import App from './App.tsx'
 import { config } from './khizab.ts'
 
 import './index.css'
-
 ;(globalThis as any).Buffer = Buffer
 
 const queryClient = new QueryClient()
