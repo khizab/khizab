@@ -14,7 +14,6 @@ import type {
 import { getConnector, type GetConnectorErrorType } from './getConnector.js'
 import { getClient } from './getClient.js'
 import { isAptosWalletErrorResult } from '../errors/connector.js'
-import type { UnionCompute, UnionStrictOmit } from '../types/utils.js'
 
 export type WriteContractParameters<
   abi extends Abi | undefined,
