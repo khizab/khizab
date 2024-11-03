@@ -5,7 +5,7 @@ import {
   type GetTableItemErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
-import { type UnionEvaluate } from '@khizab/core/internal'
+import { type UnionCompute } from '@khizab/core/internal'
 import {
   type GetTableItemData,
   type GetTableItemOptions,
@@ -25,7 +25,7 @@ import { useConfig } from './useConfig.js'
 export type UseTableItemParameters<
   config extends Config = Config,
   selectData = GetTableItemData,
-> = UnionEvaluate<
+> = UnionCompute<
   GetTableItemOptions &
     ConfigParameter<config> &
     QueryParameter<

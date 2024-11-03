@@ -6,11 +6,13 @@ import type {
   InferAbiFunctionParams,
   ResolvedRegister,
   WriteContractErrorType,
+  WriteContractParameters,
 } from '@khizab/core'
 import type {
   Compute,
   ConnectorParameter,
   UnionCompute,
+  UnionStrictOmit,
 } from '@khizab/core/internal'
 import type {
   WriteContractData,
@@ -21,7 +23,6 @@ import { useCallback } from 'react'
 import {
   type UseWriteContractParameters,
   useWriteContract,
-  type UseWriteContractReturnType as wagmi_UseWriteContractReturnType,
   type UseWriteContractReturnType,
 } from '../useWriteContract.js'
 
@@ -67,7 +68,7 @@ export type CreateUseWriteContractReturnType<
         : AbiFunctionNames<abi, true>,
       args extends InferAbiFunctionParams<abi2, name, true>,
     >(
-      variables: Variables<abi2, functionName, name, args, config>,
+      variables: Variables<abi2, functionName, name, args>,
       options?:
         | MutateOptions<
             WriteContractData,
@@ -86,9 +87,11 @@ export function createUseWriteContract<
 >(
   props: CreateUseWriteContractParameters<abi, functionName>,
 ): CreateUseWriteContractReturnType<abi, functionName> {
+  console.log('write props', props)
   return (parameters) => {
+    console.log('write parameters', props)
     const result = useWriteContract(parameters)
-    type Args = Parameters<wagmi_UseWriteContractReturnType['writeContract']>
+    type Args = Parameters<UseWriteContractReturnType['writeContract']>
     return {
       ...(result as any),
       writeContract: useCallback(
@@ -122,16 +125,11 @@ type Variables<
   functionName extends AbiFunctionNames<abi, true> | undefined,
   name extends AbiFunctionNames<abi, true>,
   args extends InferAbiFunctionParams<abi, name, true>,
-  allFunctionNames = AbiFunctionNames<abi, true>,
-  omittedProperties extends 'abi' | 'functionName' =
+  omittedProperties extends 'abi' | 'functionName' | 'args' =
     | 'abi'
-    | (functionName extends undefined ? never : 'functionName'),
+    | (functionName extends undefined ? never : 'functionName')
+    | (args['length'] extends 0 ? 'args' : never),
 > = UnionCompute<
-  {
-    abi: abi
-    name: name
-    args: args
-    allFunctionNames: allFunctionNames
-  } & omittedProperties &
+  UnionStrictOmit<WriteContractParameters<abi, name, args>, omittedProperties> &
     ConnectorParameter & { __mode?: 'prepared' }
 >

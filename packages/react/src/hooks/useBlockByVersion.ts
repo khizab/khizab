@@ -1,7 +1,7 @@
 'use client'
 
 import { type Config, type ResolvedRegister } from '@khizab/core'
-import { type Evaluate } from '@khizab/core/internal'
+import { type Compute } from '@khizab/core/internal'
 import {
   type GetBlockByVersionData,
   type GetBlockByVersionOptions,
@@ -17,7 +17,7 @@ import { useConfig } from './useConfig.js'
 export type UseBlockByVersionParameters<
   config extends Config = Config,
   selectData = GetBlockByVersionData,
-> = Evaluate<
+> = Compute<
   GetBlockByVersionOptions &
     ConfigParameter<config> &
     QueryParameter<

@@ -1,7 +1,7 @@
 import { AccountAddress, Network as AptosNetwork } from '@aptos-labs/ts-sdk'
+export { Network as NetworkName } from '@aptos-labs/ts-sdk'
 import type { IsUndefined } from './utils.js'
 
-export { AptosNetwork as NetworkName }
 export type Network = {
   /** Collection of block explorers */
   blockExplorers?:

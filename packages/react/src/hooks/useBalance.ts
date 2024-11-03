@@ -5,7 +5,7 @@ import {
   type GetBalanceErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
-import type { Evaluate } from '@khizab/core/internal'
+import type { Compute } from '@khizab/core/internal'
 import {
   type GetBalanceData,
   type GetBalanceOptions,
@@ -21,7 +21,7 @@ import { useConfig } from './useConfig.js'
 export type UseBalanceParameters<
   config extends Config = Config,
   selectData = GetBalanceData,
-> = Evaluate<
+> = Compute<
   GetBalanceOptions &
     ConfigParameter<config> &
     QueryParameter<

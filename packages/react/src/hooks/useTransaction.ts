@@ -5,7 +5,7 @@ import {
   type GetTransactionErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
-import { type UnionEvaluate } from '@khizab/core/internal'
+import { type UnionCompute } from '@khizab/core/internal'
 import {
   type GetTransactionData,
   type GetTransactionOptions,
@@ -27,7 +27,7 @@ export type UseTransactionParameters<
   transactionHashOrVersion extends HexInput | AnyNumber,
   config extends Config = Config,
   selectData = GetTransactionData,
-> = UnionEvaluate<
+> = UnionCompute<
   GetTransactionOptions<transactionHashOrVersion> &
     ConfigParameter<config> &
     QueryParameter<

@@ -8,7 +8,7 @@ import {
 } from '../actions/readContract.js'
 import { type Config } from '../createConfig.js'
 import { type ScopeKeyParameter } from '../types/properties.js'
-import { type UnionPartial } from '../types/utils.js'
+import { type UnionExactPartial } from '../types/utils.js'
 import { filterQueryOptions } from './utils.js'
 import type {
   Abi,
@@ -20,7 +20,7 @@ export type ReadContractOptions<
   abi extends Abi | undefined,
   functionName extends AbiFunctionNames<abi>,
   args extends InferAbiFunctionParams<abi, functionName>,
-> = UnionPartial<ReadContractParameters<abi, functionName, args>> &
+> = UnionExactPartial<ReadContractParameters<abi, functionName, args>> &
   ScopeKeyParameter
 
 export function readContractQueryOptions<

@@ -8,7 +8,7 @@ import {
   type ReadContractErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
-import { type UnionEvaluate } from '@khizab/core/internal'
+import { type UnionCompute } from '@khizab/core/internal'
 import {
   type ReadContractData,
   type ReadContractOptions,
@@ -34,7 +34,7 @@ export type UseReadContractParameters<
   > = InferAbiFunctionParams<abi, functionName>,
   config extends Config = Config,
   selectData = ReadContractData<abi, functionName>,
-> = UnionEvaluate<
+> = UnionCompute<
   ReadContractOptions<abi, functionName, args> &
     ConfigParameter<config> &
     QueryParameter<

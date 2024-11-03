@@ -4,7 +4,15 @@ import {
   useBalance,
   useConnect,
   useDisconnect,
+  useWriteContract,
 } from 'khizab'
+
+import {
+  increaseAbi,
+  useReadIncreaseViewCount,
+  useWriteIncrease,
+  useWriteIncreaseRaiseC,
+} from './generated'
 
 function App() {
   useAccountEffect({
@@ -21,6 +29,8 @@ function App() {
       <Account />
       <Connect />
       <Balance />
+      <WriteContract />
+      <Increase />
     </>
   )
 }
@@ -81,6 +91,59 @@ function Balance() {
       <h2>Balance</h2>
 
       <div>APT: {data?.formatted}</div>
+    </div>
+  )
+}
+
+function WriteContract() {
+  const { writeContract } = useWriteContract()
+
+  return (
+    <div>
+      <h2>Write Contract</h2>
+
+      <button
+        type="button"
+        onClick={() => {
+          writeContract({
+            abi: increaseAbi,
+            functionName: 'raise_c',
+            args: [],
+          })
+        }}
+      >
+        Increase
+      </button>
+    </div>
+  )
+}
+
+function Increase() {
+  const { account } = useAccount()
+
+  const { data: count, status } = useReadIncreaseViewCount({
+    args: [account?.address!],
+  })
+  const { writeContractAsync } = useWriteIncreaseRaiseC()
+  const { writeContract } = useWriteIncrease()
+
+  return (
+    <div>
+      <h2>Incraese Contract</h2>
+
+      <div>Count: {count ? Number(count[0]) : status}</div>
+      <button
+        type="button"
+        onClick={async () => {
+          writeContract({
+            functionName: 'create_counter',
+          })
+
+          await writeContractAsync({})
+        }}
+      >
+        Increase
+      </button>
     </div>
   )
 }

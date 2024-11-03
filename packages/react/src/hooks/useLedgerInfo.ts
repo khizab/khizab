@@ -5,7 +5,7 @@ import {
   type GetLedgerInfoErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
-import { type UnionEvaluate } from '@khizab/core/internal'
+import { type UnionCompute } from '@khizab/core/internal'
 import {
   type GetLedgerInfoData,
   type GetLedgerInfoQueryFnData,
@@ -24,7 +24,7 @@ import { useConfig } from './useConfig.js'
 export type UseLedgerInfoParameters<
   config extends Config = Config,
   selectData = GetLedgerInfoData,
-> = UnionEvaluate<
+> = UnionCompute<
   GetLedgerInfoData &
     ConfigParameter<config> &
     QueryParameter<

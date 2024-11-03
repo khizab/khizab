@@ -2,7 +2,7 @@ import { Emitter } from '../createEmitter.js'
 
 import { type Storage } from '../createStorage.js'
 import type { Network } from '../types/network.js'
-import { type Evaluate } from '../types/utils.js'
+import { type Compute } from '../types/utils.js'
 import type {
   AccountInfo,
   NetworkInfo,
@@ -52,8 +52,8 @@ export type CreateConnectorFn<
 > = (config: {
   network: Network
   emitter: Emitter<ConnectorEventMap>
-  storage?: Evaluate<Storage<storageItem>> | null | undefined
-}) => Evaluate<
+  storage?: Compute<Storage<storageItem>> | null | undefined
+}) => Compute<
   {
     readonly icon?: string | undefined
     readonly id: string

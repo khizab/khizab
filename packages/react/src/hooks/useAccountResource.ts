@@ -5,7 +5,7 @@ import {
   type GetAccountResourceErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
-import { type UnionEvaluate } from '@khizab/core/internal'
+import { type UnionCompute } from '@khizab/core/internal'
 import {
   type GetAccountResourceData,
   type GetAccountResourceOptions,
@@ -25,7 +25,7 @@ import { useConfig } from './useConfig.js'
 export type UseAccountResourceParameters<
   config extends Config = Config,
   selectData = GetAccountResourceData,
-> = UnionEvaluate<
+> = UnionCompute<
   GetAccountResourceOptions &
     ConfigParameter<config> &
     QueryParameter<

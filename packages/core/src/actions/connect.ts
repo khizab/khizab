@@ -6,9 +6,9 @@ import {
   type ConnectorAlreadyConnectedErrorType,
 } from '../errors/config.js'
 import type { AccountInfo } from '../types/connector.js'
-import { type Evaluate } from '../types/utils.js'
+import { type Compute } from '../types/utils.js'
 
-export type ConnectParameters = Evaluate<{
+export type ConnectParameters = Compute<{
   connector: Connector | CreateConnectorFn
 }>
 

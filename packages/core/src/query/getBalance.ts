@@ -8,10 +8,10 @@ import {
 } from '../actions/getBalance.js'
 import { type Config } from '../createConfig.js'
 import type { ScopeKeyParameter } from '../types/properties.js'
-import type { Evaluate, PartialBy } from '../types/utils.js'
+import type { Compute, PartialBy } from '../types/utils.js'
 import { filterQueryOptions } from './utils.js'
 
-export type GetBalanceOptions = Evaluate<
+export type GetBalanceOptions = Compute<
   PartialBy<GetBalanceParameters, 'accountAddress' | 'coinType'> &
     ScopeKeyParameter
 >
@@ -39,7 +39,7 @@ export function getBalanceQueryOptions<config extends Config>(
   >
 }
 
-export type GetBalanceQueryFnData = Evaluate<GetBalanceReturnType> | null
+export type GetBalanceQueryFnData = Compute<GetBalanceReturnType> | null
 
 export type GetBalanceData = GetBalanceQueryFnData
 

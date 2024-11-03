@@ -14,6 +14,7 @@ import type {
 import { getConnector, type GetConnectorErrorType } from './getConnector.js'
 import { getClient } from './getClient.js'
 import { isAptosWalletErrorResult } from '../errors/connector.js'
+import type { UnionCompute, UnionStrictOmit } from '../types/utils.js'
 
 export type WriteContractParameters<
   abi extends Abi | undefined,
@@ -67,25 +68,20 @@ export async function writeContract<
       args && args.length > 0 ? args.map((a) => String(a)) : [],
     typeArguments: typeArguments ?? [],
   }
-  try {
-    const connector = await getConnector(config)
-    const client = getClient(config)
+  const connector = await getConnector(config)
+  const client = getClient(config)
 
-    const response = await connector.signAndSubmitTransaction({
-      payload: transaction,
-      options,
-    })
+  const response = await connector.signAndSubmitTransaction({
+    payload: transaction,
+    options,
+  })
 
-    if (isAptosWalletErrorResult(response)) throw response
+  if (isAptosWalletErrorResult(response)) throw response
 
-    const result = await client?.waitForTransaction({
-      transactionHash: response.hash,
-    })
-    if (!result) throw 'Transaction failed'
+  const result = await client?.waitForTransaction({
+    transactionHash: response.hash,
+  })
+  if (!result) throw new Error('Transaction failed')
 
-    return result
-  } catch (error) {
-    console.log('error in writeContract', error)
-    throw error
-  }
+  return result
 }

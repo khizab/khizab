@@ -5,7 +5,7 @@ import type {
   InferAbiFunctionParams,
 } from '../../types/abi.js'
 import { type ConnectorParameter } from '../../types/properties.js'
-import { type UnionEvaluate } from '../../types/utils.js'
+import { type UnionCompute } from '../../types/utils.js'
 import {
   type WriteContractReturnType,
   writeContract,
@@ -31,7 +31,7 @@ export type CreateWriteContractReturnType<
   args extends InferAbiFunctionParams<abi, name, true>,
 >(
   config: config,
-  parameters: UnionEvaluate<
+  parameters: UnionCompute<
     WriteContractParameters<abi, name, args> &
       ConnectorParameter & { __mode?: 'prepared' }
   >,

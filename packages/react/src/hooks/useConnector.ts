@@ -5,7 +5,7 @@ import {
   type GetConnectorErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
-import { type UnionEvaluate } from '@khizab/core/internal'
+import { type UnionCompute } from '@khizab/core/internal'
 import {
   type GetConnectorData,
   type GetConnectorOptions,
@@ -25,7 +25,7 @@ import { useConfig } from './useConfig.js'
 export type UseConnectorParameters<
   config extends Config = Config,
   selectData = GetConnectorData,
-> = UnionEvaluate<
+> = UnionCompute<
   GetConnectorOptions &
     ConfigParameter<config> &
     QueryParameter<

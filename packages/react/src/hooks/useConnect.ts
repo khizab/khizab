@@ -7,7 +7,7 @@ import {
   type Connector,
   type ResolvedRegister,
 } from '@khizab/core'
-import type { Evaluate } from '@khizab/core/internal'
+import type { Compute } from '@khizab/core/internal'
 import {
   type ConnectData,
   type ConnectMutate,
@@ -28,7 +28,7 @@ import { useConnectors } from './useConnectors.js'
 export type UseConnectParameters<
   config extends Config = Config,
   context = unknown,
-> = Evaluate<
+> = Compute<
   ConfigParameter<config> & {
     mutation?:
       | UseMutationParameters<
@@ -41,7 +41,7 @@ export type UseConnectParameters<
   }
 >
 
-export type UseConnectReturnType<context = unknown> = Evaluate<
+export type UseConnectReturnType<context = unknown> = Compute<
   UseMutationReturnType<
     ConnectData,
     ConnectErrorType,

@@ -4,7 +4,7 @@ import type {
   AbiFunctionNames,
   InferAbiFunctionParams,
 } from '../../types/abi.js'
-import { type UnionEvaluate, type UnionOmit } from '../../types/utils.js'
+import { type UnionCompute, type UnionOmit } from '../../types/utils.js'
 import {
   type ReadContractParameters,
   type ReadContractReturnType,
@@ -34,7 +34,7 @@ export type CreateReadContractReturnType<
   args extends InferAbiFunctionParams<abi, name>,
 >(
   config: config,
-  parameters: UnionEvaluate<
+  parameters: UnionCompute<
     UnionOmit<ReadContractParameters<abi, name, args>, omittedProperties>
   >,
 ) => Promise<ReadContractReturnType<abi, name>>

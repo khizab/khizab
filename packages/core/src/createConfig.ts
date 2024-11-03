@@ -10,7 +10,7 @@ import { Emitter, type EventData, createEmitter } from './createEmitter.js'
 import { type Storage, createStorage, noopStorage } from './createStorage.js'
 import { NetworkNotConfiguredError } from './errors/config.js'
 import type { Network } from './types/network.js'
-import type { Evaluate, ExactPartial } from './types/utils.js'
+import type { Compute, ExactPartial } from './types/utils.js'
 import { uid } from './utils/uid.js'
 import { version } from './version.js'
 import type { AccountInfo } from './types/connector.js'
@@ -18,7 +18,7 @@ import type { AccountInfo } from './types/connector.js'
 export type CreateConfigParameters<
   network extends Network = Network,
   clientConfig extends Partial<ClientConfig> = Partial<ClientConfig>,
-> = Evaluate<{
+> = Compute<{
   network: network
   connectors?: CreateConnectorFn[] | undefined
   multiInjectedProviderDiscovery?: boolean | undefined
@@ -338,7 +338,7 @@ export type State = {
   status: 'connected' | 'connecting' | 'disconnected' | 'reconnecting'
 }
 
-export type PartializedState = Evaluate<
+export type PartializedState = Compute<
   ExactPartial<Pick<State, 'connections' | 'current' | 'status'>>
 >
 

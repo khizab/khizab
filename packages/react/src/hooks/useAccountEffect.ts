@@ -1,16 +1,16 @@
 'use client'
 
 import { type GetAccountReturnType, watchAccount } from '@khizab/core'
-import type { Evaluate } from '@khizab/core/internal'
+import type { Compute } from '@khizab/core/internal'
 import { useEffect } from 'react'
 
 import type { ConfigParameter } from '../types/properties.js'
 import { useConfig } from './useConfig.js'
 
-export type UseAccountEffectParameters = Evaluate<
+export type UseAccountEffectParameters = Compute<
   {
     onConnect?(
-      data: Evaluate<
+      data: Compute<
         Pick<
           Extract<GetAccountReturnType, { status: 'connected' }>,
           'account' | 'network' | 'connector'

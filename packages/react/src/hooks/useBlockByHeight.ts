@@ -1,7 +1,7 @@
 'use client'
 
 import { type Config, type ResolvedRegister } from '@khizab/core'
-import { type Evaluate } from '@khizab/core/internal'
+import { type Compute } from '@khizab/core/internal'
 import {
   type GetBlockByHeightData,
   type GetBlockByHeightOptions,
@@ -17,7 +17,7 @@ import { useConfig } from './useConfig.js'
 export type UseBlockByHeightParameters<
   config extends Config = Config,
   selectData = GetBlockByHeightData,
-> = Evaluate<
+> = Compute<
   GetBlockByHeightOptions &
     ConfigParameter<config> &
     QueryParameter<

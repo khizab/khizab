@@ -5,7 +5,7 @@ import {
   type GetTransactionsErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
-import { type UnionEvaluate } from '@khizab/core/internal'
+import { type UnionCompute } from '@khizab/core/internal'
 import {
   type GetTransactionsData,
   type GetTransactionsOptions,
@@ -25,7 +25,7 @@ import { useConfig } from './useConfig.js'
 export type UseTransactionsParameters<
   config extends Config = Config,
   selectData = GetTransactionsData,
-> = UnionEvaluate<
+> = UnionCompute<
   GetTransactionsOptions &
     ConfigParameter<config> &
     QueryParameter<

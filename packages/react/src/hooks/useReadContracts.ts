@@ -9,7 +9,7 @@ import {
   type ResolvedRegister,
 } from '@khizab/core'
 
-import { type Evaluate } from '@khizab/core/internal'
+import { type Compute } from '@khizab/core/internal'
 import {
   type ReadContractsData,
   type ReadContractsOptions,
@@ -40,7 +40,7 @@ export type UseReadContractsParameters<
   allowFailure extends boolean = boolean,
   config extends Config = Config,
   selectData = ReadContractsData<abi, functionName>,
-> = Evaluate<
+> = Compute<
   ReadContractsOptions<abi, functionName, payloads, allowFailure> &
     ConfigParameter<config> &
     QueryParameter<

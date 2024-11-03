@@ -1,9 +1,5 @@
 export type Compute<type> = { [key in keyof type]: type[key] } & unknown
 
-/** Combines members of an intersection into a readable type. */
-// https://twitter.com/mattpocockuk/status/1622730173446557697?s=20&t=NdpAcmEFXY01xkqU3KO0Mg
-export type Evaluate<type> = { [key in keyof type]: type[key] } & unknown
-
 /**
  * Makes all properties of an object optional.
  *
@@ -12,6 +8,12 @@ export type Evaluate<type> = { [key in keyof type]: type[key] } & unknown
 export type ExactPartial<type> = {
   [key in keyof type]?: type[key] | undefined
 }
+
+/** Strict version of built-in Omit type */
+export type StrictOmit<type, keys extends keyof type> = Pick<
+  type,
+  Exclude<keyof type, keys>
+>
 
 /** Checks if {@link type} can be narrowed further than {@link type2} */
 export type IsNarrowable<type, type2> = IsUnknown<type> extends true
@@ -23,6 +25,18 @@ export type IsNarrowable<type, type2> = IsUnknown<type> extends true
     > extends true
   ? false
   : true
+
+/**
+ * @description Combines members of an intersection into a readable type.
+ *
+ * @see {@link https://twitter.com/mattpocockuk/status/1622730173446557697?s=20&t=NdpAcmEFXY01xkqU3KO0Mg}
+ * @example
+ * Prettify<{ a: string } & { b: string } & { c: number, d: bigint }>
+ * => { a: string, b: string, c: number, d: bigint }
+ */
+export type Prettify<T> = {
+  [K in keyof T]: T[K]
+} & {}
 
 /**
  * @internal
@@ -37,7 +51,7 @@ export type IsNever<type> = [type] extends [never] ? true : false
 export type IsUnknown<type> = unknown extends type ? true : false
 
 /** Merges two object types into new type  */
-export type Merge<obj1, obj2> = Evaluate<
+export type Merge<obj1, obj2> = Compute<
   LooseOmit<obj1, keyof obj2 extends infer key extends string ? key : never> &
     obj2
 >
@@ -59,7 +73,7 @@ export type OneOf<
   ///
   keys extends KeyofUnion<union> = KeyofUnion<union>,
 > = union extends infer Item
-  ? Evaluate<Item & { [K in Exclude<keys, keyof Item>]?: undefined }>
+  ? Compute<Item & { [K in Exclude<keys, keyof Item>]?: undefined }>
   : never
 type KeyofUnion<type> = type extends type ? keyof type : never
 
@@ -79,21 +93,6 @@ export type LooseOmit<type, keys extends string> = Pick<
   Exclude<keyof type, keys>
 >
 
-///////////////////////////////////////////////////////////////////////////
-// Union types
-
-export type UnionEvaluate<type> = type extends object ? Evaluate<type> : type
-
-export type UnionLooseOmit<type, keys extends string> = type extends any
-  ? LooseOmit<type, keys>
-  : never
-
-export type UnionOmit<type, keys extends keyof type> = type extends any
-  ? Omit<type, keys>
-  : never
-
-export type UnionPartial<type> = type extends object ? ExactPartial<type> : type
-
 /**
  * @description Utility type to remove items with the `never` type
  *
@@ -107,9 +106,6 @@ export type Flatten<T> = T extends readonly [infer First, ...infer Rest]
     : [First, ...Flatten<Rest>]
   : []
 
-export type UnionExactPartial<type> = type extends object
-  ? ExactPartial<type>
-  : type
 /**
  * @description Checks if {@link T} is `undefined`
  * @param T - Type to check
@@ -136,4 +132,23 @@ type Assign_<T, U> = {
       : K]: K extends keyof U ? U[K] : T[K]
 }
 
+///////////////////////////////////////////////////////////////////////////
+// Union types
+
 export type UnionCompute<type> = type extends object ? Compute<type> : type
+
+export type UnionOmit<type, keys extends keyof type> = type extends any
+  ? Omit<type, keys>
+  : never
+
+export type UnionLooseOmit<type, keys extends string> = type extends any
+  ? LooseOmit<type, keys>
+  : never
+
+export type UnionStrictOmit<type, keys extends keyof type> = type extends any
+  ? StrictOmit<type, keys>
+  : never
+
+export type UnionExactPartial<type> = type extends object
+  ? ExactPartial<type>
+  : type

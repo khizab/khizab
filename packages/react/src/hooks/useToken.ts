@@ -1,7 +1,7 @@
 'use client'
 
 import type { Config, ResolvedRegister } from '@khizab/core'
-import { type Evaluate } from '@khizab/core/internal'
+import { type Compute } from '@khizab/core/internal'
 import {
   type GetTokenData,
   type GetTokenOptions,
@@ -17,7 +17,7 @@ import { useConfig } from './useConfig.js'
 export type UseTokenParameters<
   config extends Config = Config,
   selectData = GetTokenData,
-> = Evaluate<
+> = Compute<
   GetTokenOptions &
     ConfigParameter<config> &
     QueryParameter<GetTokenQueryFnData, null, selectData, GetTokenQueryKey>

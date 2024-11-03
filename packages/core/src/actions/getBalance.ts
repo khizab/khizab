@@ -1,10 +1,10 @@
 import { APTOS_COIN, type MoveFunctionId } from '@aptos-labs/ts-sdk'
 import { type Config } from '../createConfig.js'
-import { type Evaluate } from '../types/utils.js'
+import { type Compute } from '../types/utils.js'
 import { formatUnits } from '../utils/formatUnits.js'
 import { getToken } from './getToken.js'
 
-export type GetBalanceParameters = Evaluate<{
+export type GetBalanceParameters = Compute<{
   accountAddress?: string
   coinType?: MoveFunctionId
 }>

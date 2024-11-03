@@ -289,9 +289,10 @@ function WriteContract() {
 
     const res = await writeContract(config, {
       abi: abi,
-      functionName: 'create_todo_list',
+      functionName: 'create_todo',
       args: [],
     })
+
     setCreateTodoResult(res)
     console.log({ res })
   }

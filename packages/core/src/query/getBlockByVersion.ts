@@ -2,7 +2,7 @@ import { type QueryOptions } from '@tanstack/query-core'
 
 import { type Config } from '../createConfig.js'
 import type { ScopeKeyParameter } from '../types/properties.js'
-import type { Evaluate, ExactPartial } from '../types/utils.js'
+import type { Compute, ExactPartial } from '../types/utils.js'
 import { filterQueryOptions } from './utils.js'
 import {
   GetBlockByVersion,
@@ -10,7 +10,7 @@ import {
   type GetBlockByVersionReturnType,
 } from '../actions/getBlockByVersion.js'
 
-export type GetBlockByVersionOptions = Evaluate<
+export type GetBlockByVersionOptions = Compute<
   ExactPartial<GetBlockByVersionParameters> & ScopeKeyParameter
 >
 

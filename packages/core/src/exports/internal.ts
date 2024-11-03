@@ -16,7 +16,7 @@ export {
   type SignMessageResponse,
 } from '../types/connector.js'
 
-export * from '../types/network.js'
+export { NetworkName, type Network } from '../types/network.js'
 
 export {
   type ChainIdParameter,
@@ -24,17 +24,15 @@ export {
   type ScopeKeyParameter,
 } from '../types/properties.js'
 
-export {
-  type Compute,
-  type UnionCompute,
-  type Evaluate,
-  type ExactPartial,
-  type Mutable,
-  type Omit,
-  type OneOf,
-  type UnionEvaluate,
-  type UnionOmit,
-  type UnionPartial,
+export type {
+  Compute,
+  ExactPartial,
+  Mutable,
+  StrictOmit as Omit,
+  OneOf,
+  UnionCompute,
+  UnionStrictOmit,
+  UnionExactPartial,
 } from '../types/utils.js'
 
 ////////////////////////////////////////////////////////////////////////////////

@@ -5,7 +5,7 @@ import {
   type GetAccountModuleErrorType,
   type ResolvedRegister,
 } from '@khizab/core'
-import { type UnionEvaluate } from '@khizab/core/internal'
+import { type UnionCompute } from '@khizab/core/internal'
 import {
   type GetAccountModuleData,
   type GetAccountModuleOptions,
@@ -25,7 +25,7 @@ import { useConfig } from './useConfig.js'
 export type UseAccountModuleParameters<
   config extends Config = Config,
   selectData = GetAccountModuleData,
-> = UnionEvaluate<
+> = UnionCompute<
   GetAccountModuleOptions &
     ConfigParameter<config> &
     QueryParameter<

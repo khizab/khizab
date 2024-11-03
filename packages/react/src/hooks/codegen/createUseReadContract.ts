@@ -9,9 +9,8 @@ import {
 } from '@khizab/core'
 import {
   type ScopeKeyParameter,
-  type UnionEvaluate,
-  type UnionOmit,
-  type UnionPartial,
+  type UnionCompute,
+  type UnionStrictOmit,
 } from '@khizab/core/internal'
 import {
   type ReadContractData,
@@ -51,9 +50,10 @@ export type CreateUseReadContractReturnType<
   config extends Config = ResolvedRegister['config'],
   selectData = ReadContractData<abi, name>,
 >(
-  parameters?: UnionEvaluate<
-    UnionPartial<
-      UnionOmit<ReadContractParameters<abi, name, args>, omittedProperties>
+  parameters?: UnionCompute<
+    UnionStrictOmit<
+      ReadContractParameters<abi, name, args>,
+      omittedProperties
     > &
       ScopeKeyParameter &
       ConfigParameter<config> &

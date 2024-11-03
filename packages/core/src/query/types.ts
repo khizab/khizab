@@ -6,7 +6,7 @@ import {
   type QueryKey,
 } from '@tanstack/query-core'
 
-import { type Evaluate, type Omit } from '../types/utils.js'
+import { type Compute, type Omit } from '../types/utils.js'
 
 export type InfiniteQueryOptions<
   queryFnData = unknown,
@@ -31,7 +31,7 @@ export type InfiniteQueryOptions<
     queryKey,
     pageParam
   >,
-> = Evaluate<
+> = Compute<
   // `queryFn` doesn't pass through `pageParam` correctly
   Omit<options, 'queryFn'> & {
     queryFn?(
@@ -52,7 +52,7 @@ export type Mutate<
   variables = void,
   context = unknown,
 > = (
-  ...args: Parameters<MutateFn<data, error, Evaluate<variables>, context>>
+  ...args: Parameters<MutateFn<data, error, Compute<variables>, context>>
 ) => void
 
 export type MutateAsync<
@@ -60,7 +60,7 @@ export type MutateAsync<
   error = unknown,
   variables = void,
   context = unknown,
-> = MutateFn<data, error, Evaluate<variables>, context>
+> = MutateFn<data, error, Compute<variables>, context>
 
 type MutateFn<
   data = unknown,
@@ -71,12 +71,12 @@ type MutateFn<
   ? (
       variables?: variables,
       options?:
-        | Evaluate<MutateOptions<data, error, variables, context>>
+        | Compute<MutateOptions<data, error, variables, context>>
         | undefined,
     ) => Promise<data>
   : (
       variables: variables,
       options?:
-        | Evaluate<MutateOptions<data, error, variables, context>>
+        | Compute<MutateOptions<data, error, variables, context>>
         | undefined,
     ) => Promise<data>

@@ -11,10 +11,10 @@ import {
   useQuery as tanstack_useQuery,
 } from '@tanstack/react-query'
 import {
-  type Evaluate,
+  type Compute,
   type ExactPartial,
   type Omit,
-  type UnionOmit,
+  type UnionStrictOmit,
   deepEqual,
 } from '@khizab/core/internal'
 import { hashFn } from '@khizab/core/query'
@@ -24,9 +24,9 @@ export type UseMutationParameters<
   error = Error,
   variables = void,
   context = unknown,
-> = Evaluate<
+> = Compute<
   Omit<
-    UseMutationOptions<data, error, Evaluate<variables>, context>,
+    UseMutationOptions<data, error, Compute<variables>, context>,
     'mutationFn' | 'mutationKey' | 'throwOnError'
   >
 >
@@ -36,8 +36,8 @@ export type UseMutationReturnType<
   error = Error,
   variables = void,
   context = unknown,
-> = Evaluate<
-  UnionOmit<
+> = Compute<
+  UnionStrictOmit<
     UseMutationResult<data, error, variables, context>,
     'mutate' | 'mutateAsync'
   >
@@ -50,7 +50,7 @@ export type UseQueryParameters<
   error = DefaultError,
   data = queryFnData,
   queryKey extends QueryKey = QueryKey,
-> = Evaluate<
+> = Compute<
   ExactPartial<
     Omit<UseQueryOptions<queryFnData, error, data, queryKey>, 'initialData'>
   > & {
@@ -61,7 +61,7 @@ export type UseQueryParameters<
   }
 >
 
-export type UseQueryReturnType<data = unknown, error = DefaultError> = Evaluate<
+export type UseQueryReturnType<data = unknown, error = DefaultError> = Compute<
   UseQueryResult<data, error> & {
     queryKey: QueryKey
   }
@@ -92,7 +92,7 @@ export type UseInfiniteQueryParameters<
   queryData = queryFnData,
   queryKey extends QueryKey = QueryKey,
   pageParam = unknown,
-> = Evaluate<
+> = Compute<
   Omit<
     UseInfiniteQueryOptions<
       queryFnData,
