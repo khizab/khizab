@@ -1,11 +1,11 @@
 import { Network, defineConfig } from '@khizab/cli'
-import { fetch, react } from '@khizab/cli/plugins'
+import { get, react } from '@khizab/cli/plugins'
 
 export default defineConfig({
   out: 'src/generated.ts',
   contracts: [],
   plugins: [
-    fetch({
+    get({
       network: Network.TESTNET,
       contracts: [
         {

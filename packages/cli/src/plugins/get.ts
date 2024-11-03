@@ -7,7 +7,7 @@ import type { Compute, RequiredBy } from '../types.js'
 import type { Abi } from '@khizab/core'
 import { NetworkName } from '@khizab/core/internal'
 
-export type FetchConfig = {
+export type GetConfig = {
   /**
    * Name of source.
    */
@@ -19,7 +19,7 @@ export type FetchConfig = {
    */
   cacheDuration?: number | undefined
   /**
-   * Contracts to fetch ABIs for.
+   * Contracts to get ABIs for.
    */
   contracts: {
     /**
@@ -38,7 +38,7 @@ export type FetchConfig = {
   }[]
 
   /**
-   * Network to fetch ABIs from
+   * Network to get ABIs from
    */
   network?: NetworkName
   /**
@@ -61,12 +61,12 @@ export type FetchConfig = {
   timeoutDuration?: number | undefined
 }
 
-type FetchResult = Compute<RequiredBy<Plugin, 'contracts'>>
+type GetResult = Compute<RequiredBy<Plugin, 'contracts'>>
 
-/** Fetches and parses contract ABIs from network resource with `fetch`. */
-export function fetch(config: FetchConfig): FetchResult {
+/** Gets and parses contract ABIs from network resource with `get`. */
+export function get(config: GetConfig): GetResult {
   const {
-    name = 'Fetch',
+    name = 'Get',
     cacheDuration = 1_800_000,
     contracts: contractConfigs,
     getCacheKey = ({ contract }) =>
@@ -134,10 +134,3 @@ export function fetch(config: FetchConfig): FetchResult {
     name,
   }
 }
-
-// /**
-//  * Function for returning a request to fetch ABI from.
-//  */
-// request: (config: {}) =>
-//   | { url: RequestInfo; init?: RequestInit | undefined }
-//   | Promise<{ url: RequestInfo; init?: RequestInit | undefined }>

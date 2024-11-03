@@ -1,4 +1,4 @@
-export { fetch, type FetchConfig } from '../plugins/fetch.js'
+export { get, type GetConfig } from '../plugins/get.js'
 
 export { actions, type ActionsConfig } from '../plugins/actions.js'
 
