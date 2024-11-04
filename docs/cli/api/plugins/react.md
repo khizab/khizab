@@ -29,11 +29,10 @@ import { type ReactConfig } from '@khizab/cli/plugins'
 
 ### getHookName
 
-`` 'legacy' | ((options: { contractName: string; type: 'read' | 'simulate' | 'watch' | 'write' }) => `use${string}`) ``
+``((options: { contractName: string; type: 'read' | 'write' }) => `use${string}`) ``
 
 - Function for setting custom hook names.
-- Defaults to `` `use${type}${contractName}` ``. For example, `useReadErc20`, `useSimulateErc20`, `useWatchErc20Event`, `useWriteErc20`.
-- When `'legacy'` (deprecated), hook names are set to `@khizab/cli@1` format.
+- Defaults to `` `use${type}${contractName}` ``. For example, `useReadCoin`, `useWriteCoin`.
 
 ```ts
 import { defineConfig } from '@khizab/cli'

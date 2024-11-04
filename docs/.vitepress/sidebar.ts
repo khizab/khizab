@@ -347,8 +347,9 @@ export function getSidebar() {
         text: 'Plugins',
         link: '/cli/api/plugins',
         items: [
-          { text: 'actions', link: '/cli/api/plugins/actions' },
+          { text: 'get', link: '/cli/api/plugins/get' },
           { text: 'react', link: '/cli/api/plugins/react' },
+          { text: 'actions', link: '/cli/api/plugins/actions' },
         ],
       },
       {
